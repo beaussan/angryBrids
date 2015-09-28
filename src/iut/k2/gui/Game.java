@@ -1,11 +1,11 @@
 package iut.k2.gui;
 
-import iut.k2.data.Obstacles;
+import iut.k2.data.Obstacle;
 import iut.k2.data.Pecker;
 
 import java.util.List;
 
-public class Jeu {
+public class Game {
 	private Pecker p;
-	private List<Obstacles> listeObstacles;
+	private List<Obstacle> listeObstacles;
 }

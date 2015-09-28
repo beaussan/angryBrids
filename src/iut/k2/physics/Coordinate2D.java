@@ -18,7 +18,7 @@ import static iut.k2.util.Preconditions.checkNotNull;
 import static iut.k2.util.Preconditions.checkState;
 
 /**
- * The Coordinates2D class .
+ * The Coordinate2D class.
  *
  * @author Nicolas Beaussart
  */

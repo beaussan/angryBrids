@@ -2,7 +2,7 @@ package iut.k2.data;
 
 import iut.k2.physics.Coordinate2D;
 
-public class Pecker extends Entite{
+public class Pecker extends Entity {
 
 	double positionBec;
 

@@ -3,9 +3,9 @@ package iut.k2.gui;
 import javax.swing.*;
 import java.awt.*;
 
-public class Fenetre extends JPanel{
+public class Window extends JPanel {
 
-	public Fenetre(int largeur, int hauteur){
+	public Window(int largeur, int hauteur) {
 		setPreferredSize(new Dimension(largeur, hauteur));
 	}
 }

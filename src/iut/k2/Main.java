@@ -1,7 +1,7 @@
 package iut.k2;
 
-import iut.k2.gui.Fenetre;
-import iut.k2.gui.Jeu;
+import iut.k2.gui.Game;
+import iut.k2.gui.Window;
 
 import javax.swing.*;
 
@@ -9,8 +9,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		JFrame f = new JFrame("Test");
-		Jeu j = new Jeu();
-		Fenetre fen = new Fenetre(700, 500);
+		Game j = new Game();
+		Window fen = new Window(700, 500);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.add(fen);
 		f.pack();
