@@ -1,7 +1,9 @@
-import javax.swing.JFrame;
+package iut.k2;
 
-import main.Fenetre;
-import main.Jeu;
+import iut.k2.gui.Fenetre;
+import iut.k2.gui.Jeu;
+
+import javax.swing.*;
 
 public class Main {
 

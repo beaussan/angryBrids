@@ -1,9 +1,7 @@
-package main;
+package iut.k2.gui;
 
-import java.awt.Dimension;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
 public class Fenetre extends JPanel{
 

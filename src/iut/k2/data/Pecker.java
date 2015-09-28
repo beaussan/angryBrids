@@ -1,12 +1,12 @@
-package entities;
+package iut.k2.data;
 
-import physics.Coordonnees;
+import iut.k2.physics.Coordinate2D;
 
 public class Pecker extends Entite{
 
 	double positionBec;
-	
-	public Pecker(Coordonnees c) {
+
+	public Pecker(Coordinate2D c) {
 		super(c);
 		// TODO Auto-generated constructor stub
 	}
