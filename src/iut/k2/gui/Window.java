@@ -14,6 +14,7 @@ public class Window extends JPanel {
 	public Window(int largeur, int hauteur) {
 		game= new Game();
 		setPreferredSize(new Dimension(largeur, hauteur));
+		setBackground(Color.BLUE);
 	}
 	
     public void paint(Graphics g) {

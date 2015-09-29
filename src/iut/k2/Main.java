@@ -9,7 +9,6 @@ public class Main {
 
 	public static void main(String[] args) {
 		JFrame f = new JFrame("Test");
-		Game j = new Game();
 		Window fen = new Window(700, 500);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.add(fen);
