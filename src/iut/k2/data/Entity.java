@@ -6,7 +6,6 @@ import iut.k2.physics.Coordinate2D;
 public abstract class Entity {
 
     private Coordinate2D c;
-    private double positionBec;
 
     public Entity(Coordinate2D c) {
         this.c = c;
