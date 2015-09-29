@@ -27,17 +27,17 @@ public class Coordinate3D {
     /**
      * the x coordinate.
      */
-    private int x;
+    private double x;
 
     /**
      * the y coordinate.
      */
-    private int y;
+    private double y;
 
     /**
      * The z coordinate.
      */
-    private int z;
+    private double z;
 
     /**
      * default constructor.
@@ -57,7 +57,7 @@ public class Coordinate3D {
      * @param coord2D the coord2 d
      * @param z       the z
      */
-    public Coordinate3D(Coordinate2D coord2D, int z) {
+    public Coordinate3D(Coordinate2D coord2D, double z) {
         checkNotNull(coord2D, "Other must not be null");
         x = coord2D.getX();
         y = coord2D.getY();
@@ -84,14 +84,14 @@ public class Coordinate3D {
      * @param y y coordinates
      * @param z the z
      */
-    public Coordinate3D(int x, int y, int z) {
+    public Coordinate3D(double x, double y, double z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
     /**
-     * Adds the coordinate c into this one as a new one.
+     * Adds the coordinate c doubleo this one as a new one.
      *
      * @param other the other
      * @return the new coordinate2D
@@ -110,7 +110,7 @@ public class Coordinate3D {
      * @param z the z
      * @return the new coordinate2D
      */
-    public Coordinate3D add(int x, int y, int z) {
+    public Coordinate3D add(double x, double y, double z) {
         return new Coordinate3D(this.x + x, this.y + y, this.z + z);
     }
 
@@ -130,12 +130,12 @@ public class Coordinate3D {
     }
 
     /**
-     * Divide the coordinate c into this one as a new one.
+     * Divide the coordinate c doubleo this one as a new one.
      *
      * @param n the number to divide by
      * @return the new coordinate2D
      */
-    public Coordinate3D divide(int n) {
+    public Coordinate3D divide(double n) {
         checkState(n == 0, "Cannot divide by 0");
 
         return new Coordinate3D(x / n, y / n, z / n);
@@ -149,7 +149,7 @@ public class Coordinate3D {
      * @param zFactor the z factor
      * @return the new coordinate2D
      */
-    public Coordinate3D divide(int xFactor, int yFactor, int zFactor) {
+    public Coordinate3D divide(double xFactor, double yFactor, double zFactor) {
         checkState(xFactor == 0, "Cannot divide by 0 (yFactor)");
         checkState(yFactor == 0, "Cannot divide by 0 (yFactor)");
         checkState(zFactor == 0, "Cannot divide by 0 (zFactor)");
@@ -181,7 +181,7 @@ public class Coordinate3D {
      *
      * @return the x
      */
-    public int getX() {
+    public double getX() {
         return x;
     }
 
@@ -190,7 +190,7 @@ public class Coordinate3D {
      *
      * @param x the new x coordinate
      */
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
@@ -199,7 +199,7 @@ public class Coordinate3D {
      *
      * @return the y coordinate
      */
-    public int getY() {
+    public double getY() {
         return y;
     }
 
@@ -208,7 +208,7 @@ public class Coordinate3D {
      *
      * @param y the new y coordinate
      */
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
     }
 
@@ -217,7 +217,7 @@ public class Coordinate3D {
      *
      * @return the z
      */
-    public int getZ() {
+    public double getZ() {
         return z;
     }
 
@@ -226,27 +226,25 @@ public class Coordinate3D {
      *
      * @param z the new z
      */
-    public void setZ(int z) {
+    public void setZ(double z) {
         this.z = z;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#hashCode()
-     */
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + x;
-        result = prime * result + y;
-        result = prime * result + z;
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(x);
+        result = (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(y);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(z);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
 
     /**
-     * Minus the coordinate c into this one as a new one.
+     * Minus the coordinate c doubleo this one as a new one.
      *
      * @param other the other
      * @return the new coordinate2D
@@ -265,7 +263,7 @@ public class Coordinate3D {
      * @param z the z
      * @return the new coordinate2D
      */
-    public Coordinate3D minus(int x, int y, int z) {
+    public Coordinate3D minus(double x, double y, double z) {
         return new Coordinate3D(this.x - x, this.y - y, this.z - z);
     }
 
@@ -280,12 +278,12 @@ public class Coordinate3D {
     }
 
     /**
-     * Multiplies the coordinate c into this one as a new one.
+     * Multiplies the coordinate c doubleo this one as a new one.
      *
      * @param n the number to multiply by
      * @return the new coordinate2D
      */
-    public Coordinate3D times(int n) {
+    public Coordinate3D times(double n) {
         return new Coordinate3D(x * n, y * n, z * n);
     }
 
@@ -297,7 +295,7 @@ public class Coordinate3D {
      * @param zFactor the z factor
      * @return the new coordinate2D
      */
-    public Coordinate3D times(int xFactor, int yFactor, int zFactor) {
+    public Coordinate3D times(double xFactor, double yFactor, double zFactor) {
         return new Coordinate3D(x * xFactor, y * yFactor, z * zFactor);
     }
 

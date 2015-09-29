@@ -27,12 +27,12 @@ public class Coordinate2D {
     /**
      * the x coordinate.
      */
-    private int x;
+    private double x;
 
     /**
      * the y coordinate.
      */
-    private int y;
+    private double y;
 
     /**
      * Copy constructor.
@@ -63,13 +63,13 @@ public class Coordinate2D {
      * @param x x coordinates
      * @param y y coordinates
      */
-    public Coordinate2D(int x, int y) {
+    public Coordinate2D(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
     /**
-     * Adds the coordinate c into this one as a new one.
+     * Adds the coordinate c doubleo this one as a new one.
      *
      * @param other the other
      * @return the new coordinate2D
@@ -87,7 +87,7 @@ public class Coordinate2D {
      * @param y the y
      * @return the new coordinate2D
      */
-    public Coordinate2D add(int x, int y) {
+    public Coordinate2D add(double x, double y) {
         return new Coordinate2D(this.x + x, this.y + y);
     }
 
@@ -105,12 +105,12 @@ public class Coordinate2D {
     }
 
     /**
-     * Divide the coordinate c into this one as a new one.
+     * Divide the coordinate c doubleo this one as a new one.
      *
      * @param n the number to divide by
      * @return the new coordinate2D
      */
-    public Coordinate2D divide(int n) {
+    public Coordinate2D divide(double n) {
         checkState(n == 0, "Cannot divide by 0");
 
         return new Coordinate2D(x / n, y / n);
@@ -123,7 +123,7 @@ public class Coordinate2D {
      * @param yFactor the y factor
      * @return the new coordinate2D
      */
-    public Coordinate2D divide(int xFactor, int yFactor) {
+    public Coordinate2D divide(double xFactor, double yFactor) {
         checkState(xFactor == 0, "Cannot divide by 0 (yFactor)");
         checkState(yFactor == 0, "Cannot divide by 0 (yFactor)");
 
@@ -155,7 +155,7 @@ public class Coordinate2D {
      *
      * @return the x
      */
-    public int getX() {
+    public double getX() {
         return x;
     }
 
@@ -164,7 +164,7 @@ public class Coordinate2D {
      *
      * @param x the new x coordinate
      */
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
@@ -173,7 +173,7 @@ public class Coordinate2D {
      *
      * @return the y coordinate
      */
-    public int getY() {
+    public double getY() {
         return y;
     }
 
@@ -182,26 +182,23 @@ public class Coordinate2D {
      *
      * @param y the new y coordinate
      */
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#hashCode()
-     */
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + y;
-        result = prime * result + x;
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(x);
+        result = (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(y);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
 
     /**
-     * Minus the coordinate c into this one as a new one.
+     * Minus the coordinate c doubleo this one as a new one.
      *
      * @param other the other
      * @return the new coordinate2D
@@ -219,7 +216,7 @@ public class Coordinate2D {
      * @param y the y
      * @return the new coordinate2D
      */
-    public Coordinate2D minus(int x, int y) {
+    public Coordinate2D minus(double x, double y) {
         return new Coordinate2D(this.x - x, this.y - y);
     }
 
@@ -234,12 +231,12 @@ public class Coordinate2D {
     }
 
     /**
-     * Multiplies the coordinate c into this one as a new one.
+     * Multiplies the coordinate c doubleo this one as a new one.
      *
      * @param n the number to multiply by
      * @return the new coordinate2D
      */
-    public Coordinate2D times(int n) {
+    public Coordinate2D times(double n) {
         return new Coordinate2D(x * n, y * n);
     }
 
@@ -250,7 +247,7 @@ public class Coordinate2D {
      * @param yFactor the y factor
      * @return the new coordinate2D
      */
-    public Coordinate2D times(int xFactor, int yFactor) {
+    public Coordinate2D times(double xFactor, double yFactor) {
         return new Coordinate2D(x * xFactor, y * yFactor);
     }
 

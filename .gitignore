@@ -62,3 +62,6 @@ hs_err_pid*
 
 ### Eclipse light
 .settings/
+
+### Exclude libs
+!lib
