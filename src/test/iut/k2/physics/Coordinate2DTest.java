@@ -5,9 +5,6 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-/**
- * Created by Nicolas Beaussart on 29/09/15 for angryBrids.
- */
 public class Coordinate2DTest {
 
     Coordinate2D toWork = new Coordinate2D(2,4);
