@@ -1,5 +1,9 @@
 package iut.k2.data;
 
+import java.awt.Graphics;
+
+import javax.swing.JComponent;
+
 import iut.k2.physics.Coordinate2D;
 
 public class Pecker extends Entity {
@@ -18,5 +22,8 @@ public class Pecker extends Entity {
 	public double getPositionBec(){
 		return positionBec;
 	}
-
+	
+ 
 }
+
+

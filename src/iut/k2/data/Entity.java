@@ -1,9 +1,11 @@
 package iut.k2.data;
 
 
+import javax.swing.JComponent;
+
 import iut.k2.physics.Coordinate2D;
 
-public abstract class Entity {
+public abstract class Entity extends JComponent{
 
     private Coordinate2D c;
     private double positionBec;
