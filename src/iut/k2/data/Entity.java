@@ -12,11 +12,8 @@ public abstract class Entity {
         this.c = c;
     }
 
-    public void move(int x, int y) {
-        int tmpX = getCoordinate().getX();
-        int tmpY = getCoordinate().getY();
-
-        setCoordinate(new Coordinate2D(tmpX + x, tmpY + y));
+    public void move(double x, double y) {
+        setCoordinate(getCoordinate().add(x,y));
     }
 
     public Coordinate2D getCoordinate() {
