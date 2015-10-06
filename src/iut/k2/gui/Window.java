@@ -4,7 +4,6 @@ import iut.k2.data.Pecker;
 import iut.k2.physics.Coordinate2D;
 
 import javax.swing.*;
-
 import java.awt.*;
 
 public class Window extends JPanel {
@@ -24,10 +23,8 @@ public class Window extends JPanel {
 		g.fillOval((int)pek.getCoordinate().getX(), (int)pek.getCoordinate().getY(), 20, 20);
 	    int[] x = new int[]{10,200};
 	    int[] y = new int[]{10,300};
-	    g.drawPolygon (x, y, x.length); 
-        
-        
-        add(pek);
+		g.drawPolygon(x, y, x.length);
+
 	   }
 	
 	

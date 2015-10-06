@@ -9,7 +9,11 @@ import static java.lang.Math.sin;
 public class ArchimedeSpiral extends ParamCurve {
     public final double tMin = -10;
     public final double tMax = 10;
-    public final double a = 400;
+    public double a = 400;
+
+    public ArchimedeSpiral(int a) {
+        this.a = a;
+    }
 
     @Override
     public double getTMax() {

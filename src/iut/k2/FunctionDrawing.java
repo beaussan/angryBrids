@@ -20,8 +20,9 @@ public class FunctionDrawing {
             @Override
             public void run() {
                 JFrame jf = new JFrame("Hello curve");
-                
-                DrawingPlace dp = new DrawingPlace(new SquareParam(100));
+
+                DrawingPlace dp = new DrawingPlace(new SquareParam(100), new SquareParam(200), new Square(), new ArchimedeSpiral(10));
+                dp.TIMER_DURRATION = 2;
                 dp.setPreferredSize(new Dimension(250, 250));
                 jf.add(dp);
                 jf.setLocationRelativeTo(null);
@@ -30,13 +31,13 @@ public class FunctionDrawing {
                 jf.addWindowListener(new WindowAdapter() {
 
                     @Override
-                    public void windowClosing(WindowEvent e) {
-                        System.exit(0);
+                    public void windowClosed(WindowEvent e) {
+                        //System.exit(0);
                     }
 
                     @Override
-                    public void windowClosed(WindowEvent e) {
-                        //System.exit(0);
+                    public void windowClosing(WindowEvent e) {
+                        System.exit(0);
                     }
                 });
             }
