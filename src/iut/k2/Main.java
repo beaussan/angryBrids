@@ -1,5 +1,7 @@
 package iut.k2;
 
+import java.util.Random;
+
 import iut.k2.gui.Window;
 import javax.swing.JFrame;
 

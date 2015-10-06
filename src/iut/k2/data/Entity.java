@@ -7,7 +7,7 @@ import iut.k2.physics.Coordinate2D;
 
 public abstract class Entity extends JComponent{
 
-    private Coordinate2D c;
+    protected Coordinate2D c;
 
     public Entity(Coordinate2D c) {
         this.c = c;
