@@ -21,7 +21,7 @@ public class FunctionDrawing {
             public void run() {
                 JFrame jf = new JFrame("Hello curve");
                 
-                DrawingPlace dp = new DrawingPlace(new SquareParam(40));
+                DrawingPlace dp = new DrawingPlace(new SquareParam(100));
                 dp.setPreferredSize(new Dimension(250, 250));
                 jf.add(dp);
                 jf.setLocationRelativeTo(null);

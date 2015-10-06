@@ -3,7 +3,7 @@ package iut.k2.physics.functions;
 public class SquareParam extends ParamCurve{
 
 	public final double tMin = -10;
-	public final double tMax = 10;
+	public final double tMax = 5;
 	public double coef;
 	
 	public SquareParam(double coef){
