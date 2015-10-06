@@ -2,6 +2,7 @@ package iut.k2;
 
 import iut.k2.gui.renderfunc.DrawingPlace;
 import iut.k2.physics.functions.ArchimedeSpiral;
+import iut.k2.physics.functions.Square;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,7 +20,7 @@ public class FunctionDrawing {
             public void run() {
                 JFrame jf = new JFrame("Hello curve");
                 
-                DrawingPlace dp = new DrawingPlace(new ArchimedeSpiral());
+                DrawingPlace dp = new DrawingPlace(new Square());
                 dp.setPreferredSize(new Dimension(250, 250));
                 jf.add(dp);
                 jf.setLocationRelativeTo(null);
