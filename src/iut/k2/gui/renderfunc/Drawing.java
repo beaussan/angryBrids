@@ -1,7 +1,7 @@
 package iut.k2.gui.renderfunc;
 
 import iut.k2.physics.functions.ParamCurve;
-
+import iut.k2.physics.*;
 import java.awt.*;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -59,23 +59,27 @@ public class Drawing {
 	public void drawCurve(Graphics g, ParamCurve curve) {
 		double t = curve.getTMin();
 		double dt = (curve.getTMax() - curve.getTMin()) / NB_STEPS;
-		Point pt1 = new Point(0, 0);
-		Point pt2 = new Point(x(curve.x(t)), y(curve.y(t)));
+		Coordinate2D pt1 = new Coordinate2D(0, 0);
+		Coordinate2D pt2 = new Coordinate2D(x(curve.x(t)), y(curve.y(t)));
 		int curr = 0;
 		while (t <= curve.getTMax() && curr <= currMaxPoints) {
 			pt1 = pt2;
-			pt2 = new Point(x(curve.x(t)), y(curve.y(t)));
-			g.fillOval(pt1.x - (SIZE_BALL / 2), pt1.y - (SIZE_BALL / 2), SIZE_BALL, SIZE_BALL);
+			pt2 = new Coordinate2D(x(curve.x(t)), y(curve.y(t)));
+			g.fillOval(round(pt1.getX()) - (SIZE_BALL / 2), round(pt1.getY()) - (SIZE_BALL / 2), SIZE_BALL, SIZE_BALL);
 			//g.drawLine(pt1.x, pt1.y, pt2.x, pt2.y);
 			t += dt;
 			curr++;
 		}
-		pt2 = new Point(x(curve.x(t)), y(curve.y(t)));
+		pt2 = new Coordinate2D(x(curve.x(t)), y(curve.y(t)));
 
 		//DrawBird.drawBird(g, pt1.x, pt1.y, x(curve.xPrim(t)), y(curve.yPrim(t)));
 
-		DrawBird.drawBird(g, pt1.x, pt1.y, pt2.x, pt2.y);
+		DrawBird.drawBird(g, pt1.getX(), pt1.getY(), pt2.getX(), pt2.getY());
 
+	}
+	
+	public int round(double z){
+		return (int) Math.round(z);
 	}
 
 	public int getCurrMaxPoints() {
@@ -87,12 +91,12 @@ public class Drawing {
 	}
 
 
-	private int x(double z) {
-		return (int) Math.round(x0 + xScale * z);
+	private double x(double z) {
+		return x0 + xScale * z;
 	}
 
-	private int y(double z) {
-		return (int) Math.round(y0 + yScale * z);
+	private double y(double z) {
+		return y0 + yScale * z;
 	}
 
 }
