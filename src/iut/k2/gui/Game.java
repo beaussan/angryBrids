@@ -17,8 +17,11 @@ public class Game {
 	public Game(){
 		pecker = new Pecker(new Coordinate2D(20, 20));
 		listeObstacles = new ArrayList<Obstacle>();
-		for(Obstacle o : listeObstacles)
-			o.randomize(300);
+		int nbObstacle = 7;
+		for(int i = 0; i < nbObstacle; i++){
+			listeObstacles.add(new Obstacle(null));
+		}
+		
 	}
 
 	public Pecker getPecker() {

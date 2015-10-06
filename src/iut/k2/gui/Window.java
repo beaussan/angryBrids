@@ -6,10 +6,9 @@ import iut.k2.data.Pecker;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.List;
 
 import javax.swing.JPanel;
-import javax.swing.*;
-import java.awt.*;
 
 public class Window extends JPanel {
 	
@@ -32,10 +31,10 @@ public class Window extends JPanel {
     	//Dessin des obstacles
     	for(Obstacle o : game.getListObstacles()){
     		g.drawOval ((int)o.getCoordinate().getX(),(int)o.getCoordinate().getY(), 20, 20);  
-    		g.setColor(Color.GREEN);
+    		g.setColor(Color.BLUE);
     		g.fillOval((int)o.getCoordinate().getX(),(int)o.getCoordinate().getY(), 20, 20);
     	}
-	   }
+	}
 	
 	
 }
