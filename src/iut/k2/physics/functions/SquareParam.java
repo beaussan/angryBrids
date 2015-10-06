@@ -4,7 +4,7 @@ public class SquareParam extends ParamCurve{
 
 	public final double tMin = -10;
 	public final double tMax = 10;
-	public final double coef;
+	public double coef;
 	
 	public SquareParam(double coef){
 		this.coef = coef;
@@ -27,6 +27,6 @@ public class SquareParam extends ParamCurve{
 
     @Override
     public double y(double t) {
-        return -Math.pow(t, 2)*coef;
+        return -(Math.pow(x(t), 2)+coef);
     }
 }
