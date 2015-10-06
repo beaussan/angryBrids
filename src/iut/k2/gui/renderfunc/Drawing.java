@@ -72,7 +72,9 @@ public class Drawing {
 		}
 		pt2 = new Point(x(curve.x(t)), y(curve.y(t)));
 
-		DrawBird.drawBird(g, pt1.x, pt1.y, x(curve.xPrim(t)), y(curve.yPrim(t)));
+		//DrawBird.drawBird(g, pt1.x, pt1.y, x(curve.xPrim(t)), y(curve.yPrim(t)));
+
+		DrawBird.drawBird(g, pt1.x, pt1.y, pt2.x, pt2.y);
 
 	}
 

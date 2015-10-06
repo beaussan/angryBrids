@@ -1,6 +1,7 @@
 package iut.k2;
 
 import iut.k2.gui.renderfunc.DrawingPlace;
+import iut.k2.physics.functions.ArchimedeSpiral;
 import iut.k2.physics.functions.Square;
 
 import javax.swing.*;

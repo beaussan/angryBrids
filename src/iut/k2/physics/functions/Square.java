@@ -8,13 +8,13 @@ public class Square extends ParamCurve {
     public final double tMax = 10;
 
     @Override
-    public double getTMin() {
-        return tMin;
+    public double getTMax() {
+        return tMax;
     }
 
     @Override
-    public double getTMax() {
-        return tMax;
+    public double getTMin() {
+        return tMin;
     }
 
     @Override
@@ -27,13 +27,4 @@ public class Square extends ParamCurve {
         return -Math.pow(t, 2);
     }
 
-    @Override
-    public double xPrim(double t) {
-        return 1;
-    }
-
-    @Override
-    public double yPrim(double t) {
-        return -t;
-    }
 }
