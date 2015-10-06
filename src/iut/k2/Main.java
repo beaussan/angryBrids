@@ -1,9 +1,7 @@
 package iut.k2;
 
-import iut.k2.gui.Game;
 import iut.k2.gui.Window;
-
-import javax.swing.*;
+import javax.swing.JFrame;
 
 public class Main {
 
@@ -14,8 +12,7 @@ public class Main {
 		f.add(fen);
 		f.pack();
 		f.setLocationRelativeTo(null);
-		f.setVisible(true);
-		
+		f.setVisible(true);	
 	}
 	
 }
