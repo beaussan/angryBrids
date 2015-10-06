@@ -8,27 +8,30 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.util.Arrays;
 
 /**
  * Created by PROPRIETAIRE on 29/09/2015.
  */
 public class DrawingPlace extends JPanel {
 
-    private final static int TIMER_DURRATION = 100;
+    public int TIMER_DURRATION = 100;
 
     private Dimension dim;
 
     private Timer timer;
 
-    private ParamCurve curve;
+    private ParamCurve[] curve;
     private Drawing drawing;
 
 
-    public DrawingPlace(ParamCurve cur) {
+    public DrawingPlace(ParamCurve... cur) {
         dim = getPreferredSize();
         setBackground(Color.lightGray);
         curve = cur;
+
         drawing = new Drawing(dim, curve);
+
         updateDims();
 
         addComponentListener(new ComponentAdapter() {
@@ -40,16 +43,19 @@ public class DrawingPlace extends JPanel {
         });
     }
 
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+        for (ParamCurve cur : curve) {
+            drawing.drawCurve(g, cur, new Color(Arrays.hashCode(cur.getClass().getFields())));
+        }
+
+    }
+
     private void updateDims() {
         dim = new Dimension(getWidth(), getHeight());
         drawing.defineCoords(dim, curve);
         resetTimer();
-    }
-
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
-        drawing.drawCurve(g, curve);
     }
 
     private void resetTimer() {
