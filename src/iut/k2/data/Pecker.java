@@ -17,6 +17,14 @@ public class Pecker extends Entity {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public void update(double t){
+		updatePosition(t);
+	}
+	
+	public void updatePosition(double t){
+		c = new Coordinate2D(t, Math.pow(t, 2));
+	}
+	
 	public void updateBec(double radian){
 		//TODO radian = vector.
 		positionBec = radian%(2*Math.PI);

@@ -35,9 +35,9 @@ public class Game {
 	/**
 	 * Updates the position of the elements on the window
 	 */
-	public void update(){
+	public void update(double t){
 		//TODO 
-		pecker.updateBec(0);
+		pecker.update(t);
 	}
 	
 	/**

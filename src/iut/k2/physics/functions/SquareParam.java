@@ -2,7 +2,8 @@ package iut.k2.physics.functions;
 
 public class SquareParam extends ParamCurve{
 
-	public final double tMin = -10;
+	public final double hauteurEcran = 300;
+	public final double tMin = 0;
     public final double tMax = 10;
     public double coef;
 	
@@ -27,6 +28,8 @@ public class SquareParam extends ParamCurve{
 
     @Override
     public double y(double t) {
-        return -(Math.pow(x(t), 2)+coef);
+    	//http://tpe-records-mondiaux-sport.e-monsite.com/pages/les-facteurs-d-une-bonne-performance.html
+    	//Idée de fonction pour la courbe ax2+bx+c (y=-0,05x²+1,05x+1,5)
+        return -0.05*Math.pow(x(t), 2)+1.05*x(t);
     }
 }
