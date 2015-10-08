@@ -41,7 +41,7 @@ public class SquareParam extends ParamCurve{
     @Override
     public double y(double t) {
     	//http://tpe-records-mondiaux-sport.e-monsite.com/pages/les-facteurs-d-une-bonne-performance.html
-    	//Idée de fonction pour la courbe ax2+bx+c (y=-0,05x²+1,05x+1,5)
+    	//Idée de fonction pour la courbe ax2+bx+c (y=-0,05x²+1,05x+1,5).
         return -0.01*Math.pow(x(t), 2)+pente*x(t);
     }
 }
