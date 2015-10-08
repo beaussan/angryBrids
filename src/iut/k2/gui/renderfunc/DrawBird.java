@@ -18,7 +18,7 @@ public class DrawBird {
         double angle;
         angle = getAngle(x, y, xNext, yNext);
 
-        System.out.println(angle);
+        //System.out.println(angle);
 
         int xTo = (int) x + (int) (40 * Math.cos(angle));
         int yTo = (int) y + (int) (40 * Math.sin(angle));
