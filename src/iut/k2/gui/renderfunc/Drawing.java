@@ -107,12 +107,22 @@ public class Drawing {
 
     }
 
+    /**
+     * Getter for property 'currMaxPoints'.
+     *
+     * @return Value for property 'currMaxPoints'.
+     */
     public int getCurrMaxPoints() {
         return currMaxPoints;
     }
 
-	public void setCurrMaxPoints(int currMaxPoints) {
-		this.currMaxPoints = currMaxPoints;
+    /**
+     * Setter for property 'currMaxPoints'.
+     *
+     * @param currMaxPoints Value to set for property 'currMaxPoints'.
+     */
+    public void setCurrMaxPoints(int currMaxPoints) {
+        this.currMaxPoints = currMaxPoints;
     }
 
     public int round(double z) {

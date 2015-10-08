@@ -16,7 +16,7 @@ public class Game {
 	 */
 	public Game(){
 		pecker = new Pecker(new Coordinate2D(20, 20));
-		listeObstacles = new ArrayList<Obstacle>();
+		listeObstacles = new ArrayList<>();
 		int nbObstacle = 7;
 		for(int i = 0; i < nbObstacle; i++){
 			listeObstacles.add(new Obstacle(null));
@@ -24,20 +24,22 @@ public class Game {
 		
 	}
 
-	public Pecker getPecker() {
-		return pecker;
-	}
-
+	/**
+	 * Getter for property 'listObstacles'.
+	 *
+	 * @return Value for property 'listObstacles'.
+	 */
 	public List<Obstacle> getListObstacles() {
 		return listeObstacles;
 	}
-	
+
 	/**
-	 * Updates the position of the elements on the window
+	 * Getter for property 'pecker'.
+	 *
+	 * @return Value for property 'pecker'.
 	 */
-	public void update(double t){
-		//TODO 
-		pecker.update(t);
+	public Pecker getPecker() {
+		return pecker;
 	}
 	
 	/**
@@ -46,9 +48,17 @@ public class Game {
 	public void launch(){
 		//TODO
 		int x = (int)pecker.getCoordinate().getX();
-		for(int i = x ; i < x ; i++){
-			
+		for (int i = x; i < x ; i++) {
+
 		}
 	}
-	
+
+	/**
+	 * Updates the position of the elements on the window
+	 */
+	public void update(double t) {
+		//TODO
+		pecker.update(t);
+	}
+
 }

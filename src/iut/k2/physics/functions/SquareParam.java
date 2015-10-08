@@ -10,22 +10,32 @@ public class SquareParam extends ParamCurve{
 	public SquareParam(double coef){
 		this.coef = coef;
 	}
-	
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public double getTMax() {
         return tMax;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public double getTMin() {
         return tMin;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public double x(double t) {
         return t;
     }
 
+    /** {@inheritDoc} */
     @Override
     public double y(double t) {
     	//http://tpe-records-mondiaux-sport.e-monsite.com/pages/les-facteurs-d-une-bonne-performance.html

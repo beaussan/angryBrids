@@ -69,7 +69,7 @@ public class Coordinate2D {
     }
 
     /**
-     * Adds the coordinate c doubleo this one as a new one.
+     * Adds the coordinate c into this one as a new one.
      *
      * @param other the other
      * @return the new coordinate2D
@@ -105,7 +105,7 @@ public class Coordinate2D {
     }
 
     /**
-     * Divide the coordinate c doubleo this one as a new one.
+     * Divide the coordinate c into this one as a new one.
      *
      * @param n the number to divide by
      * @return the new coordinate2D
@@ -130,10 +130,8 @@ public class Coordinate2D {
         return new Coordinate2D(x / xFactor, y / yFactor);
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#equals(java.lang.Object)
+    /**
+     * {@inheritDoc}
      */
     @Override
     public boolean equals(Object obj) {
@@ -186,6 +184,9 @@ public class Coordinate2D {
         this.y = y;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int hashCode() {
         int result;
@@ -198,7 +199,7 @@ public class Coordinate2D {
     }
 
     /**
-     * Minus the coordinate c doubleo this one as a new one.
+     * Minus the coordinate c into this one as a new one.
      *
      * @param other the other
      * @return the new coordinate2D
@@ -231,7 +232,7 @@ public class Coordinate2D {
     }
 
     /**
-     * Multiplies the coordinate c doubleo this one as a new one.
+     * Multiplies the coordinate c into this one as a new one.
      *
      * @param n the number to multiply by
      * @return the new coordinate2D
@@ -251,6 +252,9 @@ public class Coordinate2D {
         return new Coordinate2D(x * xFactor, y * yFactor);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         return "Coordinate2D [x=" + x + ", y=" + y + "]";

@@ -1,9 +1,5 @@
 package iut.k2.data;
 
-import java.awt.Graphics;
-
-import javax.swing.JComponent;
-
 import iut.k2.physics.Coordinate2D;
 import iut.k2.physics.Vector;
 
@@ -16,22 +12,27 @@ public class Pecker extends Entity {
 		super(c);
 		// TODO Auto-generated constructor stub
 	}
+
+	/**
+	 * Getter for property 'positionBec'.
+	 *
+	 * @return Value for property 'positionBec'.
+	 */
+	public double getPositionBec() {
+		return positionBec;
+	}
 	
 	public void update(double t){
 		updatePosition(t);
-	}
-	
-	public void updatePosition(double t){
-		c = new Coordinate2D(t, Math.pow(t, 2));
 	}
 	
 	public void updateBec(double radian){
 		//TODO radian = vector.
 		positionBec = radian%(2*Math.PI);
 	}
-	
-	public double getPositionBec(){
-		return positionBec;
+
+	public void updatePosition(double t) {
+		c = new Coordinate2D(t, Math.pow(t, 2));
 	}
 	
  

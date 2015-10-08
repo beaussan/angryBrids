@@ -11,7 +11,8 @@ import java.awt.event.ComponentEvent;
 import java.util.Arrays;
 
 /**
- * Created by PROPRIETAIRE on 29/09/2015.
+ * Created by Nicolas Beaussart on 29/09/2015 for angryBrids.
+ *
  */
 public class DrawingPlace extends JPanel {
 
@@ -43,6 +44,9 @@ public class DrawingPlace extends JPanel {
         });
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void paint(Graphics g) {
         super.paint(g);

@@ -21,14 +21,29 @@ public abstract class Entity {
         return lsShapes.add(shape);
     }
 
+    /**
+     * Getter for property 'coordinate'.
+     *
+     * @return Value for property 'coordinate'.
+     */
     public Coordinate2D getCoordinate() {
         return c;
     }
 
+    /**
+     * Setter for property 'coordinate'.
+     *
+     * @param c Value to set for property 'coordinate'.
+     */
     public void setCoordinate(Coordinate2D c) {
         this.c = c;
     }
 
+    /**
+     * Getter for property 'lsShapes'.
+     *
+     * @return Value for property 'lsShapes'.
+     */
     public List<Shape> getLsShapes() {
         return lsShapes;
     }
