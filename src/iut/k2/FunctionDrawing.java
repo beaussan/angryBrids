@@ -22,7 +22,13 @@ public class FunctionDrawing {
             public void run() {
                 JFrame jf = new JFrame("Hello curve");
 
-                DrawingPlace dp = new DrawingPlace(new SimpleLine(0, 1, 300, 0), new SimpleLine(1, 0, 150, 0), new SquareParam(2,150), new SquareParam(3,150), new SquareParam(4,150));
+                DrawingPlace dp = new DrawingPlace(new SimpleLine(0, 1, 300, 0), 
+                		new SimpleLine(1, 0, 150, 0), 
+                		new SquareParam(2,150), 
+                		new SquareParam(2.5,150), 
+                		new SquareParam(3,150), 
+                		new SquareParam(3.5,150), 
+                		new SquareParam(4,150));
                 dp.TIMER_DURRATION = 2;
                 dp.setPreferredSize(new Dimension(250, 250));
                 jf.add(dp);

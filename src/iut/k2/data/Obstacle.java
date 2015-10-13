@@ -2,6 +2,7 @@ package iut.k2.data;
 
 import iut.k2.physics.Coordinate2D;
 
+import java.awt.*;
 import java.util.Random;
 
 public class Obstacle extends Entity {
@@ -19,6 +20,11 @@ public class Obstacle extends Entity {
 		int x = r.nextInt(largEcran/2)+largEcran/2;
 		int y = r.nextInt(hautEcran);
 		setCoordinate(new Coordinate2D(x, y));
+	}
+
+	@Override
+	public void render(Graphics batch) {
+
 	}
 
 	@Override
