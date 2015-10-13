@@ -22,7 +22,7 @@ public abstract class Level {
      */
     private Map<Integer, List<AbstractGameObject>> lsObjects;
 
-    public Level() {
+	public Level() {
         init();
     }
 
@@ -55,5 +55,21 @@ public abstract class Level {
             en.update(deltaTime);
         }
     }
+    
+    public List<Entity> getLsEntitys() {
+		return lsEntitys;
+	}
+
+	public void setLsEntitys(List<Entity> lsEntitys) {
+		this.lsEntitys = lsEntitys;
+	}
+
+	public Map<Integer, List<AbstractGameObject>> getLsObjects() {
+		return lsObjects;
+	}
+
+	public void setLsObjects(Map<Integer, List<AbstractGameObject>> lsObjects) {
+		this.lsObjects = lsObjects;
+	}
 
 }
