@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by Nicolas Beaussart on 13/10/15 for angryBrids.
  */
-public abstract class Level {
+public class Level {
 
     // entityes to refresh
     private List<Entity> lsEntitys;
@@ -16,6 +16,10 @@ public abstract class Level {
 
     public Level() {
         init();
+    }
+
+    public void init() {
+
     }
 
     public void render(Graphics g) {
@@ -29,7 +33,5 @@ public abstract class Level {
             en.update(deltaTime);
         }
     }
-
-    abstract void init();
 
 }

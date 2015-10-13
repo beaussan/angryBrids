@@ -7,7 +7,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Entity {
+public abstract class Entity extends AbstractGameObject {
 
     protected Coordinate2D c;
     private List<Shape> lsShapes;
