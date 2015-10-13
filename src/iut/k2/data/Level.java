@@ -1,8 +1,6 @@
 package iut.k2.data;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +10,7 @@ import java.util.Map;
 public abstract class Level {
 
     // entityes to refresh
-    private List<Entity> lsEntitys = new ArrayList<>();
+    private List<Entity> lsEntitys;
 
     /**
      * The map lsObjects defines the order each set 
@@ -22,7 +20,7 @@ public abstract class Level {
      * 2 : Bird
      * 3 : Obstacles
      */
-    private Map<Integer, List<AbstractGameObject>> lsObjects = new HashMap<>();
+    private Map<Integer, List<AbstractGameObject>> lsObjects;
 
 	public Level() {
         init();
