@@ -67,4 +67,6 @@ public abstract class Entity {
         return lsShapes.remove(shape);
     }
 
+    public abstract void update(float deltaTime);
+
 }

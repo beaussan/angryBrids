@@ -9,4 +9,9 @@ public class Enemy extends Entity {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public void update(float deltaTime) {
+
+	}
+
 }

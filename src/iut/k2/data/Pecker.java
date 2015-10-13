@@ -21,6 +21,11 @@ public class Pecker extends Entity {
 	public double getPositionBec() {
 		return positionBec;
 	}
+
+	@Override
+	public void update(float deltaTime) {
+
+	}
 	
 	public void update(double t){
 		updatePosition(t);
