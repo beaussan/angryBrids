@@ -14,10 +14,9 @@ public class Game {
 	/**
 	 * Initialize the elements on the window 
 	 */
-	public Game(){
+	public Game(int nbObstacle){
 		pecker = new Pecker(new Coordinate2D(20, 20));
 		listeObstacles = new ArrayList<>();
-		int nbObstacle = 7;
 		for(int i = 0; i < nbObstacle; i++){
 			listeObstacles.add(new Obstacle(null));
 		}

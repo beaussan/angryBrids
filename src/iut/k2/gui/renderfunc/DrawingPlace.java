@@ -16,7 +16,7 @@ import java.util.Arrays;
  */
 public class DrawingPlace extends JPanel {
 
-    public int TIMER_DURRATION = 100;
+    public int TIMER_DURRATION = 10;
 
     private Dimension dim;
 
