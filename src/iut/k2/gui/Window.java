@@ -11,9 +11,9 @@ public class Window extends JPanel {
 	private Game game;
 
 	public Window(int largeur, int hauteur) {
-		game= new Game();
+		game= new Game(10);
 		setPreferredSize(new Dimension(largeur, hauteur));
-		setBackground(Color.BLUE);
+		setBackground(Color.WHITE);
 	}
 
 	/**
@@ -26,22 +26,22 @@ public class Window extends JPanel {
 
     	//Dessin des obstacles
 		for (Obstacle o : game.getListObstacles()) {
+			g.setColor(Color.BLACK);
 			g.drawOval((int) o.getCoordinate().getX(), (int) o.getCoordinate().getY(), 20, 20);
 			g.setColor(Color.BLUE);
 			g.fillOval((int) o.getCoordinate().getX(), (int) o.getCoordinate().getY(), 20, 20);
 		}
 
-    	for(double i = 0; i < max; i += 1){
-			update(i);
+
 			System.out.println(game.getPecker().getCoordinate());
 	    	//Dessin de l'oiseau
 	    	Pecker p = game.getPecker();
+
+			g.setColor(Color.BLACK);
 			g.drawOval((int) p.getCoordinate().getX(), (int) p.getCoordinate().getY(), 20, 20);
 			g.setColor(Color.GREEN);
 			g.fillOval((int)p.getCoordinate().getX(),(int)p.getCoordinate().getY(), 20, 20);
 
-			update(i);
-		}
 
     	g.setColor(Color.WHITE);
 	}
