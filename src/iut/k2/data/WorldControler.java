@@ -1,13 +1,16 @@
 package iut.k2.data;
 
 import iut.k2.util.KeyMap;
+import iut.k2.util.loggin.UtilLog;
 
 import java.awt.event.KeyEvent;
+import java.util.logging.Logger;
 
 /**
  * Created by Nicolas Beaussart on 13/10/15 for angryBrids.
  */
 public class WorldControler {
+    private final static Logger LOG = UtilLog.getLog(WorldControler.class.getName());
 
     private final KeyMap keyMap;
     private final Level level;

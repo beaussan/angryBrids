@@ -111,7 +111,7 @@ public class Coordinate2D {
      * @return the new coordinate2D
      */
     public Coordinate2D divide(double n) {
-        checkState(n == 0, "Cannot divide by 0");
+        checkState(n != 0, "Cannot divide by 0");
 
         return new Coordinate2D(x / n, y / n);
     }

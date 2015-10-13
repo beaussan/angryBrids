@@ -26,6 +26,7 @@ public class WorldRenderer {
 
 
     private void renderAxis(Graphics g) {
+        g.setColor(Color.WHITE);
         g.drawLine(0, 0, 400, 0);
         g.drawLine(0, 0, 0, 400);
     }

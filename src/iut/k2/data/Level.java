@@ -1,6 +1,8 @@
 package iut.k2.data;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,7 +12,7 @@ import java.util.Map;
 public abstract class Level {
 
     // entityes to refresh
-    private List<Entity> lsEntitys;
+    private List<Entity> lsEntitys = new ArrayList<>();
 
     /**
      * The map lsObjects defines the order each set 
@@ -20,17 +22,33 @@ public abstract class Level {
      * 2 : Bird
      * 3 : Obstacles
      */
-    private Map<Integer, List<AbstractGameObject>> lsObjects;
+    private Map<Integer, List<AbstractGameObject>> lsObjects = new HashMap<>();
 
 	public Level() {
         init();
     }
 
+    public List<Entity> getLsEntitys() {
+        return lsEntitys;
+    }
+
+    public void setLsEntitys(List<Entity> lsEntitys) {
+        this.lsEntitys = lsEntitys;
+    }
+
+    public Map<Integer, List<AbstractGameObject>> getLsObjects() {
+        return lsObjects;
+    }
+
+    public void setLsObjects(Map<Integer, List<AbstractGameObject>> lsObjects) {
+        this.lsObjects = lsObjects;
+    }
+
     /**
      * The levels differences will be defined in this function
-     * For example: 
-     * Level 1 can have 1 Pecker and 5 obstacles 
-     * Level 2 can have 2 Pecker and 10 obstacles 
+     * For example:
+     * Level 1 can have 1 Pecker and 5 obstacles
+     * Level 2 can have 2 Pecker and 10 obstacles
      */
     public abstract void init();
 
@@ -45,7 +63,7 @@ public abstract class Level {
             }
     	}
     }
-    
+
     /**
      * Updates the informations about the current Entity
      * @param deltaTime time between two frames
@@ -55,21 +73,5 @@ public abstract class Level {
             en.update(deltaTime);
         }
     }
-    
-    public List<Entity> getLsEntitys() {
-		return lsEntitys;
-	}
-
-	public void setLsEntitys(List<Entity> lsEntitys) {
-		this.lsEntitys = lsEntitys;
-	}
-
-	public Map<Integer, List<AbstractGameObject>> getLsObjects() {
-		return lsObjects;
-	}
-
-	public void setLsObjects(Map<Integer, List<AbstractGameObject>> lsObjects) {
-		this.lsObjects = lsObjects;
-	}
 
 }
