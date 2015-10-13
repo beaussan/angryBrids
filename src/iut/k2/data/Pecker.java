@@ -3,6 +3,8 @@ package iut.k2.data;
 import iut.k2.physics.Coordinate2D;
 import iut.k2.physics.Vector;
 
+import java.awt.*;
+
 public class Pecker extends Entity {
 
 	double positionBec;
@@ -20,6 +22,16 @@ public class Pecker extends Entity {
 	 */
 	public double getPositionBec() {
 		return positionBec;
+	}
+
+	@Override
+	public void render(Graphics batch) {
+
+	}
+
+	@Override
+	public void update(float deltaTime) {
+
 	}
 	
 	public void update(double t){
