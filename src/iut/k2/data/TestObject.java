@@ -1,5 +1,6 @@
 package iut.k2.data;
 
+import iut.k2.data.objects.Entity;
 import iut.k2.physics.Coordinate2D;
 import iut.k2.util.loggin.UtilLog;
 
@@ -23,7 +24,7 @@ public class TestObject extends Entity {
         super(c);
         curr = ON;
         Random r = new Random();
-        dirr = new Coordinate2D(r.nextInt(20) / 2, r.nextInt(20) / 2);
+        dirr = new Coordinate2D(r.nextInt(40) / 2, r.nextInt(20) / 2);
     }
 
     @Override
@@ -36,7 +37,7 @@ public class TestObject extends Entity {
     public void update(float deltaTime) {
         LOG.fine("Delta time : " + deltaTime);
         cpt++;
-        setCoordinate(c.add(dirr.times(deltaTime + 0.0001).divide(1000)));
+        setCoordinate(c.add(dirr.times(deltaTime).divide(1000)));
         if (cpt % 20 < 10) {
             curr = ON;
         } else {

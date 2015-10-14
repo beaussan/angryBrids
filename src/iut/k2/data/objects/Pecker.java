@@ -1,4 +1,4 @@
-package iut.k2.data;
+package iut.k2.data.objects;
 
 import iut.k2.physics.Coordinate2D;
 import iut.k2.physics.Vector;

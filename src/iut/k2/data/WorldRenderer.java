@@ -1,5 +1,7 @@
 package iut.k2.data;
 
+import iut.k2.Constants;
+
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 
@@ -13,15 +15,21 @@ public class WorldRenderer {
     public WorldRenderer(BufferStrategy strategy, WorldControler worldControler) {
         this.strategy = strategy;
         this.worldControler = worldControler;
+        worldControler.addRenderer(this);
     }
 
     public void render(Graphics g) {
+        g.setColor(Color.black);
+        g.fillRect(0, 0, Constants.SIZE_WIDE, Constants.SIZE_HEIGHT);
         worldControler.getLevel().render(g);
         renderAxis(g);
     }
 
     public void render() {
-        render(strategy.getDrawGraphics());
+        Graphics g = strategy.getDrawGraphics();
+        render(g);
+        g.dispose();
+        strategy.show();
     }
 
 

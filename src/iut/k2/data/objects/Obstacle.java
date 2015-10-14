@@ -1,9 +1,8 @@
-package iut.k2.data;
+package iut.k2.data.objects;
 
 import iut.k2.physics.Coordinate2D;
 
 import java.awt.*;
-import java.util.Random;
 
 public class Obstacle extends Entity {
 

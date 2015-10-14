@@ -1,10 +1,13 @@
 package iut.k2.data;
 
+import iut.k2.data.objects.AbstractGameObject;
+import iut.k2.data.objects.Entity;
+
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Created by Nicolas Beaussart on 13/10/15 for angryBrids.
@@ -12,7 +15,7 @@ import java.util.Map;
 public abstract class Level {
 
     // entityes to refresh
-    private List<Entity> lsEntitys = new ArrayList<Entity>();
+    private List<Entity> lsEntitys = new ArrayList<>();
 
     /**
      * The map lsObjects defines the order each set 
@@ -22,10 +25,25 @@ public abstract class Level {
      * 2 : Bird
      * 3 : Obstacles
      */
-    private Map<Integer, List<AbstractGameObject>> lsObjects = new HashMap<Integer, List<AbstractGameObject>>();
+    private Map<Integer, List<AbstractGameObject>> lsObjects = new TreeMap<>();
 
 	public Level() {
         init();
+    }
+
+    public boolean addRenderObject(AbstractGameObject abstractGameObject, int level) {
+        if (!lsObjects.containsKey(level)) {
+            lsObjects.put(level, new ArrayList<AbstractGameObject>());
+        }
+        boolean res = lsObjects.get(level).add(abstractGameObject);
+        if (abstractGameObject instanceof Entity) {
+            lsEntitys.add((Entity) abstractGameObject);
+        }
+        return res;
+    }
+
+    public boolean addRenderObject(AbstractGameObject abstractGameObject) {
+        return addRenderObject(abstractGameObject, 0);
     }
 
     public List<Entity> getLsEntitys() {
@@ -54,11 +72,11 @@ public abstract class Level {
 
     /**
      * Renders the list of Objects contained in the level
-     * @param g
+     * @param g graphics
      */
     public void render(Graphics g) {
-    	for(int i = 0; i < lsObjects.size(); i++){
-    		for (AbstractGameObject ago : lsObjects.get(i)) {
+        for (Integer in : lsObjects.keySet()) {
+            for (AbstractGameObject ago : lsObjects.get(in)) {
                 ago.render(g);
             }
     	}
