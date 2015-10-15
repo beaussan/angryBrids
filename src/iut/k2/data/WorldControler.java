@@ -1,5 +1,6 @@
 package iut.k2.data;
 
+import iut.k2.data.objects.Entity;
 import iut.k2.util.KeyMap;
 import iut.k2.util.loggin.UtilLog;
 
@@ -53,10 +54,16 @@ public class WorldControler implements Runnable {
         return worldRenderers;
     }
 
-    public void handleInput() {
-        if (keyMap.getKey(KeyEvent.VK_UP)) {
-            System.out.println("UP pressed !");
+    public void handleDebugInput() {
+        if (keyMap.getKey(KeyEvent.VK_D)) {
+            for (Entity entity : level.getLsEntitys()) {
+                LOG.fine("Entity : " + entity.getCoordinate());
+            }
         }
+    }
+
+    public void handleInput() {
+        handleDebugInput();
     }
 
     public boolean removeRenderer(WorldRenderer o) {
@@ -81,9 +88,13 @@ public class WorldControler implements Runnable {
             long delta = System.currentTimeMillis() - lastLoopTime;
             lastLoopTime = System.currentTimeMillis();
 
+            LOG.finest("Handling input");
             handleInput();
+            LOG.finest("Updating the game with  " + delta + " of delta time");
             update(delta);
+            LOG.finest("Updating collisions");
             checkColisions();
+            LOG.finest("Rendering !");
             render();
 
             // finally pause for a bit. Note: this should run us at about

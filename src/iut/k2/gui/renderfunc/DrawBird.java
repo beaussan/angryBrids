@@ -1,7 +1,9 @@
 package iut.k2.gui.renderfunc;
 
+import iut.k2.util.loggin.UtilLog;
+
 import java.awt.*;
-import java.awt.geom.Point2D;
+import java.util.logging.Logger;
 
 
 /**
@@ -14,6 +16,7 @@ public class DrawBird {
     public static final int SIZE_SIDE = 10;
     public static final Color COLOR_ARROW = Color.ORANGE;
     public static final Color COLOR_BODY = Color.RED;
+    private final static Logger LOG = UtilLog.getLog(DrawBird.class.getName());
     public static boolean IS_SKELETON = false;
 
     public static void drawBird(Graphics g, double x, double y, double xNext, double yNext) {
@@ -24,7 +27,7 @@ public class DrawBird {
         double angle;
         angle = getAngle(x, y, xNext, yNext);
 
-        //System.out.println(angle);
+        //LOG.fine(angle);
 
         int xTo = (int) x + (int) (SIEE_ARROW * Math.cos(angle));
         int yTo = (int) y + (int) (SIEE_ARROW * Math.sin(angle));
@@ -84,9 +87,9 @@ public class DrawBird {
     
     	
 	public static double[] getPerpendiculaire(double x1, double y1, double x2, double y2) {
-		System.out.println(lineEquation(x1, y1, x2, y2));
-		//System.out.println(getPerpendiculaire(lineEquation(x1, y1, x2, y2), x2, y2)[1]);
-		return getPerpendiculaire(lineEquation(x1, y1, x2, y2), x2, y2);
+        LOG.fine("" + lineEquation(x1, y1, x2, y2));
+        //LOG.fine(getPerpendiculaire(lineEquation(x1, y1, x2, y2), x2, y2)[1]);
+        return getPerpendiculaire(lineEquation(x1, y1, x2, y2), x2, y2);
 	}
 
 	public static double[] getPerpendiculaire(double eq, double x2, double y2) {
@@ -97,8 +100,8 @@ public class DrawBird {
 	
 	public static double lineEquation(double x1, double y1, double x2, double y2) {
 		/*if (p1.getX() == p2.getX()) return (Double) null;*/
-        //System.out.println((x2+1 - x1));
-		if((x2-x1!=0.0) && ((y2-y1!=0.0)))
+        //LOG.fine((x2+1 - x1));
+        if((x2-x1!=0.0) && ((y2-y1!=0.0)))
 		return (y2 - y1) / (x2 - x1);
 		
 		else

@@ -19,8 +19,8 @@ public class WorldRenderer {
     }
 
     public void render(Graphics g) {
-        g.setColor(Color.black);
-        g.fillRect(0, 0, Constants.SIZE_WIDE, Constants.SIZE_HEIGHT);
+        g.setColor(Color.BLACK);
+        g.fillRect(0, 0, Constants.SIZE_WIDE + 20, Constants.SIZE_HEIGHT + 20);
         worldControler.getLevel().render(g);
         renderAxis(g);
     }
@@ -35,7 +35,7 @@ public class WorldRenderer {
 
     private void renderAxis(Graphics g) {
         g.setColor(Color.WHITE);
-        g.drawLine(0, 0, 400, 0);
-        g.drawLine(0, 0, 0, 400);
+        g.drawLine(0, 0, Constants.SIZE_WIDE, 0);
+        g.drawLine(0, 0, 0, Constants.SIZE_HEIGHT);
     }
 }

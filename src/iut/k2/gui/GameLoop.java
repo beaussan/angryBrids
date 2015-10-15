@@ -2,10 +2,13 @@ package iut.k2.gui;
 
 import iut.k2.Constants;
 import iut.k2.data.Level;
-import iut.k2.data.TestObject;
+import iut.k2.data.LevelTest;
 import iut.k2.data.WorldControler;
 import iut.k2.data.WorldRenderer;
+import iut.k2.data.objects.Montain;
+import iut.k2.data.objects.TestObject;
 import iut.k2.physics.Coordinate2D;
+import iut.k2.util.loggin.UtilLog;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,18 +22,27 @@ public class GameLoop extends JFrame {
         Level l = new Level() {
             @Override
             public void init() {
-                for (int i = 0; i < 250; i++) {
-                    addRenderObject(new TestObject(new Coordinate2D(100, 100)), 0);
+                for (int i = 0; i < 9000; i++) {
+                    addRenderObject(new TestObject(new Coordinate2D(200, 200)), 0);
                 }
+                addRenderObject(new TestObject(new Coordinate2D(50, 50), false));
+                addRenderObject(new TestObject(new Coordinate2D(20, 20), false));
+                addRenderObject(new TestObject(new Coordinate2D(10, 10), false));
+                addRenderObject(new TestObject(new Coordinate2D(1, 1), false));
+                addRenderObject(new Montain("sprites/mountain_left.png", new Coordinate2D(-20, -60), 200, 200, 200), -1);
+                addRenderObject(new Montain("sprites/mountain_right.png", new Coordinate2D(-90, -30), 150, 150, 150), -2);
+                addRenderObject(new Montain("sprites/mountain_left.png", new Coordinate2D(-60, -15), 100, 100, 100), -3);
             }
         };
-        //UtilLog.setLevelGlobal(java.util.logging.Level.ALL, "iut.k2.data");
+        UtilLog.setLevelGlobal(java.util.logging.Level.ALL, WorldControler.class.getName());
+        UtilLog.setLevelGlobal(java.util.logging.Level.ALL, GameLoop.class.getName());
         WorldControler worldControler = new WorldControler(l);
-        GameLoop gameLoop = new GameLoop(worldControler);
-        GameLoop gameLoop2 = new GameLoop(worldControler);
+        worldControler = new WorldControler(new LevelTest());
+        new GameLoop(worldControler);
+        new GameLoop(worldControler);
+
         new Thread(worldControler).start();
 
-        //gameLoop.loop();
     }
     /**
      * The stragey that allows us to use accelerate page flipping
@@ -43,7 +55,7 @@ public class GameLoop extends JFrame {
         addKeyListener(worldControler.getKeyMap());
 
         setVisible(true);
-        setSize(new Dimension(Constants.SIZE_WIDE, Constants.SIZE_HEIGHT));
+        setSize(new Dimension(Constants.SIZE_WIDE + 20, Constants.SIZE_HEIGHT + 20));
         setLocationRelativeTo(null);
 
         // create the buffering strategy which will allow AWT
