@@ -99,8 +99,8 @@ public class Coordinate2D {
      */
     public Coordinate2D divide(Coordinate2D other) {
         checkNotNull(other, "Other must not be null");
-        checkState(other.x == 0, "Cannot divide by 0");
-        checkState(other.y == 0, "Cannot divide by 0");
+        checkState(other.x != 0, "Cannot divide by 0");
+        checkState(other.y != 0, "Cannot divide by 0");
         return new Coordinate2D(x / other.x, y / other.y);
     }
 
@@ -111,7 +111,7 @@ public class Coordinate2D {
      * @return the new coordinate2D
      */
     public Coordinate2D divide(double n) {
-        checkState(n == 0, "Cannot divide by 0");
+        checkState(n != 0, "Cannot divide by 0");
 
         return new Coordinate2D(x / n, y / n);
     }
@@ -124,8 +124,8 @@ public class Coordinate2D {
      * @return the new coordinate2D
      */
     public Coordinate2D divide(double xFactor, double yFactor) {
-        checkState(xFactor == 0, "Cannot divide by 0 (yFactor)");
-        checkState(yFactor == 0, "Cannot divide by 0 (yFactor)");
+        checkState(xFactor != 0, "Cannot divide by 0 (yFactor)");
+        checkState(yFactor != 0, "Cannot divide by 0 (yFactor)");
 
         return new Coordinate2D(x / xFactor, y / yFactor);
     }

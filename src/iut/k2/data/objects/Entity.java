@@ -1,4 +1,4 @@
-package iut.k2.data;
+package iut.k2.data.objects;
 
 
 import iut.k2.physics.Coordinate2D;
@@ -7,7 +7,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Entity {
+public abstract class Entity extends AbstractGameObject {
 
     protected Coordinate2D c;
     private List<Shape> lsShapes;
@@ -66,5 +66,7 @@ public abstract class Entity {
     public boolean removeShape(Shape shape) {
         return lsShapes.remove(shape);
     }
+
+    public abstract void update(float deltaTime);
 
 }
