@@ -22,7 +22,9 @@ public class LevelTest extends Level {
 
         //Création de l'oiseau
         //Pecker p = new Pecker(new Coordinate2D(0, 0));
-        PeckerCurve p = new PeckerCurve(new Coordinate2D(0, 0), new SquareParam(7, Constants.SIZE_WIDE));
+        
+        //Attention à ne pas trop augmenter la pente
+        PeckerCurve p = new PeckerCurve(new Coordinate2D(0, 0), new SquareParam(2, Constants.SIZE_WIDE));
 
         // ajout du piaf dans les données au plan 1
         addRenderObject(p, 1);

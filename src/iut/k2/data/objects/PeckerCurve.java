@@ -11,7 +11,7 @@ import java.awt.*;
  * Created by Nicolas Beaussart on 15/10/15 for angryBrids.
  */
 public class PeckerCurve extends Entity {
-    private final static float SPEED = 50;
+    private final static float SPEED = 200;
     private final Coordinate2D INIT_CORDS;
     private ParamCurve curve;
     private Coordinate2D nextCord;
