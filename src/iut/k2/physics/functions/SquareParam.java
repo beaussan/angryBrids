@@ -1,4 +1,4 @@
-﻿package iut.k2.physics.functions;
+package iut.k2.physics.functions;
 
 public class SquareParam extends ParamCurve{
 
