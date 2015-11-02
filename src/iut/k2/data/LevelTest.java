@@ -17,6 +17,8 @@ public class LevelTest extends Level {
      * Le level de test contiendra 1 Pecker et 5 à 10 obstacles
      */
     public void init() {
+        getLsEntitys().clear();
+        getLsObjects().clear();
         Random r = new Random();
         int nbObstacles = r.nextInt(6) + 5;
 

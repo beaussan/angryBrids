@@ -3,6 +3,7 @@ package iut.k2.gui.renderfunc;
 import iut.k2.util.loggin.UtilLog;
 
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
 import java.util.logging.Logger;
 
 
@@ -19,9 +20,16 @@ public class DrawBird {
     private final static Logger LOG = UtilLog.getLog(DrawBird.class.getName());
     public static boolean IS_SKELETON = false;
 
-    public static void drawBird(Graphics g, double x, double y, double xNext, double yNext) {
+    public static Ellipse2D drawBird(Graphics g, double x, double y, double xNext, double yNext) {
+        return drawBird(g, x, y, xNext, yNext, COLOR_BODY, COLOR_ARROW);
+    }
+
+    public static Ellipse2D drawBird(Graphics g, double x, double y, double xNext, double yNext, Color colorBody) {
+        return drawBird(g, x, y, xNext, yNext, colorBody, COLOR_ARROW);
+    }
+
+    public static Ellipse2D drawBird(Graphics g, double x, double y, double xNext, double yNext, Color colorBody, Color colorArrow) {
         Color c = g.getColor();
-        g.setColor(COLOR_BODY);
 
 
         double angle;
@@ -37,13 +45,13 @@ public class DrawBird {
         int lineY = (int) y;
 
 
-       // Point2D h = new Point(xTo, yTo);
-		//Point2D i = new Point(lineX, lineY);
-				
-		double ex = topoints(xTo, yTo,lineX, lineY)[0];
-		double ey = topoints(xTo, yTo,lineX, lineY)[1];
-		double fx = topoints(xTo, yTo,lineX, lineY)[2];
-		double fy = topoints(xTo, yTo,lineX, lineY)[3];
+        // Point2D h = new Point(xTo, yTo);
+        //Point2D i = new Point(lineX, lineY);
+
+        double ex = topoints(xTo, yTo, lineX, lineY)[0];
+        double ey = topoints(xTo, yTo, lineX, lineY)[1];
+        double fx = topoints(xTo, yTo, lineX, lineY)[2];
+        double fy = topoints(xTo, yTo, lineX, lineY)[3];
 
 
         double ang = getAngle(x, y, ex, ey);
@@ -58,7 +66,7 @@ public class DrawBird {
 
         //int xTo = (int) x + (int) (40 * Math.cos(angle));
         //int yTo = (int) y + (int) (40 * Math.sin(angle));
-        g.setColor(COLOR_ARROW);
+        g.setColor(colorArrow);
         if (IS_SKELETON) {
             g.drawLine(lineX, lineY, xTo, yTo);
             g.drawLine(xBot, yBot, xTop, yTop);
@@ -67,7 +75,8 @@ public class DrawBird {
             g.fillPolygon(new int[]{xTo, xTop, xBot}, new int[]{yTo, yTop, yBot}, 3);
         }
 
-        g.setColor(COLOR_BODY);
+        g.setColor(colorBody);
+        Ellipse2D el = new Ellipse2D.Double(x - (SIZE_BIRD / 2), y - (SIZE_BIRD / 2), SIZE_BIRD, SIZE_BIRD);
         if (IS_SKELETON) {
             g.drawOval((int) x - (SIZE_BIRD / 2), (int) y - (SIZE_BIRD / 2), SIZE_BIRD, SIZE_BIRD);
         } else {
@@ -75,7 +84,9 @@ public class DrawBird {
         }
 
         g.setColor(c);
+        return el;
     }
+
 
     public static double getAngle(double x, double y, double xNext, double yNext) {
         return Math.atan2(yNext - y, xNext - x);

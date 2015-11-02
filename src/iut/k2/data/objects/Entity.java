@@ -54,7 +54,7 @@ public abstract class Entity extends AbstractGameObject {
 
     public boolean overlap(Entity other) {
         for (Shape s : lsShapes) {
-            for (Shape so : lsShapes) {
+            for (Shape so : other.lsShapes) {
                 if (s.intersects(so.getBounds2D())) {
                     return true;
                 }
@@ -65,6 +65,10 @@ public abstract class Entity extends AbstractGameObject {
 
     public boolean removeShape(Shape shape) {
         return lsShapes.remove(shape);
+    }
+
+    public void setColor(Color color) {
+
     }
 
     public abstract void update(float deltaTime);

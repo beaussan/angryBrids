@@ -4,6 +4,7 @@ import iut.k2.physics.Coordinate2D;
 import iut.k2.util.Tools;
 
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
 
 public class Obstacle extends Entity {
     private final static int SIZE = 20;
@@ -14,21 +15,24 @@ public class Obstacle extends Entity {
 		super(c);
 
         renderTo = Tools.getSwingCords(c);
+        addShape(new Ellipse2D.Double((int) renderTo.getX() + SIZE / 2, (int) renderTo.getY() + SIZE / 2, SIZE, SIZE));
     }
 
 	@Override
 	public void render(Graphics batch) {
         batch.setColor(col);
-        batch.fillOval((int) renderTo.getX() + SIZE / 2, (int) renderTo.getY() + SIZE / 2, SIZE, SIZE);
+        ((Graphics2D) batch).fill(getLsShapes().get(0));
+
 
 	}
 
-    public void setColor(Color col) {
-        this.col = col;
+    @Override
+    public void setColor(Color color) {
+        col = color;
     }
 
-	@Override
-	public void update(float deltaTime) {
+    @Override
+    public void update(float deltaTime) {
 
 	}
 

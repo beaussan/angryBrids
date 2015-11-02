@@ -10,18 +10,18 @@ import java.awt.image.BufferStrategy;
  */
 public class WorldRenderer {
     private final BufferStrategy strategy;
-    private WorldControler worldControler;
+    private AbstractWorldControler abstractWorldControler;
 
-    public WorldRenderer(BufferStrategy strategy, WorldControler worldControler) {
+    public WorldRenderer(BufferStrategy strategy, AbstractWorldControler abstractWorldControler) {
         this.strategy = strategy;
-        this.worldControler = worldControler;
-        worldControler.addRenderer(this);
+        this.abstractWorldControler = abstractWorldControler;
+        abstractWorldControler.addRenderer(this);
     }
 
     public void render(Graphics g) {
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, Constants.SIZE_WIDE + 20, Constants.SIZE_HEIGHT + 20);
-        worldControler.getLevel().render(g);
+        abstractWorldControler.getLevel().render(g);
         renderAxis(g);
     }
 
