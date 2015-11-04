@@ -16,7 +16,7 @@ public abstract class AbstractWorldControler implements Runnable {
     private final KeyMap keyMap;
     private final Level level;
     private final List<WorldRenderer> worldRenderers;
-    private boolean gameRunning = true;
+    volatile private boolean gameRunning = true;
 
     public AbstractWorldControler(Level level) {
         this.keyMap = new KeyMap();
@@ -56,6 +56,7 @@ public abstract class AbstractWorldControler implements Runnable {
 
     public void setGameRunning(boolean gameRunning) {
         this.gameRunning = gameRunning;
+        LOG.finest("Setting game runing to " + gameRunning);
     }
 
     public boolean removeRenderer(WorldRenderer o) {

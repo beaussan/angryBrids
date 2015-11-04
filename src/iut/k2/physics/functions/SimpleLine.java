@@ -33,6 +33,11 @@ public class SimpleLine extends ParamCurve {
         return tMin;
     }
 
+    @Override
+    public String toString() {
+        return "SimpleLine{x=t*" + y + "; y=t*" + y + " } ";
+    }
+
     /**
      * {@inheritDoc}
      */

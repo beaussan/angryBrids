@@ -32,6 +32,11 @@ public class ArchimedeSpiral extends ParamCurve {
         return tMin;
     }
 
+    @Override
+    public String toString() {
+        return "ArchimedeSpirale{x=" + a + "*(t*cos(t); y=" + a + "*(t*sin(t) } ";
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -45,5 +50,4 @@ public class ArchimedeSpiral extends ParamCurve {
     public double y(double t) {
         return a*(t* sin(t));
     }
-
 }

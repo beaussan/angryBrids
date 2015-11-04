@@ -29,6 +29,11 @@ public class SquareParam extends ParamCurve{
         return tMin;
     }
 
+    @Override
+    public String toString() {
+        return "SquareParam{x=t; y=-0.0025*pow(t, 2)+" + pente + "*t } ";
+    }
+
     /**
      * {@inheritDoc}
      */

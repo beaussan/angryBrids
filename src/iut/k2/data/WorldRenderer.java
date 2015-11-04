@@ -11,6 +11,7 @@ import java.awt.image.BufferStrategy;
 public class WorldRenderer {
     private final BufferStrategy strategy;
     private AbstractWorldControler abstractWorldControler;
+    private String textDisplayed;
 
     public WorldRenderer(BufferStrategy strategy, AbstractWorldControler abstractWorldControler) {
         this.strategy = strategy;
@@ -18,11 +19,22 @@ public class WorldRenderer {
         abstractWorldControler.addRenderer(this);
     }
 
-    public void render(Graphics g) {
-        g.setColor(Color.BLACK);
-        g.fillRect(0, 0, Constants.SIZE_WIDE + 20, Constants.SIZE_HEIGHT + 20);
-        abstractWorldControler.getLevel().render(g);
-        renderAxis(g);
+    /**
+     * Getter for property 'textDisplayed'.
+     *
+     * @return Value for property 'textDisplayed'.
+     */
+    public String getTextDisplayed() {
+        return textDisplayed;
+    }
+
+    /**
+     * Setter for property 'textDisplayed'.
+     *
+     * @param textDisplayed Value to set for property 'textDisplayed'.
+     */
+    public void setTextDisplayed(String textDisplayed) {
+        this.textDisplayed = textDisplayed;
     }
 
     public void render() {
@@ -32,6 +44,21 @@ public class WorldRenderer {
         strategy.show();
     }
 
+    public void render(Graphics g) {
+        g.setColor(Color.BLACK);
+        g.fillRect(0, 0, Constants.SIZE_WIDE + 20, Constants.SIZE_HEIGHT + 20);
+        writeTxtInfo(g);
+        abstractWorldControler.getLevel().render(g);
+        renderAxis(g);
+    }
+
+    public void writeTxtInfo(Graphics g) {
+        if (textDisplayed == null || textDisplayed.equals("")) {
+            return;
+        }
+        g.setColor(Color.LIGHT_GRAY);
+        g.drawString(textDisplayed, 10, 50);
+    }
 
     private void renderAxis(Graphics g) {
         g.setColor(Color.WHITE);

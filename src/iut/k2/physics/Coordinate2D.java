@@ -46,18 +46,6 @@ public class Coordinate2D {
     }
 
     /**
-     * Instantiates a new coordinate2 d.
-     *
-     * @param other the other
-     */
-    public Coordinate2D(Coordinate3D other) {
-        checkNotNull(other, "Other must not be null");
-
-        x = other.getX();
-        y = other.getY();
-    }
-
-    /**
      * default constructor.
      *
      * @param x x coordinates

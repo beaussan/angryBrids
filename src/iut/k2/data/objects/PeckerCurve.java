@@ -16,8 +16,8 @@ import java.util.logging.Logger;
  * Created by Nicolas Beaussart on 15/10/15 for angryBrids.
  */
 public class PeckerCurve extends Entity {
+    public final static float SPEED = 200;
     private final static Logger LOG = UtilLog.getLog(PeckerCurve.class.getName());
-    private final static float SPEED = 200;
     private final static float INTERVAL_DOTS_BACK = 30;
     private final static int SIZE_DOT = 6;
     private final static Color COLOR_DOT = Color.PINK;
@@ -75,7 +75,7 @@ public class PeckerCurve extends Entity {
         setCoordinate(getCoordinate().add(vector));
 
         deltaCummul += deltaTime;
-        if (deltaCummul >= INTERVAL_DOTS_BACK) {
+        if (deltaCummul > INTERVAL_DOTS_BACK) {
             double tmpDel = currDeltaPos - (deltaCummul - INTERVAL_DOTS_BACK);
             Coordinate2D tmp = Tools.getSwingCords(new Coordinate2D(curve.x(tmpDel), curve.y(tmpDel)));
             lsPoints.add(new Point2D.Double(tmp.getX(), tmp.getY()));

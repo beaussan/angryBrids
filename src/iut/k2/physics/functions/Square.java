@@ -24,6 +24,11 @@ public class Square extends ParamCurve {
         return tMin;
     }
 
+    @Override
+    public String toString() {
+        return "Square{x=t; y=-pow(t,2) } ";
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -37,5 +42,4 @@ public class Square extends ParamCurve {
     public double y(double t) {
         return -Math.pow(t, 2);
     }
-
 }
