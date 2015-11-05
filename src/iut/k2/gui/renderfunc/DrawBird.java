@@ -20,6 +20,11 @@ public class DrawBird {
     private final static Logger LOG = UtilLog.getLog(DrawBird.class.getName());
     public static boolean IS_SKELETON = false;
 
+    public static Ellipse2D drawBird(double x, double y, double xNext, double yNext) {
+        Graphics g = null;
+    	return drawBird(g, x, y, xNext, yNext, COLOR_BODY, COLOR_ARROW);
+    }
+    
     public static Ellipse2D drawBird(Graphics g, double x, double y, double xNext, double yNext) {
         return drawBird(g, x, y, xNext, yNext, COLOR_BODY, COLOR_ARROW);
     }

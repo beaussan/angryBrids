@@ -7,6 +7,7 @@ import iut.k2.util.Tools;
 import iut.k2.util.loggin.UtilLog;
 
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,8 @@ public class PeckerCurve extends Entity {
         super(c);
         this.curve = curve;
         INIT_CORDS = c;
+        
+        addShape(new Ellipse2D.Double((int) c.getX() - 20 / 2, (int) c.getY() - 20 / 2, 20, 20));
     }
 
     @Override

@@ -15,15 +15,13 @@ public class Obstacle extends Entity {
 		super(c);
 
         renderTo = Tools.getSwingCords(c);
-        addShape(new Ellipse2D.Double((int) renderTo.getX() + SIZE / 2, (int) renderTo.getY() + SIZE / 2, SIZE, SIZE));
+        addShape(new Ellipse2D.Double((int) renderTo.getX() - SIZE / 2, (int) renderTo.getY() - SIZE / 2, SIZE, SIZE));
     }
 
 	@Override
 	public void render(Graphics batch) {
         batch.setColor(col);
         ((Graphics2D) batch).fill(getLsShapes().get(0));
-
-
 	}
 
     @Override
