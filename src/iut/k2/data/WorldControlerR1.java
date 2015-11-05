@@ -22,6 +22,7 @@ import java.util.logging.Logger;
  */
 public class WorldControlerR1 extends AbstractWorldControler {
     private final static Logger LOG = UtilLog.getLog(WorldControlerR1.class.getName());
+    private final float TIME_MAX_MS = 5000;
     private boolean endingGame = false;
     private ParamCurve[] curves = new ParamCurve[]{
             new SquareParam(2, Constants.SIZE_WIDE),
@@ -124,6 +125,7 @@ public class WorldControlerR1 extends AbstractWorldControler {
     private class RunTimer extends TimerTask {
         long lastLoopTime = System.currentTimeMillis();
         boolean isRuning = true;
+        long cumul = 0;
 
         @Override
         public void run() {
@@ -135,6 +137,7 @@ public class WorldControlerR1 extends AbstractWorldControler {
             // move this loop
             long delta = System.currentTimeMillis() - lastLoopTime;
             lastLoopTime = System.currentTimeMillis();
+            cumul += delta;
 
             LOG.finest("Handling input");
             handleInput();
@@ -144,6 +147,9 @@ public class WorldControlerR1 extends AbstractWorldControler {
             checkColisions();
             LOG.finest("Rendering !");
             render();
+            if (cumul >= TIME_MAX_MS) {
+                endingGame = true;
+            }
             if (endingGame) {
                 LOG.finest("Found out the game is over, purging the timer");
                 endingGame = false;
