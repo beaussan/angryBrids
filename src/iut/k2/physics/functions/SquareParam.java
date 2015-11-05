@@ -9,7 +9,7 @@ public class SquareParam extends ParamCurve{
     private double pente;
 	
 	public SquareParam(double pente, int tMax){
-		//this.tMax = tMax;
+		this.tMax = tMax;
 		this.pente = pente;
 	}
 
