@@ -24,12 +24,13 @@ public class LevelTest extends Level {
 
     public LevelTest(ParamCurve curve, Coordinate2D startPos) {
         this.curve = curve;
-        this.startPos = startPos;
+        this.startPos = (startPos == null) ? new Coordinate2D(0, 0) : startPos;
         init();
     }
 
     public LevelTest(ParamCurve curve) {
         this.curve = curve;
+        startPos = new Coordinate2D(0, 0);
         init();
     }
 

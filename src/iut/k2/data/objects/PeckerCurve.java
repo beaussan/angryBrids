@@ -36,8 +36,10 @@ public class PeckerCurve extends Entity {
         super(c);
         this.curve = curve;
         INIT_CORDS = c;
-        
-        addShape(new Ellipse2D.Double((int) c.getX() - 20 / 2, (int) c.getY() - 20 / 2, 20, 20));
+
+        addShape(new Ellipse2D.Double((int) getCoordinate().getX() - DrawBird.SIZE_BIRD / 2,
+                (int) getCoordinate().getY() - DrawBird.SIZE_BIRD / 2,
+                DrawBird.SIZE_BIRD, DrawBird.SIZE_BIRD));
     }
 
     @Override
@@ -52,9 +54,7 @@ public class PeckerCurve extends Entity {
         nextCord = getCoordinate().add(vector);
         Coordinate2D curr = Tools.getSwingCords(getCoordinate());
         Coordinate2D next = Tools.getSwingCords(nextCord);
-        getLsShapes().clear();
-        addShape(DrawBird.drawBird(batch, curr.getX(), curr.getY(), next.getX(), next.getY(), colBird));
-
+        DrawBird.drawBird(batch, curr.getX(), curr.getY(), next.getX(), next.getY(), colBird);
 
     }
 
@@ -63,7 +63,6 @@ public class PeckerCurve extends Entity {
         currDeltaPos = 0;
         setCoordinate(INIT_CORDS);
         calculateVector(1);
-
     }
 
     @Override
@@ -77,6 +76,12 @@ public class PeckerCurve extends Entity {
         //FIXME not worink... I think at least...
         setCoordinate(getCoordinate().add(vector));
 
+        getLsShapes().clear();
+        Coordinate2D tmpEl = Tools.getSwingCords(getCoordinate());
+        addShape(new Ellipse2D.Double((int) tmpEl.getX() - (DrawBird.SIZE_BIRD / 2),
+                (int) tmpEl.getY() - (DrawBird.SIZE_BIRD / 2),
+                DrawBird.SIZE_BIRD, DrawBird.SIZE_BIRD));
+
         deltaCummul += deltaTime;
         if (deltaCummul > INTERVAL_DOTS_BACK) {
             double tmpDel = currDeltaPos - (deltaCummul - INTERVAL_DOTS_BACK);
@@ -84,6 +89,8 @@ public class PeckerCurve extends Entity {
             lsPoints.add(new Point2D.Double(tmp.getX(), tmp.getY()));
             deltaCummul = (deltaCummul - INTERVAL_DOTS_BACK);
         }
+
+
         //nextCord = new Coordinate2D(curve.x(currDeltaPos), curve.y(currDeltaPos));
     }
 
