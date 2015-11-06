@@ -17,3 +17,11 @@ include 'services:webservice'
 */
 
 rootProject.name = 'AngriBrids'
+/*
+systemProp.http.proxyHost='cache.univ-lille1.fr'
+systemProp.http.proxyPort=3128
+
+systemProp.https.proxyHost='cache.univ-lille1.fr'
+systemProp.https.proxyPort=3128
+
+*/
