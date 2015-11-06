@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 public class PeckerCurve extends Entity {
     public final static float SPEED = 200;
     private final static Logger LOG = UtilLog.getLog(PeckerCurve.class.getName());
-    private final static float INTERVAL_DOTS_BACK = 30;
+    private final static float INTERVAL_DOTS_BACK = 60;
     private final static int SIZE_DOT = 6;
     private final static Color COLOR_DOT = Color.PINK;
     private final Coordinate2D INIT_CORDS;
@@ -51,7 +51,7 @@ public class PeckerCurve extends Entity {
         }
 
         // rendering of bird
-        nextCord = getCoordinate().add(vector);
+        nextCord = getCoordinate().add(getNextVector(1));
         Coordinate2D curr = Tools.getSwingCords(getCoordinate());
         Coordinate2D next = Tools.getSwingCords(nextCord);
         DrawBird.drawBird(batch, curr.getX(), curr.getY(), next.getX(), next.getY(), colBird);
@@ -73,7 +73,6 @@ public class PeckerCurve extends Entity {
     @Override
     public void update(float deltaTime) {
         calculateVector(deltaTime);
-        //FIXME not worink... I think at least...
         setCoordinate(getCoordinate().add(vector));
 
         getLsShapes().clear();
@@ -83,7 +82,8 @@ public class PeckerCurve extends Entity {
                 DrawBird.SIZE_BIRD, DrawBird.SIZE_BIRD));
 
         deltaCummul += deltaTime;
-        if (deltaCummul > INTERVAL_DOTS_BACK) {
+
+        while (deltaCummul >= INTERVAL_DOTS_BACK) {
             double tmpDel = currDeltaPos - (deltaCummul - INTERVAL_DOTS_BACK);
             Coordinate2D tmp = Tools.getSwingCords(new Coordinate2D(curve.x(tmpDel), curve.y(tmpDel)));
             lsPoints.add(new Point2D.Double(tmp.getX(), tmp.getY()));
@@ -92,6 +92,13 @@ public class PeckerCurve extends Entity {
 
 
         //nextCord = new Coordinate2D(curve.x(currDeltaPos), curve.y(currDeltaPos));
+    }
+
+    private Coordinate2D getNextVector(float deltaTime) {
+        Coordinate2D vector = new Coordinate2D(curve.x(currDeltaPos), curve.y(currDeltaPos));
+        float currDeltaPos = this.currDeltaPos + (SPEED * deltaTime) / 1000;
+        vector = new Coordinate2D(curve.x(currDeltaPos), curve.y(currDeltaPos)).minus(vector);
+        return vector;
     }
 
     private void calculateVector(float deltaTime) {
