@@ -85,7 +85,7 @@ public class PeckerCurve extends Entity {
 
         while (deltaCummul >= INTERVAL_DOTS_BACK) {
             double tmpDel = currDeltaPos - (deltaCummul - INTERVAL_DOTS_BACK);
-            Coordinate2D tmp = Tools.getSwingCords(new Coordinate2D(curve.x(tmpDel), curve.y(tmpDel)));
+            Coordinate2D tmp = Tools.getSwingCords(INIT_CORDS.add(new Coordinate2D(curve.x(tmpDel), curve.y(tmpDel))));
             lsPoints.add(new Point2D.Double(tmp.getX(), tmp.getY()));
             deltaCummul = (deltaCummul - INTERVAL_DOTS_BACK);
         }

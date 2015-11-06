@@ -13,7 +13,7 @@ public abstract class Entity extends AbstractGameObject {
     private List<Shape> lsShapes;
 
     public Entity(Coordinate2D c) {
-        this.c = (c == null) ? new Coordinate2D(0, 0) : c;
+        this.c = (c == null) ? new Coordinate2D(10, 10) : c;
         lsShapes = new ArrayList<>();
     }
 

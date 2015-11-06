@@ -3,10 +3,8 @@ package iut.k2.gui;
 import iut.k2.Constants;
 import iut.k2.data.*;
 import iut.k2.data.objects.Montain;
-import iut.k2.data.objects.PeckerCurve;
 import iut.k2.data.objects.TestObject;
 import iut.k2.physics.Coordinate2D;
-import iut.k2.util.loggin.UtilLog;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,9 +30,6 @@ public class GameLoop extends JFrame {
                 addRenderObject(new Montain("sprites/mountain_left.png", new Coordinate2D(-60, -15), 100, 100, 100), -3);
             }
         };
-        UtilLog.setLevelGlobal(java.util.logging.Level.ALL, WorldControlerR1.class.getName());
-        UtilLog.setLevelGlobal(java.util.logging.Level.ALL, GameLoop.class.getName());
-        UtilLog.setLevelGlobal(java.util.logging.Level.ALL, PeckerCurve.class.getName());
         AbstractWorldControler abstractWorldControler = new WorldControlerR1(l);
         abstractWorldControler = new WorldControlerR1(new LevelTest());
         new GameLoop(abstractWorldControler);

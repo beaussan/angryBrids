@@ -18,7 +18,7 @@ public class LevelTest extends Level {
 
     public LevelTest() {
         curve = new SquareParam(2, Constants.SIZE_WIDE);
-        startPos = new Coordinate2D(0, 0);
+        startPos = new Coordinate2D(10, 10);
         init();
     }
 
@@ -30,7 +30,7 @@ public class LevelTest extends Level {
 
     public LevelTest(ParamCurve curve) {
         this.curve = curve;
-        startPos = new Coordinate2D(0, 0);
+        startPos = new Coordinate2D(10, 10);
         init();
     }
 

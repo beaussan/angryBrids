@@ -4,10 +4,7 @@ import iut.k2.Constants;
 import iut.k2.data.objects.Entity;
 import iut.k2.data.objects.PeckerCurve;
 import iut.k2.gui.renderfunc.DrawBird;
-import iut.k2.physics.Coordinate2D;
-import iut.k2.physics.functions.ParamCurve;
-import iut.k2.physics.functions.SimpleLine;
-import iut.k2.physics.functions.SquareParam;
+import iut.k2.physics.functions.*;
 import iut.k2.util.loggin.UtilLog;
 
 import java.awt.*;
@@ -22,15 +19,20 @@ import java.util.logging.Logger;
  */
 public class WorldControlerR1 extends AbstractWorldControler {
     private final static Logger LOG = UtilLog.getLog(WorldControlerR1.class.getName());
-    private final float TIME_MAX_MS = 5000;
+    private final long TIME_MAX_MS = 15000;
+    private long timeBreak= 1000;
     private boolean endingGame = false;
     private ParamCurve[] curves = new ParamCurve[]{
-            new SquareParam(2, Constants.SIZE_WIDE),
+            new ArchimedeSpiral(-0.1),
+            new SquareParamSin(5,Constants.SIZE_WIDE),
             new SimpleLine(1, 1, 300, 300),
             new SquareParam(2.5, Constants.SIZE_WIDE),
             new SquareParam(2.2, Constants.SIZE_WIDE),
             new SquareParam(1.8, Constants.SIZE_WIDE),
-            new SquareParam(3, Constants.SIZE_WIDE)};
+            new SquareParam(3, Constants.SIZE_WIDE),
+            new SquareParam(1.3, Constants.SIZE_WIDE),
+            new SimpleLine(1, 0.4, 300, 300),
+            new SquareParam(1, Constants.SIZE_WIDE)};
 
     public WorldControlerR1(Level level) {
         super(level);
@@ -51,6 +53,7 @@ public class WorldControlerR1 extends AbstractWorldControler {
                     e.setColor(Color.GREEN);
                     e2.setColor(Color.GREEN);
                     endingGame = true;
+                    timeBreak=2000;
                 }
             }
         }
@@ -59,9 +62,11 @@ public class WorldControlerR1 extends AbstractWorldControler {
                 LOG.fine("pecker pos : " + e.getCoordinate());
                 if (e.getCoordinate().getY() < 0 || e.getCoordinate().getY() > Constants.SIZE_HEIGHT - DrawBird.SIZE_BIRD * 2) {
                     endingGame = true;
+                    timeBreak=2000;
                 }
                 if (e.getCoordinate().getX() < 0 || e.getCoordinate().getX() > Constants.SIZE_WIDE - DrawBird.SIZE_BIRD * 2) {
                     endingGame = true;
+                    timeBreak=2000;
                 }
                 break;
             }
@@ -90,11 +95,11 @@ public class WorldControlerR1 extends AbstractWorldControler {
     public void run() {
         int nmbRuns = 0;
         Timer timer = new Timer("loop");
-        ((LevelTest) getLevel()).setCurve(curves[nmbRuns]);
-        getLevel().init();
-        while (nmbRuns <= 5) {
+        while (nmbRuns < curves.length) {
+            ((LevelTest) getLevel()).setCurve(curves[nmbRuns]);
+            getLevel().init();
             for (WorldRenderer worldRenderer : getWorldRenderers()) {
-                worldRenderer.setTextDisplayed(((LevelTest) getLevel()).getCurve().toString());
+                worldRenderer.setTextDisplayed((nmbRuns + 1) + " : " + ((LevelTest) getLevel()).getCurve().toString());
             }
 
             // keep looping round til the game ends
@@ -104,16 +109,15 @@ public class WorldControlerR1 extends AbstractWorldControler {
             timer.purge();
             render();
             LOG.finest("Timer is over !");
-            ((LevelTest) getLevel()).setCurve(curves[nmbRuns]);
-            getLevel().init();
             nmbRuns++;
             setGameRunning(true);
 
             try {
-                Thread.sleep(200);
+                Thread.sleep(timeBreak);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            timeBreak=1000;
         }
         timer.cancel();
     }
@@ -158,10 +162,6 @@ public class WorldControlerR1 extends AbstractWorldControler {
                 cancel();
             }
         }
-    }
-
-    private void singleRun(ParamCurve curve, Coordinate2D pos) {
-
     }
 
 

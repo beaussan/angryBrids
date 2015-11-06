@@ -12,7 +12,7 @@ public class ArchimedeSpiral extends ParamCurve {
     public final double tMax = 10;
     public double a = 400;
 
-    public ArchimedeSpiral(int a) {
+    public ArchimedeSpiral(double a) {
         this.a = a;
     }
 
@@ -42,7 +42,7 @@ public class ArchimedeSpiral extends ParamCurve {
      */
     @Override
     public double x(double t) {
-        return a*(t* cos(t));
+        return a*(t* cos(t))+100;
     }
 
     /** {@inheritDoc} */
