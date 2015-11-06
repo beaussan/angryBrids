@@ -23,18 +23,21 @@ public class PeckerCurveTest {
         Obstacle obstacle = new Obstacle(new Coordinate2D(200, 200));
         Obstacle obstacle2 = new Obstacle(new Coordinate2D(0, 0));
 
+        /*
         System.out.println(peckerCurve.getLsShapes());
         System.out.println(obstacle.getLsShapes());
         System.out.println("Avant: x:" + peckerCurve.getCoordinate().getX() + " y:" + peckerCurve.getCoordinate().getY());
         System.out.println("Avant(obstacle): x:" + obstacle.getCoordinate().getX() + " y:" + obstacle.getCoordinate().getY());
-
+*/
         peckerCurve.update(1000);
 
+        /*
         System.out.println(peckerCurve.getLsShapes());
         System.out.println(obstacle.getLsShapes());
         System.out.println(peckerCurve.getLsShapes().get(0).intersects(obstacle.getLsShapes().get(0).getBounds2D()));
         System.out.println("Après: x:" + peckerCurve.getCoordinate().getX() + " y:" + peckerCurve.getCoordinate().getY());
         System.out.println("Après(obstacle): x:" + obstacle.getCoordinate().getX() + " y:" + obstacle.getCoordinate().getY());
+	*/
 
         assertTrue(peckerCurve.overlap(obstacle));
         assertFalse(peckerCurve.overlap(obstacle2));
