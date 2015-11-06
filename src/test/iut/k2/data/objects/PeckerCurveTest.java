@@ -5,13 +5,14 @@ import iut.k2.data.objects.PeckerCurve;
 import iut.k2.physics.Coordinate2D;
 import iut.k2.physics.functions.ParamCurve;
 import iut.k2.physics.functions.SimpleLine;
-import junit.framework.TestCase;
-import org.testng.annotations.Test;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
  * Created by Nicolas Beaussart on 04/11/15 for angryBrids.
  */
-public class PeckerCurveTest extends TestCase {
+public class PeckerCurveTest {
 
     //Problem: Entities don't have a shape at their initialization
     //Possible Solution n°1: Add a default shape for every entity at their initialization

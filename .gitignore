@@ -65,5 +65,5 @@ hs_err_pid*
 
 ### Exclude libs
 !lib
-!lib/testng.jar
+!lib/*.jar
 /bin/
