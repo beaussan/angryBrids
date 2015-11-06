@@ -31,6 +31,14 @@ public abstract class Level {
         init();
     }
 
+
+    /**
+     * Add a object to render
+     * Example:
+     * 1 : Background
+     * 2 : Bird
+     * 3 : Obstacles
+     */
     public boolean addRenderObject(AbstractGameObject abstractGameObject, int level) {
         if (!lsObjects.containsKey(level)) {
             lsObjects.put(level, new ArrayList<AbstractGameObject>());
@@ -42,6 +50,15 @@ public abstract class Level {
         return res;
     }
 
+
+    /**
+     * The map lsObjects defines the order each set
+     * of AbstractGameObject has to be displayed
+     * Example:
+     * 1 : Background
+     * 2 : Bird
+     * 3 : Obstacles
+     */
     public boolean addRenderObject(AbstractGameObject abstractGameObject) {
         return addRenderObject(abstractGameObject, 0);
     }

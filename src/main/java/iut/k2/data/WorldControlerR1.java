@@ -85,6 +85,9 @@ public class WorldControlerR1 extends AbstractWorldControler {
         handleDebugInput();
     }
 
+    /**
+     * render on allss renderers
+     */
     public void render() {
         for (WorldRenderer worldRenderer : getWorldRenderers()) {
             worldRenderer.render();
@@ -122,6 +125,10 @@ public class WorldControlerR1 extends AbstractWorldControler {
         timer.cancel();
     }
 
+    /**
+     * update the level
+     * @param deltaTime the time between two frames
+     */
     public void update(float deltaTime) {
         getLevel().update(deltaTime);
     }
