@@ -1,4 +1,4 @@
-package test.iut.k2.physics;
+package iut.k2.physics;
 
 import iut.k2.physics.Coordinate2D;
 import org.junit.Rule;

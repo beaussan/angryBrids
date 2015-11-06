@@ -62,8 +62,11 @@ hs_err_pid*
 
 ### Eclipse light
 .settings/
+.project
+.classpath
 
 ### Exclude libs
 !lib
 !lib/*.jar
+!/gradle/wrapper/*
 /bin/

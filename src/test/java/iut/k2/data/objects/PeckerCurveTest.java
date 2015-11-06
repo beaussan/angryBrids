@@ -1,4 +1,4 @@
-package test.iut.k2.data.objects;
+package iut.k2.data.objects;
 
 import iut.k2.data.objects.Obstacle;
 import iut.k2.data.objects.PeckerCurve;
