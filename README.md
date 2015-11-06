@@ -13,7 +13,9 @@ Liste des membres :
 ## Installer gradle
 
 Si vous êtes sur une machine avec le proxy de Lille 1 : 
-```./gradleWProxy```
+```
+./gradleWProxy
+```
 
 sinon si vous êtes sous windows : 
 ```
@@ -21,20 +23,30 @@ gradlew.bat
 ```
 
 sinon :
-```./gradlew ```
+```
+./gradlew
+ ```
 
 ### Tasks
 
-#### pour run : ``` ./gradlew run ```
-#### pour les tests : ``` ./gradlew test ```
+#### pour run : ```
+./gradlew run
+```
+#### pour les tests : ```
+./gradlew test
+```
 
 le raport générer est dans : build/reports/index.html
 
-#### pour générer le jar :  ``` ./gradlew jar ```
+#### pour générer le jar :  ```
+./gradlew jar
+```
 
 Il se trouve dans : build/libs
 
-#### pour générer la javadoc : ``` ./gradlew javadoc ```
+#### pour générer la javadoc : ```
+./gradlew javadoc
+```
 
 il se trouve dans /build/docs
 
