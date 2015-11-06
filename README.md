@@ -29,22 +29,26 @@ sinon :
 
 ### Tasks
 
-#### pour run : ```
+#### pour run :
+```
 ./gradlew run
 ```
-#### pour les tests : ```
+#### pour les tests :
+```
 ./gradlew test
 ```
 
 le raport générer est dans : build/reports/index.html
 
-#### pour générer le jar :  ```
+#### pour générer le jar :
+ ```
 ./gradlew jar
 ```
 
 Il se trouve dans : build/libs
 
-#### pour générer la javadoc : ```
+#### pour générer la javadoc :
+```
 ./gradlew javadoc
 ```
 
