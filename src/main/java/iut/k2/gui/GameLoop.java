@@ -6,9 +6,12 @@ import iut.k2.data.objects.Montain;
 import iut.k2.data.objects.TestObject;
 import iut.k2.physics.Coordinate2D;
 
+import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+
+import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Created by Nicolas Beaussart on 13/10/15 for angryBrids.
@@ -44,7 +47,8 @@ public class GameLoop extends JFrame {
     private BufferStrategy strategy;
     private boolean gameRunning = true;
 
-    public GameLoop(AbstractWorldControler abstractWorldControler) {
+    public GameLoop(@Nonnull AbstractWorldControler abstractWorldControler) {
+        checkNotNull(abstractWorldControler);
 
         addKeyListener(abstractWorldControler.getKeyMap());
 

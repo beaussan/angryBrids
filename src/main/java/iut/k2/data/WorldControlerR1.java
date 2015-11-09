@@ -7,6 +7,7 @@ import iut.k2.gui.renderfunc.DrawBird;
 import iut.k2.physics.functions.*;
 import iut.k2.util.loggin.UtilLog;
 
+import javax.annotation.Nonnull;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.List;
@@ -34,7 +35,7 @@ public class WorldControlerR1 extends AbstractWorldControler {
             new SimpleLine(1, 0.4, 300, 300),
             new SquareParam(1, Constants.SIZE_WIDE)};
 
-    public WorldControlerR1(Level level) {
+    public WorldControlerR1(@Nonnull Level level) {
         super(level);
     }
 

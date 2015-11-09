@@ -4,6 +4,7 @@ import iut.k2.physics.Coordinate2D;
 import iut.k2.util.Tools;
 import iut.k2.util.loggin.UtilLog;
 
+import javax.annotation.Nonnull;
 import java.awt.*;
 import java.util.Random;
 import java.util.logging.Logger;
@@ -25,7 +26,7 @@ public class TestObject extends Entity {
         this(c, true);
     }
 
-    public TestObject(Coordinate2D c, boolean isMoving) {
+    public TestObject(@Nonnull Coordinate2D c, boolean isMoving) {
         super(c);
         int maxSpeed = 200 * 5;
         curr = ON;
@@ -39,7 +40,7 @@ public class TestObject extends Entity {
     }
 
     @Override
-    public void render(Graphics batch) {
+    public void render(@Nonnull Graphics batch) {
         batch.setColor(curr);
         Coordinate2D toOut;
         toOut = Tools.getSwingCords(getCoordinate());

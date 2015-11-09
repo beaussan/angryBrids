@@ -3,6 +3,7 @@ package iut.k2.data.objects;
 
 import iut.k2.physics.Coordinate2D;
 
+import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ public abstract class Entity extends AbstractGameObject {
     protected Coordinate2D c;
     private List<Shape> lsShapes;
 
-    public Entity(Coordinate2D c) {
+    public Entity(@Nullable Coordinate2D c) {
         this.c = (c == null) ? new Coordinate2D(10, 10) : c;
         lsShapes = new ArrayList<>();
     }

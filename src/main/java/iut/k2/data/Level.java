@@ -3,11 +3,14 @@ package iut.k2.data;
 import iut.k2.data.objects.AbstractGameObject;
 import iut.k2.data.objects.Entity;
 
+import javax.annotation.Nonnull;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+
+import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Created by Nicolas Beaussart on 13/10/15 for angryBrids.
@@ -39,7 +42,10 @@ public abstract class Level {
      * 2 : Bird
      * 3 : Obstacles
      */
-    public boolean addRenderObject(AbstractGameObject abstractGameObject, int level) {
+    public boolean addRenderObject(@Nonnull AbstractGameObject abstractGameObject,
+                                   int level) {
+        checkNotNull(abstractGameObject);
+
         if (!lsObjects.containsKey(level)) {
             lsObjects.put(level, new ArrayList<AbstractGameObject>());
         }
@@ -91,7 +97,7 @@ public abstract class Level {
      * Renders the list of Objects contained in the level
      * @param g graphics
      */
-    public void render(Graphics g) {
+    public void render(@Nonnull Graphics g) {
         for (Integer in : lsObjects.keySet()) {
             for (AbstractGameObject ago : lsObjects.get(in)) {
                 ago.render(g);

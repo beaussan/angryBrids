@@ -6,12 +6,15 @@ import iut.k2.physics.functions.ParamCurve;
 import iut.k2.util.Tools;
 import iut.k2.util.loggin.UtilLog;
 
+import javax.annotation.Nonnull;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
+
+import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Created by Nicolas Beaussart on 15/10/15 for angryBrids.
@@ -32,9 +35,9 @@ public class PeckerCurve extends Entity {
     private Color colBird = DrawBird.COLOR_BODY;
 
 
-    public PeckerCurve(Coordinate2D c, ParamCurve curve) {
+    public PeckerCurve(Coordinate2D c, @Nonnull ParamCurve curve) {
         super(c);
-        this.curve = curve;
+        this.curve = checkNotNull(curve);
         INIT_CORDS = c;
 
         addShape(new Ellipse2D.Double((int) getCoordinate().getX() - DrawBird.SIZE_BIRD / 2,

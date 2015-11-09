@@ -1,5 +1,6 @@
 package iut.k2.util;
 
+import com.google.common.base.Preconditions;
 import iut.k2.Constants;
 import iut.k2.physics.Coordinate2D;
 
