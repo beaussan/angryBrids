@@ -65,6 +65,10 @@ hs_err_pid*
 .project
 .classpath
 
+### gradle
+build
+.gradle
+
 ### Exclude libs
 !lib
 !lib/*.jar
