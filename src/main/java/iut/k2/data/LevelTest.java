@@ -2,54 +2,21 @@ package iut.k2.data;
 
 import iut.k2.Constants;
 import iut.k2.data.objects.AbstractGameObject;
+import iut.k2.data.objects.Montain;
 import iut.k2.data.objects.Obstacle;
-import iut.k2.data.objects.PeckerCurve;
+import iut.k2.data.objects.Pecker;
 import iut.k2.physics.Coordinate2D;
-import iut.k2.physics.functions.ParamCurve;
-import iut.k2.physics.functions.SquareParam;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class LevelTest extends Level {
-    private ParamCurve curve;
     private Coordinate2D startPos;
 
     public LevelTest() {
-        curve = new SquareParam(2, Constants.SIZE_WIDE);
         startPos = new Coordinate2D(10, 10);
         init();
-    }
-
-    public LevelTest(ParamCurve curve, Coordinate2D startPos) {
-        this.curve = curve;
-        this.startPos = (startPos == null) ? new Coordinate2D(0, 0) : startPos;
-        init();
-    }
-
-    public LevelTest(ParamCurve curve) {
-        this.curve = curve;
-        startPos = new Coordinate2D(10, 10);
-        init();
-    }
-
-    /**
-     * Getter for property 'curve'.
-     *
-     * @return Value for property 'curve'.
-     */
-    public ParamCurve getCurve() {
-        return curve;
-    }
-
-    /**
-     * Setter for property 'curve'.
-     *
-     * @param curve Value to set for property 'curve'.
-     */
-    public void setCurve(ParamCurve curve) {
-        this.curve = curve;
     }
 
     /**
@@ -79,11 +46,16 @@ public class LevelTest extends Level {
         Random r = new Random();
         int nbObstacles = r.nextInt(6) + 5;
 
+
+        addRenderObject(new Montain("sprites/mountain_left.png", new Coordinate2D(-20, -60), 200, 200, 200), -1);
+        addRenderObject(new Montain("sprites/mountain_right.png", new Coordinate2D(-90, -30), 150, 150, 150), -2);
+        addRenderObject(new Montain("sprites/mountain_left.png", new Coordinate2D(-60, -15), 100, 100, 100), -3);
+
         //Création de l'oiseau
         //Pecker p = new Pecker(new Coordinate2D(0, 0));
 
         //Attention à ne pas trop augmenter la pente
-        PeckerCurve p = new PeckerCurve(startPos, curve);
+        Pecker p = new Pecker(startPos);
 
         // ajout du piaf dans les données au plan 1
         addRenderObject(p, 1);

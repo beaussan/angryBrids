@@ -33,8 +33,8 @@ public class GameLoop extends JFrame {
                 addRenderObject(new Montain("sprites/mountain_left.png", new Coordinate2D(-60, -15), 100, 100, 100), -3);
             }
         };
-        AbstractWorldControler abstractWorldControler = new WorldControlerR1(l);
-        abstractWorldControler = new WorldControlerR1(new LevelTest());
+        AbstractWorldControler abstractWorldControler = new WorldControlerR2(l);
+        abstractWorldControler = new WorldControlerR2(new LevelTest());
         new GameLoop(abstractWorldControler);
         new GameLoop(abstractWorldControler);
 

@@ -2,10 +2,10 @@ package iut.k2.data;
 
 import iut.k2.Constants;
 import iut.k2.data.objects.Entity;
-import iut.k2.data.objects.PeckerCurve;
+import iut.k2.data.objects.Pecker;
 import iut.k2.gui.renderfunc.DrawBird;
-import iut.k2.physics.functions.*;
-import iut.k2.util.loggin.UtilLog;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
@@ -13,29 +13,18 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.logging.Logger;
 
 /**
  * Created by Nicolas Beaussart on 13/10/15 for angryBrids.
  */
-public class WorldControlerR1 extends AbstractWorldControler {
-    private final static Logger LOG = UtilLog.getLog(WorldControlerR1.class.getName());
+public class WorldControlerR2 extends AbstractWorldControler {
+    private final static Logger LOG = LoggerFactory.getLogger(WorldControlerR2.class);
+    private final static int NMB_RUNS = 10;
     private final long TIME_MAX_MS = 15000;
     private long timeBreak= 1000;
     private boolean endingGame = false;
-    private ParamCurve[] curves = new ParamCurve[]{
-            new ArchimedeSpiral(-0.1),
-            new SquareParamSin(5,Constants.SIZE_WIDE),
-            new SimpleLine(1, 1, 300, 300),
-            new SquareParam(2.5, Constants.SIZE_WIDE),
-            new SquareParam(2.2, Constants.SIZE_WIDE),
-            new SquareParam(1.8, Constants.SIZE_WIDE),
-            new SquareParam(3, Constants.SIZE_WIDE),
-            new SquareParam(1.3, Constants.SIZE_WIDE),
-            new SimpleLine(1, 0.4, 300, 300),
-            new SquareParam(1, Constants.SIZE_WIDE)};
 
-    public WorldControlerR1(@Nonnull Level level) {
+    public WorldControlerR2(@Nonnull Level level) {
         super(level);
     }
 
@@ -50,7 +39,7 @@ public class WorldControlerR1 extends AbstractWorldControler {
                     continue;
                 }
                 if (e.overlap(e2)) {
-                    LOG.fine("Found colision ! e1 : " + e + " ; e2 : " + e2);
+                    LOG.debug("Found colision ! e1 : {} ; e2 : {}", e, e2);
                     e.setColor(Color.GREEN);
                     e2.setColor(Color.GREEN);
                     endingGame = true;
@@ -59,13 +48,13 @@ public class WorldControlerR1 extends AbstractWorldControler {
             }
         }
         for (Entity e : getLevel().getLsEntitys()) {
-            if (e instanceof PeckerCurve) {
-                LOG.fine("pecker pos : " + e.getCoordinate());
-                if (e.getCoordinate().getY() < 0 || e.getCoordinate().getY() > Constants.SIZE_HEIGHT - DrawBird.SIZE_BIRD * 2) {
+            if (e instanceof Pecker) {
+                LOG.trace("pecker pos : {}", e.getCoordinate());
+                if (e.getCoordinate().getY() < 0 || e.getCoordinate().getY() > Constants.SIZE_HEIGHT - DrawBird.SIZE_BIRD / 2) {
                     endingGame = true;
                     timeBreak=2000;
                 }
-                if (e.getCoordinate().getX() < 0 || e.getCoordinate().getX() > Constants.SIZE_WIDE - DrawBird.SIZE_BIRD * 2) {
+                if (e.getCoordinate().getX() < 0 || e.getCoordinate().getX() > Constants.SIZE_WIDE - DrawBird.SIZE_BIRD / 2) {
                     endingGame = true;
                     timeBreak=2000;
                 }
@@ -77,7 +66,7 @@ public class WorldControlerR1 extends AbstractWorldControler {
     public void handleDebugInput() {
         if (getKeyMap().getKey(KeyEvent.VK_D)) {
             for (Entity entity : getLevel().getLsEntitys()) {
-                LOG.fine("Entity : " + entity.getCoordinate());
+                LOG.trace("Entity : {}", entity.getCoordinate());
             }
         }
     }
@@ -99,12 +88,8 @@ public class WorldControlerR1 extends AbstractWorldControler {
     public void run() {
         int nmbRuns = 0;
         Timer timer = new Timer("loop");
-        while (nmbRuns < curves.length) {
-            ((LevelTest) getLevel()).setCurve(curves[nmbRuns]);
+        while (nmbRuns < NMB_RUNS) {
             getLevel().init();
-            for (WorldRenderer worldRenderer : getWorldRenderers()) {
-                worldRenderer.setTextDisplayed((nmbRuns + 1) + " : " + ((LevelTest) getLevel()).getCurve().toString());
-            }
 
             // keep looping round til the game ends
             timer.scheduleAtFixedRate(new RunTimer(), 0, 10);
@@ -112,7 +97,7 @@ public class WorldControlerR1 extends AbstractWorldControler {
             }
             timer.purge();
             render();
-            LOG.finest("Timer is over !");
+            LOG.debug("Timer is over !");
             nmbRuns++;
             setGameRunning(true);
 
@@ -151,19 +136,19 @@ public class WorldControlerR1 extends AbstractWorldControler {
             lastLoopTime = System.currentTimeMillis();
             cumul += delta;
 
-            LOG.finest("Handling input");
+            LOG.debug("Handling input");
             handleInput();
-            LOG.finest("Updating the game with " + delta + " of delta time");
+            LOG.debug("Updating the game with {} of delta time", delta);
             update(delta);
-            LOG.finest("Updating collisions");
+            LOG.debug("Updating collisions");
             checkColisions();
-            LOG.finest("Rendering !");
+            LOG.debug("Rendering !");
             render();
             if (cumul >= TIME_MAX_MS) {
                 endingGame = true;
             }
             if (endingGame) {
-                LOG.finest("Found out the game is over, purging the timer");
+                LOG.debug("Found out the game is over, purging the timer");
                 endingGame = false;
                 isRuning = false;
                 setGameRunning(false);

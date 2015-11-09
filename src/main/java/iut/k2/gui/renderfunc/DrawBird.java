@@ -1,10 +1,7 @@
 package iut.k2.gui.renderfunc;
 
-import iut.k2.util.loggin.UtilLog;
-
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
-import java.util.logging.Logger;
 
 
 /**
@@ -17,7 +14,6 @@ public class DrawBird {
     public static final int SIZE_SIDE = 10;
     public static final Color COLOR_ARROW = Color.ORANGE;
     public static final Color COLOR_BODY = Color.RED;
-    private final static Logger LOG = UtilLog.getLog(DrawBird.class.getName());
     public static boolean IS_SKELETON = false;
 
     public static Ellipse2D drawBird(double x, double y, double xNext, double yNext) {
@@ -103,7 +99,6 @@ public class DrawBird {
     
     	
 	public static double[] getPerpendiculaire(double x1, double y1, double x2, double y2) {
-        LOG.fine("" + lineEquation(x1, y1, x2, y2));
         //LOG.fine(getPerpendiculaire(lineEquation(x1, y1, x2, y2), x2, y2)[1]);
         return getPerpendiculaire(lineEquation(x1, y1, x2, y2), x2, y2);
 	}

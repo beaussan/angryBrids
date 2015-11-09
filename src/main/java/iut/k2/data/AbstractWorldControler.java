@@ -1,13 +1,13 @@
 package iut.k2.data;
 
 import iut.k2.util.KeyMap;
-import iut.k2.util.loggin.UtilLog;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.logging.Logger;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -15,7 +15,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Created by Nicolas Beaussart on 13/10/15 for angryBrids.
  */
 public abstract class AbstractWorldControler implements Runnable {
-    private final static Logger LOG = UtilLog.getLog(AbstractWorldControler.class.getName());
+    private final static Logger LOG = LoggerFactory.getLogger(AbstractWorldControler.class);
     private final KeyMap keyMap;
     private final Level level;
     private final List<WorldRenderer> worldRenderers;
@@ -59,7 +59,7 @@ public abstract class AbstractWorldControler implements Runnable {
 
     public void setGameRunning(boolean gameRunning) {
         this.gameRunning = gameRunning;
-        LOG.finest("Setting game runing to " + gameRunning);
+        LOG.trace("Setting game runing to {}", gameRunning);
     }
 
     public boolean removeRenderer(WorldRenderer o) {

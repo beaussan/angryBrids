@@ -2,12 +2,12 @@ package iut.k2.data.objects;
 
 import iut.k2.physics.Coordinate2D;
 import iut.k2.util.Tools;
-import iut.k2.util.loggin.UtilLog;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
 import java.util.Random;
-import java.util.logging.Logger;
 
 
 /**
@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  */
 public class TestObject extends Entity {
 
-    private final static Logger LOG = UtilLog.getLog(TestObject.class.getName());
+    private final static Logger LOG = LoggerFactory.getLogger(Entity.class);
     private static final Color ON = Color.GREEN;
     private static final Color OFF = Color.RED;
     private final Coordinate2D dirr;
@@ -44,8 +44,7 @@ public class TestObject extends Entity {
         batch.setColor(curr);
         Coordinate2D toOut;
         toOut = Tools.getSwingCords(getCoordinate());
-        //toOut = new Coordinate2D(getCoordinate().getX(),Constants.SIZE_HEIGHT)
-        LOG.fine("Drawing at : " + toOut + "\t std : " + getCoordinate());
+        LOG.trace("Drawing at : {}\t std : {}", toOut, getCoordinate());
         batch.fillOval((int) toOut.getX() + 5, (int) toOut.getY() + 5, 10, 10);
     }
 

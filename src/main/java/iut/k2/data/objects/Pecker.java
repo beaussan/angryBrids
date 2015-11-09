@@ -1,14 +1,13 @@
 package iut.k2.data.objects;
 
 import iut.k2.physics.Coordinate2D;
-import iut.k2.physics.Vector;
 
 import java.awt.*;
 
 public class Pecker extends Entity {
 
 	double positionBec;
-	Vector vector;
+	Coordinate2D vector;
 
 	public Pecker(Coordinate2D c) {
 		super(c);
@@ -37,11 +36,7 @@ public class Pecker extends Entity {
 	public void update(double t){
 		updatePosition(t);
 	}
-	
-	public void updateBec(double radian){
-		//TODO radian = vector.
-		positionBec = radian%(2*Math.PI);
-	}
+
 
 	public void updatePosition(double t) {
 		c = new Coordinate2D(t, Math.pow(t, 2));
