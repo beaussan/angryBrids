@@ -12,6 +12,7 @@ buildscript {
     repositories { jcenter() }
     dependencies {
         // fatJar with dependencies
+        // https://github.com/johnrengelman/shadow
         classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.2'
     }
 }
@@ -46,7 +47,8 @@ repositories {
 // In this section you declare the dependencies for your production and test code
 dependencies {
     // The production code uses the SLF4J logging API at compile time
-    // compile 'org.slf4j:slf4j-api:1.7.12'
+    compile 'org.slf4j:slf4j-api:1.7.12',
+            'ch.qos.logback:logback-classic:1.0.9'
 
 
     compile 'com.google.code.findbugs:jsr305:3.0.0'
