@@ -1,9 +1,13 @@
 package iut.k2.data;
 
+import com.google.common.base.Strings;
 import iut.k2.Constants;
 
+import javax.annotation.Nonnull;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+
+import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Created by Nicolas Beaussart on 13/10/15 for angryBrids.
@@ -13,9 +17,10 @@ public class WorldRenderer {
     private AbstractWorldControler abstractWorldControler;
     private String textDisplayed;
 
-    public WorldRenderer(BufferStrategy strategy, AbstractWorldControler abstractWorldControler) {
-        this.strategy = strategy;
-        this.abstractWorldControler = abstractWorldControler;
+    public WorldRenderer(@Nonnull BufferStrategy strategy,
+                         @Nonnull AbstractWorldControler abstractWorldControler) {
+        this.strategy = checkNotNull(strategy);
+        this.abstractWorldControler = checkNotNull(abstractWorldControler);
         abstractWorldControler.addRenderer(this);
     }
 
@@ -34,7 +39,7 @@ public class WorldRenderer {
      * @param textDisplayed Value to set for property 'textDisplayed'.
      */
     public void setTextDisplayed(String textDisplayed) {
-        this.textDisplayed = textDisplayed;
+        this.textDisplayed = Strings.nullToEmpty(textDisplayed);
     }
 
     public void render() {
@@ -44,7 +49,8 @@ public class WorldRenderer {
         strategy.show();
     }
 
-    public void render(Graphics g) {
+    public void render(@Nonnull Graphics g) {
+        checkNotNull(g, "Graphics must not be null !");
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, Constants.SIZE_WIDE + 20, Constants.SIZE_HEIGHT + 20);
         writeTxtInfo(g);
@@ -52,7 +58,7 @@ public class WorldRenderer {
         renderAxis(g);
     }
 
-    public void writeTxtInfo(Graphics g) {
+    private void writeTxtInfo(Graphics g) {
         if (textDisplayed == null || textDisplayed.equals("")) {
             return;
         }

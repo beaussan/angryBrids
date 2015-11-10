@@ -3,14 +3,14 @@ package iut.k2.gui;
 import iut.k2.Constants;
 import iut.k2.data.*;
 import iut.k2.data.objects.Montain;
-import iut.k2.data.objects.PeckerCurve;
-import iut.k2.data.objects.TestObject;
 import iut.k2.physics.Coordinate2D;
-import iut.k2.util.loggin.UtilLog;
 
+import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+
+import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Created by Nicolas Beaussart on 13/10/15 for angryBrids.
@@ -20,23 +20,13 @@ public class GameLoop extends JFrame {
         Level l = new Level() {
             @Override
             public void init() {
-                for (int i = 0; i < 9000; i++) {
-                    addRenderObject(new TestObject(new Coordinate2D(200, 200)), 0);
-                }
-                addRenderObject(new TestObject(new Coordinate2D(50, 50), false));
-                addRenderObject(new TestObject(new Coordinate2D(20, 20), false));
-                addRenderObject(new TestObject(new Coordinate2D(10, 10), false));
-                addRenderObject(new TestObject(new Coordinate2D(1, 1), false));
                 addRenderObject(new Montain("sprites/mountain_left.png", new Coordinate2D(-20, -60), 200, 200, 200), -1);
                 addRenderObject(new Montain("sprites/mountain_right.png", new Coordinate2D(-90, -30), 150, 150, 150), -2);
                 addRenderObject(new Montain("sprites/mountain_left.png", new Coordinate2D(-60, -15), 100, 100, 100), -3);
             }
         };
-        UtilLog.setLevelGlobal(java.util.logging.Level.ALL, WorldControlerR1.class.getName());
-        UtilLog.setLevelGlobal(java.util.logging.Level.ALL, GameLoop.class.getName());
-        UtilLog.setLevelGlobal(java.util.logging.Level.ALL, PeckerCurve.class.getName());
-        AbstractWorldControler abstractWorldControler = new WorldControlerR1(l);
-        abstractWorldControler = new WorldControlerR1(new LevelTest());
+        AbstractWorldControler abstractWorldControler = new WorldControlerR2(l);
+        abstractWorldControler = new WorldControlerR2(new LevelTest());
         new GameLoop(abstractWorldControler);
         new GameLoop(abstractWorldControler);
 
@@ -49,7 +39,8 @@ public class GameLoop extends JFrame {
     private BufferStrategy strategy;
     private boolean gameRunning = true;
 
-    public GameLoop(AbstractWorldControler abstractWorldControler) {
+    public GameLoop(@Nonnull AbstractWorldControler abstractWorldControler) {
+        checkNotNull(abstractWorldControler);
 
         addKeyListener(abstractWorldControler.getKeyMap());
 

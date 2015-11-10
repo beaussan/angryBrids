@@ -14,8 +14,9 @@
  */
 package iut.k2.physics;
 
-import static iut.k2.util.Preconditions.checkNotNull;
-import static iut.k2.util.Preconditions.checkState;
+
+import static com.google.common.base.Preconditions.checkNotNull;
+import static com.google.common.base.Preconditions.checkState;
 
 /**
  * The Coordinate2D class.

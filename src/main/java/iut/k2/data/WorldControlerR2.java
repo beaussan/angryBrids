@@ -1,42 +1,47 @@
 package iut.k2.data;
 
-import iut.k2.Constants;
 import iut.k2.data.objects.Entity;
-import iut.k2.data.objects.PeckerCurve;
-import iut.k2.gui.renderfunc.DrawBird;
-import iut.k2.physics.Coordinate2D;
-import iut.k2.physics.functions.ParamCurve;
-import iut.k2.physics.functions.SimpleLine;
-import iut.k2.physics.functions.SquareParam;
-import iut.k2.util.loggin.UtilLog;
+import iut.k2.data.objects.Pecker;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import javax.annotation.Nonnull;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.logging.Logger;
 
 /**
  * Created by Nicolas Beaussart on 13/10/15 for angryBrids.
  */
-public class WorldControlerR1 extends AbstractWorldControler {
-    private final static Logger LOG = UtilLog.getLog(WorldControlerR1.class.getName());
-    private final float TIME_MAX_MS = 5000;
+public class WorldControlerR2 extends AbstractWorldControler {
+    private final static Logger LOG = LoggerFactory.getLogger(WorldControlerR2.class);
+    private final static int NMB_RUNS = 10;
+    private final long TIME_MAX_MS = 15000;
+    private long timeBreak= 1000;
     private boolean endingGame = false;
-    private ParamCurve[] curves = new ParamCurve[]{
-            new SquareParam(2, Constants.SIZE_WIDE),
-            new SimpleLine(1, 1, 300, 300),
-            new SquareParam(2.5, Constants.SIZE_WIDE),
-            new SquareParam(2.2, Constants.SIZE_WIDE),
-            new SquareParam(1.8, Constants.SIZE_WIDE),
-            new SquareParam(3, Constants.SIZE_WIDE)};
 
-    public WorldControlerR1(Level level) {
+    public WorldControlerR2(@Nonnull Level level) {
         super(level);
     }
 
+    public void bouncyBird() {
+
+        for (Entity e : getLevel().getLsEntitys()) {
+            if (e instanceof Pecker) {
+                LOG.trace("pecker pos : {}", e.getCoordinate());
+                if (e.getCoordinate().getY() < 0) {
+                    e.getCoordinate().setY(0);
+                    e.getVelocity().setY(-e.getVelocity().getY() / 2);
+                    e.getVelocity().setX(e.getVelocity().getX() / 1.2);
+                }
+            }
+        }
+    }
+
     public void checkColisions() {
+
         List<Entity> lsEntity = getLevel().getLsEntitys();
         for (Entity e : lsEntity) {
             for (Entity e2 : lsEntity) {
@@ -47,31 +52,21 @@ public class WorldControlerR1 extends AbstractWorldControler {
                     continue;
                 }
                 if (e.overlap(e2)) {
-                    LOG.fine("Found colision ! e1 : " + e + " ; e2 : " + e2);
+                    LOG.debug("Found colision ! e1 : {} ; e2 : {}", e, e2);
                     e.setColor(Color.GREEN);
                     e2.setColor(Color.GREEN);
                     endingGame = true;
+                    timeBreak=2000;
                 }
             }
         }
-        for (Entity e : getLevel().getLsEntitys()) {
-            if (e instanceof PeckerCurve) {
-                LOG.fine("pecker pos : " + e.getCoordinate());
-                if (e.getCoordinate().getY() < 0 || e.getCoordinate().getY() > Constants.SIZE_HEIGHT - DrawBird.SIZE_BIRD * 2) {
-                    endingGame = true;
-                }
-                if (e.getCoordinate().getX() < 0 || e.getCoordinate().getX() > Constants.SIZE_WIDE - DrawBird.SIZE_BIRD * 2) {
-                    endingGame = true;
-                }
-                break;
-            }
-        }
+        bouncyBird();
     }
 
     public void handleDebugInput() {
         if (getKeyMap().getKey(KeyEvent.VK_D)) {
             for (Entity entity : getLevel().getLsEntitys()) {
-                LOG.fine("Entity : " + entity.getCoordinate());
+                LOG.trace("Entity : {}", entity.getCoordinate());
             }
         }
     }
@@ -80,6 +75,9 @@ public class WorldControlerR1 extends AbstractWorldControler {
         handleDebugInput();
     }
 
+    /**
+     * render on allss renderers
+     */
     public void render() {
         for (WorldRenderer worldRenderer : getWorldRenderers()) {
             worldRenderer.render();
@@ -90,12 +88,8 @@ public class WorldControlerR1 extends AbstractWorldControler {
     public void run() {
         int nmbRuns = 0;
         Timer timer = new Timer("loop");
-        ((LevelTest) getLevel()).setCurve(curves[nmbRuns]);
-        getLevel().init();
-        while (nmbRuns <= 5) {
-            for (WorldRenderer worldRenderer : getWorldRenderers()) {
-                worldRenderer.setTextDisplayed(((LevelTest) getLevel()).getCurve().toString());
-            }
+        while (nmbRuns < NMB_RUNS) {
+            getLevel().init();
 
             // keep looping round til the game ends
             timer.scheduleAtFixedRate(new RunTimer(), 0, 10);
@@ -103,21 +97,24 @@ public class WorldControlerR1 extends AbstractWorldControler {
             }
             timer.purge();
             render();
-            LOG.finest("Timer is over !");
-            ((LevelTest) getLevel()).setCurve(curves[nmbRuns]);
-            getLevel().init();
+            LOG.debug("Timer is over !");
             nmbRuns++;
             setGameRunning(true);
 
             try {
-                Thread.sleep(200);
+                Thread.sleep(timeBreak);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            timeBreak=1000;
         }
         timer.cancel();
     }
 
+    /**
+     * update the level
+     * @param deltaTime the time between two frames
+     */
     public void update(float deltaTime) {
         getLevel().update(deltaTime);
     }
@@ -139,29 +136,25 @@ public class WorldControlerR1 extends AbstractWorldControler {
             lastLoopTime = System.currentTimeMillis();
             cumul += delta;
 
-            LOG.finest("Handling input");
+            LOG.debug("Handling input");
             handleInput();
-            LOG.finest("Updating the game with " + delta + " of delta time");
+            LOG.debug("Updating the game with {} of delta time", delta);
             update(delta);
-            LOG.finest("Updating collisions");
+            LOG.debug("Updating collisions");
             checkColisions();
-            LOG.finest("Rendering !");
+            LOG.debug("Rendering !");
             render();
             if (cumul >= TIME_MAX_MS) {
                 endingGame = true;
             }
             if (endingGame) {
-                LOG.finest("Found out the game is over, purging the timer");
+                LOG.debug("Found out the game is over, purging the timer");
                 endingGame = false;
                 isRuning = false;
                 setGameRunning(false);
                 cancel();
             }
         }
-    }
-
-    private void singleRun(ParamCurve curve, Coordinate2D pos) {
-
     }
 
 
