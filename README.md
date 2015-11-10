@@ -6,7 +6,7 @@ Liste des membres :
 
 * BEAUSSART Nicolas
 * DELTOUR Lucas
-* DUSSART Bastien
+* DUSART Bastien
 * D'HOOP Benjamin
 * SOLER Eddy
 
@@ -29,7 +29,7 @@ sinon : ` ./gradlew `
 ./gradlew test
 `
 
-le raport générer est dans : build/reports/index.html
+le rapport généré est dans : build/reports/index.html
 
 #### pour générer le jar :
 Pour juste le jar sans les librairies : 
@@ -38,7 +38,7 @@ Pour juste le jar sans les librairies :
 ./gradlew jar
 `
 
-Pour le jar complet avec dependances : 
+Pour le jar complet avec dépendances : 
 
 `
 ./gradlew shadowJar
@@ -51,7 +51,7 @@ Il se trouve dans : build/libs
 ./gradlew javadoc
 `
 
-il se trouve dans /build/docs
+Il se trouve dans : build/docs
 
 #### pour générer un zip distribuable :
 
@@ -60,7 +60,7 @@ il se trouve dans /build/docs
 `
 
 
-il se trouve dans /build/distributions
+Il se trouve dans /build/distributions
 
 
 ## Importer dans un IDE
@@ -70,7 +70,7 @@ il se trouve dans /build/distributions
 `
 gradlew eclipse
 `
-puis il sufit d'ouvrir le projet dans Eclipse
+puis il suffit d'ouvrir le projet dans Eclipse
 
 ### IntelliJ IDEA
 
