@@ -3,7 +3,6 @@ package iut.k2.gui;
 import iut.k2.Constants;
 import iut.k2.data.*;
 import iut.k2.data.objects.Montain;
-import iut.k2.data.objects.TestObject;
 import iut.k2.physics.Coordinate2D;
 
 import javax.annotation.Nonnull;
@@ -21,13 +20,6 @@ public class GameLoop extends JFrame {
         Level l = new Level() {
             @Override
             public void init() {
-                for (int i = 0; i < 9000; i++) {
-                    addRenderObject(new TestObject(new Coordinate2D(200, 200)), 0);
-                }
-                addRenderObject(new TestObject(new Coordinate2D(50, 50), false));
-                addRenderObject(new TestObject(new Coordinate2D(20, 20), false));
-                addRenderObject(new TestObject(new Coordinate2D(10, 10), false));
-                addRenderObject(new TestObject(new Coordinate2D(1, 1), false));
                 addRenderObject(new Montain("sprites/mountain_left.png", new Coordinate2D(-20, -60), 200, 200, 200), -1);
                 addRenderObject(new Montain("sprites/mountain_right.png", new Coordinate2D(-90, -30), 150, 150, 150), -2);
                 addRenderObject(new Montain("sprites/mountain_left.png", new Coordinate2D(-60, -15), 100, 100, 100), -3);

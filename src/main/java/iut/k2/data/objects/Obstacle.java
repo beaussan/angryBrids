@@ -29,9 +29,5 @@ public class Obstacle extends Entity {
         col = color;
     }
 
-    @Override
-    public void update(float deltaTime) {
-
-	}
 
 }

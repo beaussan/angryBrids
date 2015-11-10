@@ -1,9 +1,7 @@
 package iut.k2.data;
 
-import iut.k2.Constants;
 import iut.k2.data.objects.Entity;
 import iut.k2.data.objects.Pecker;
-import iut.k2.gui.renderfunc.DrawBird;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,7 +26,22 @@ public class WorldControlerR2 extends AbstractWorldControler {
         super(level);
     }
 
+    public void bouncyBird() {
+
+        for (Entity e : getLevel().getLsEntitys()) {
+            if (e instanceof Pecker) {
+                LOG.trace("pecker pos : {}", e.getCoordinate());
+                if (e.getCoordinate().getY() < 0) {
+                    e.getCoordinate().setY(0);
+                    e.getVelocity().setY(-e.getVelocity().getY() / 2);
+                    e.getVelocity().setX(e.getVelocity().getX() / 1.2);
+                }
+            }
+        }
+    }
+
     public void checkColisions() {
+
         List<Entity> lsEntity = getLevel().getLsEntitys();
         for (Entity e : lsEntity) {
             for (Entity e2 : lsEntity) {
@@ -47,20 +60,7 @@ public class WorldControlerR2 extends AbstractWorldControler {
                 }
             }
         }
-        for (Entity e : getLevel().getLsEntitys()) {
-            if (e instanceof Pecker) {
-                LOG.trace("pecker pos : {}", e.getCoordinate());
-                if (e.getCoordinate().getY() < 0 || e.getCoordinate().getY() > Constants.SIZE_HEIGHT - DrawBird.SIZE_BIRD / 2) {
-                    endingGame = true;
-                    timeBreak=2000;
-                }
-                if (e.getCoordinate().getX() < 0 || e.getCoordinate().getX() > Constants.SIZE_WIDE - DrawBird.SIZE_BIRD / 2) {
-                    endingGame = true;
-                    timeBreak=2000;
-                }
-                break;
-            }
-        }
+        bouncyBird();
     }
 
     public void handleDebugInput() {

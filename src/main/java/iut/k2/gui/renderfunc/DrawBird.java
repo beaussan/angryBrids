@@ -1,5 +1,8 @@
 package iut.k2.gui.renderfunc;
 
+import iut.k2.physics.Coordinate2D;
+import iut.k2.util.Tools;
+
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
@@ -16,11 +19,21 @@ public class DrawBird {
     public static final Color COLOR_BODY = Color.RED;
     public static boolean IS_SKELETON = false;
 
-    public static Ellipse2D drawBird(double x, double y, double xNext, double yNext) {
-        Graphics g = null;
-    	return drawBird(g, x, y, xNext, yNext, COLOR_BODY, COLOR_ARROW);
+    public static Ellipse2D drawBird(Graphics g, Coordinate2D cordsFrom, Coordinate2D cordsTo) {
+        return drawBird(g, cordsFrom, cordsTo, COLOR_BODY, COLOR_ARROW);
     }
-    
+
+
+    public static Ellipse2D drawBird(Graphics g, Coordinate2D cordsFrom, Coordinate2D cordsTo, Color colorBody) {
+        return drawBird(g, cordsFrom, cordsTo, colorBody, COLOR_ARROW);
+    }
+
+    public static Ellipse2D drawBird(Graphics g, Coordinate2D cordsFrom, Coordinate2D cordsTo, Color colorBody, Color colorArrow) {
+        Coordinate2D fromTransf = Tools.getSwingCords(cordsFrom);
+        Coordinate2D transfTo = Tools.getSwingCords(cordsTo);
+        return drawBird(g, fromTransf.getX(), fromTransf.getY(), transfTo.getX(), transfTo.getY(), colorBody, colorArrow);
+    }
+
     public static Ellipse2D drawBird(Graphics g, double x, double y, double xNext, double yNext) {
         return drawBird(g, x, y, xNext, yNext, COLOR_BODY, COLOR_ARROW);
     }
