@@ -70,7 +70,7 @@ Il se trouve dans /build/distributions
 `
 gradlew eclipse
 `
-puis il suffit d'ouvrir le projet dans Eclipse
+pour générer les .classpath et .project puis il suffit d'ouvrir le projet dans Eclipse
 
 Ou le plugin http://www.vogella.com/tutorials/EclipseGradle/article.html existe.
 
