@@ -72,6 +72,8 @@ gradlew eclipse
 `
 puis il suffit d'ouvrir le projet dans Eclipse
 
+Ou le plugin http://www.vogella.com/tutorials/EclipseGradle/article.html existe.
+
 ### IntelliJ IDEA
 
 ouvrir le build.gradle
