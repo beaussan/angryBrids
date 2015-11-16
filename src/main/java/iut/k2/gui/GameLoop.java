@@ -2,8 +2,6 @@ package iut.k2.gui;
 
 import iut.k2.Constants;
 import iut.k2.data.*;
-import iut.k2.data.objects.Montain;
-import iut.k2.physics.Coordinate2D;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
@@ -17,16 +15,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 public class GameLoop extends JFrame {
     public static void main(String[] args) {
-        Level l = new Level() {
-            @Override
-            public void init() {
-                addRenderObject(new Montain("sprites/mountain_left.png", new Coordinate2D(-20, -60), 200, 200, 200), -1);
-                addRenderObject(new Montain("sprites/mountain_right.png", new Coordinate2D(-90, -30), 150, 150, 150), -2);
-                addRenderObject(new Montain("sprites/mountain_left.png", new Coordinate2D(-60, -15), 100, 100, 100), -3);
-            }
-        };
+        Level l = new LevelTest();
         AbstractWorldControler abstractWorldControler = new WorldControlerR2(l);
-        abstractWorldControler = new WorldControlerR2(new LevelTest());
         new GameLoop(abstractWorldControler);
         new GameLoop(abstractWorldControler);
 

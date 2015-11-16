@@ -6,8 +6,10 @@
         </encoder>
     </appender>
 
-    <!-- comment this when final output -->
-    <logger name="iut.k2" level="TRACE"/>
+    <!-- comment this when final output
+    <logger name="iut.k2" level="DEBUG"/>
+    <logger name="iut.k2" level="TRACE"/>-->
+    <logger name="iut.k2" level="DEBUG"/>
 
 
     <root level="WARN">

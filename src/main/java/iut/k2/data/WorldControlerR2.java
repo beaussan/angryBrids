@@ -33,7 +33,14 @@ public class WorldControlerR2 extends AbstractWorldControler {
                 LOG.trace("pecker pos : {}", e.getCoordinate());
                 if (e.getCoordinate().getY() < 0) {
                     e.getCoordinate().setY(0);
-                    e.getVelocity().setY(-e.getVelocity().getY() / 2);
+                    if (e.getVelocity().getY()  >= -10){
+                        e.getAcceleration().setX(0);
+                        e.getAcceleration().setY(0);
+                        e.getVelocity().setX(0);
+                        e.getVelocity().setY(0);
+                    } else {
+                        e.getVelocity().setY(-e.getVelocity().getY() / 2);
+                    }
                     e.getVelocity().setX(e.getVelocity().getX() / 1.2);
                 }
             }
@@ -136,13 +143,13 @@ public class WorldControlerR2 extends AbstractWorldControler {
             lastLoopTime = System.currentTimeMillis();
             cumul += delta;
 
-            LOG.debug("Handling input");
+            LOG.trace("Handling input");
             handleInput();
-            LOG.debug("Updating the game with {} of delta time", delta);
+            LOG.trace("Updating the game with {} of delta time", delta);
             update(delta);
-            LOG.debug("Updating collisions");
+            LOG.trace("Updating collisions");
             checkColisions();
-            LOG.debug("Rendering !");
+            LOG.trace("Rendering !");
             render();
             if (cumul >= TIME_MAX_MS) {
                 endingGame = true;

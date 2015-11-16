@@ -6,16 +6,25 @@ import iut.k2.data.objects.Montain;
 import iut.k2.data.objects.Obstacle;
 import iut.k2.data.objects.Pecker;
 import iut.k2.physics.Coordinate2D;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class LevelTest extends Level {
-    private Coordinate2D startPos;
+    private final static Logger LOG = LoggerFactory.getLogger(LevelTest.class);
+    private Coordinate2D startPos = new Coordinate2D(10, 10);
 
     public LevelTest() {
-        startPos = new Coordinate2D(10, 10);
+        this(new Coordinate2D(10, 10));
+    }
+    public LevelTest(Coordinate2D source) {
+        super();
+        LOG.debug("Creating level test");
+        startPos = source;
+        LOG.debug("Start pos = {}", startPos);
         init();
     }
 
@@ -29,20 +38,14 @@ public class LevelTest extends Level {
     }
 
     /**
-     * Setter for property 'startPos'.
-     *
-     * @param startPos Value to set for property 'startPos'.
-     */
-    public void setStartPos(Coordinate2D startPos) {
-        this.startPos = startPos;
-    }
-
-    /**
      * Le level de test contiendra 1 Pecker et 5 à 10 obstacles
      */
     public void init() {
+        LOG.debug("Inint test level");
+        LOG.debug("Start pos = {}", startPos);
         getLsEntitys().clear();
         getLsObjects().clear();
+
         Random r = new Random();
         int nbObstacles = r.nextInt(6) + 5;
 
@@ -55,7 +58,7 @@ public class LevelTest extends Level {
         //Pecker p = new Pecker(new Coordinate2D(0, 0));
 
         //Attention à ne pas trop augmenter la pente
-        Pecker p = new Pecker(startPos);
+        Pecker p = new Pecker(new Coordinate2D(startPos));
 
         // ajout du piaf dans les données au plan 1
         addRenderObject(p, 1);
@@ -70,5 +73,6 @@ public class LevelTest extends Level {
             Obstacle o = new Obstacle(new Coordinate2D(x, y));
             addRenderObject(o, 2);
         }
+
     }
 }

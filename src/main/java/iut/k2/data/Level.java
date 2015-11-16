@@ -31,7 +31,6 @@ public abstract class Level {
     private Map<Integer, List<AbstractGameObject>> lsObjects = new TreeMap<>();
 
 	public Level() {
-        init();
     }
 
 
