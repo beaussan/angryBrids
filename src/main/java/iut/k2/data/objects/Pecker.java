@@ -19,7 +19,7 @@ public class Pecker extends Entity {
         setTerminalVelocity(new Coordinate2D(1000.0f, 1000.0f));
         setFriction(new Coordinate2D(.005, 0));
         setAcceleration(new Coordinate2D(0.0f, -0.25f));
-        setVelocity(new Coordinate2D(200, 300));
+        //setVelocity(new Coordinate2D(200, 300));
     }
 
 	@Override
