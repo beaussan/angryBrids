@@ -1,4 +1,4 @@
-package main;
+package iut.k2.util;
 
 public class MainTestMatrice {
 

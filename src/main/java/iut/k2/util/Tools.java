@@ -17,6 +17,12 @@ public final class Tools {
         return new Coordinate2D(cords.getX(), Constants.SIZE_HEIGHT - cords.getY());
     }
 
+    /**
+     * Avec répeère othonormé standard 0,0 en bas à gauche
+     * @param input
+     * @param angle
+     * @return
+     */
     public static Rectangle2D getRotate(@Nonnull Rectangle2D input, float angle) {
         Preconditions.checkNotNull(input);
 

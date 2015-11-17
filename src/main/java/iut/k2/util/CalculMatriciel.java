@@ -1,4 +1,4 @@
-package main;
+package iut.k2.util;
 
 import java.util.ArrayList;
 import java.util.List;
