@@ -18,7 +18,7 @@ public class GameLoop extends JFrame {
         Level l = new LevelTest();
         AbstractWorldControler abstractWorldControler = new WorldControlerR2(l);
         new GameLoop(abstractWorldControler);
-        new GameLoop(abstractWorldControler);
+        //new GameLoop(abstractWorldControler);
 
         new Thread(abstractWorldControler).start();
 

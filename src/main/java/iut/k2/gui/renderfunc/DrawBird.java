@@ -42,9 +42,11 @@ public class DrawBird {
         return drawBird(g, x, y, xNext, yNext, colorBody, COLOR_ARROW);
     }
 
-    public static Ellipse2D drawBird(Graphics g, double x, double y, double xNext, double yNext, Color colorBody, Color colorArrow) {
-        Color c = g.getColor();
+    public static Ellipse2D getCircle(double x, double y){
+        return new Ellipse2D.Double(x - (SIZE_BIRD / 2), y - (SIZE_BIRD / 2), SIZE_BIRD, SIZE_BIRD);
+    }
 
+    public static Polygon getArrow(double x, double y, double xNext, double yNext){
 
         double angle;
         angle = getAngle(x, y, xNext, yNext);
@@ -78,24 +80,22 @@ public class DrawBird {
         int xTop = (int) x + (int) (SIZE_SIDE * Math.cos(ang2));
         int yTop = (int) y + (int) (SIZE_SIDE * Math.sin(ang2));
 
-        //int xTo = (int) x + (int) (40 * Math.cos(angle));
-        //int yTo = (int) y + (int) (40 * Math.sin(angle));
+        return new Polygon(new int[]{xTo, xTop, xBot}, new int[]{yTo, yTop, yBot}, 3);
+    }
+
+    public static Ellipse2D drawBird(Graphics g, double x, double y, double xNext, double yNext, Color colorBody, Color colorArrow) {
+        Color c = g.getColor();
+
+        Polygon poly = getArrow(x,y,xNext, yNext);
         g.setColor(colorArrow);
-        if (IS_SKELETON) {
-            g.drawLine(lineX, lineY, xTo, yTo);
-            g.drawLine(xBot, yBot, xTop, yTop);
-            g.drawPolygon(new int[]{xTo, xTop, xBot}, new int[]{yTo, yTop, yBot}, 3);
-        } else {
-            g.fillPolygon(new int[]{xTo, xTop, xBot}, new int[]{yTo, yTop, yBot}, 3);
-        }
+
+        g.fillPolygon(poly);
+
 
         g.setColor(colorBody);
-        Ellipse2D el = new Ellipse2D.Double(x - (SIZE_BIRD / 2), y - (SIZE_BIRD / 2), SIZE_BIRD, SIZE_BIRD);
-        if (IS_SKELETON) {
-            g.drawOval((int) x - (SIZE_BIRD / 2), (int) y - (SIZE_BIRD / 2), SIZE_BIRD, SIZE_BIRD);
-        } else {
-            g.fillOval((int) x - (SIZE_BIRD / 2), (int) y - (SIZE_BIRD / 2), SIZE_BIRD, SIZE_BIRD);
-        }
+        Ellipse2D el = getCircle(x,y);
+        ((Graphics2D)g).fill(el);
+
 
         g.setColor(c);
         return el;

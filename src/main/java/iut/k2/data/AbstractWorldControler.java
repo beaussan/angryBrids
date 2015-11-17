@@ -14,7 +14,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * Created by Nicolas Beaussart on 13/10/15 for angryBrids.
  */
-public abstract class AbstractWorldControler implements Runnable {
+public abstract class AbstractWorldControler implements Runnable{
     private final static Logger LOG = LoggerFactory.getLogger(AbstractWorldControler.class);
     private final KeyMap keyMap;
     private final Level level;

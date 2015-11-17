@@ -5,10 +5,14 @@ import iut.k2.util.Tools;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
+import java.util.HashMap;
+import java.util.Map;
 
-public class Obstacle extends Entity {
+public class Obstacle extends Entity implements ShapeBased{
     private final static int SIZE = 20;
     private final Coordinate2D renderTo;
+    private final Map<Coordinate2D, Map<Shape, Color>> shapes;
+
 
     private Color col = Color.BLUE;
 
@@ -16,6 +20,10 @@ public class Obstacle extends Entity {
 		super(c);
         renderTo = Tools.getSwingCords(c);
         addShape(new Ellipse2D.Double((int) c.getX() - SIZE / 2, (int) c.getY() - SIZE / 2, SIZE, SIZE));
+        shapes = new HashMap<>();
+        shapes.put(c, new HashMap<Shape, Color>());
+        shapes.get(c).put(new Ellipse2D.Double((int) renderTo.getX() - SIZE/2, (int) renderTo.getY() - SIZE /2, SIZE, SIZE), Color.BLUE);
+
     }
 
 	@Override
@@ -30,4 +38,8 @@ public class Obstacle extends Entity {
     }
 
 
+    @Override
+    public Map<Coordinate2D, Map<Shape, Color>> getDrawsShapes() {
+        return shapes;
+    }
 }

@@ -7,6 +7,6 @@ import java.awt.*;
  */
 public abstract class AbstractGameObject {
 
-
+    @Deprecated
     public abstract void render(Graphics batch);
 }
