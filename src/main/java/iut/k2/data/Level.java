@@ -4,7 +4,6 @@ import iut.k2.data.objects.AbstractGameObject;
 import iut.k2.data.objects.Entity;
 
 import javax.annotation.Nonnull;
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -91,18 +90,6 @@ public abstract class Level {
      * Level 2 can have 2 Pecker and 10 obstacles
      */
     public abstract void init();
-
-    /**
-     * Renders the list of Objects contained in the level
-     * @param g graphics
-     */
-    public void render(@Nonnull Graphics g) {
-        for (Integer in : lsObjects.keySet()) {
-            for (AbstractGameObject ago : lsObjects.get(in)) {
-                ago.render(g);
-            }
-    	}
-    }
 
     /**
      * Updates the informations about the current Entity

@@ -6,10 +6,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
-import java.awt.geom.Ellipse2D;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
-public class Pecker extends Entity {
+public class Pecker extends Entity implements ShapeBased {
     private final static Logger LOG = LoggerFactory.getLogger(Pecker.class);
+
+    private boolean hasToUbdShape = true;
+
+    private Map<Shape, Color> shapeColorMap = new LinkedHashMap<>();
 
 	public Pecker(Coordinate2D c) {
 		super(c);
@@ -22,18 +27,25 @@ public class Pecker extends Entity {
         //setVelocity(new Coordinate2D(200, 300));
     }
 
-	@Override
-	public void render(Graphics batch) {
-        DrawBird.drawBird(batch, getCoordinate(), getCoordinate().add(getVelocity().times(2)));
-    }
-
     @Override
     public void update(float deltaTime) {
         super.update(deltaTime);
         getLsShapes().clear();
-        getLsShapes().add(new Ellipse2D.Double((int) getCoordinate().getX() - (DrawBird.SIZE_BIRD / 2),
-                (int) getCoordinate().getY() - (DrawBird.SIZE_BIRD / 2),
-                DrawBird.SIZE_BIRD, DrawBird.SIZE_BIRD));
+        getLsShapes().add(DrawBird.getCircle(getCoordinate()));
+        hasToUbdShape = true;
+    }
+
+    private Map<Shape, Color> genShapes() {
+        shapeColorMap = new LinkedHashMap<>();
+        shapeColorMap.put(DrawBird.getSwingArrow(getCoordinate(), getCoordinate().add(getVelocity().times(2))), Color.YELLOW);
+        shapeColorMap.put(DrawBird.getSwingCircle(getCoordinate()), Color.RED);
+        hasToUbdShape = false;
+        return shapeColorMap;
+    }
+
+    @Override
+    public Map<Shape, Color> getDrawsShapes() {
+        return (hasToUbdShape) ? genShapes() : shapeColorMap;
     }
 }
 

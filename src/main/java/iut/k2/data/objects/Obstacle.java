@@ -11,7 +11,7 @@ import java.util.Map;
 public class Obstacle extends Entity implements ShapeBased{
     private final static int SIZE = 20;
     private final Coordinate2D renderTo;
-    private final Map<Coordinate2D, Map<Shape, Color>> shapes;
+    private final Map<Shape, Color> shapes;
 
 
     private Color col = Color.BLUE;
@@ -21,16 +21,10 @@ public class Obstacle extends Entity implements ShapeBased{
         renderTo = Tools.getSwingCords(c);
         addShape(new Ellipse2D.Double((int) c.getX() - SIZE / 2, (int) c.getY() - SIZE / 2, SIZE, SIZE));
         shapes = new HashMap<>();
-        shapes.put(c, new HashMap<Shape, Color>());
-        shapes.get(c).put(new Ellipse2D.Double((int) renderTo.getX() - SIZE/2, (int) renderTo.getY() - SIZE /2, SIZE, SIZE), Color.BLUE);
+        shapes.put(new Ellipse2D.Double((int) renderTo.getX() - SIZE / 2, (int) renderTo.getY() - SIZE / 2, SIZE, SIZE), Color.BLUE);
+
 
     }
-
-	@Override
-	public void render(Graphics batch) {
-        batch.setColor(col);
-        ((Graphics2D) batch).fill(new Ellipse2D.Double((int) renderTo.getX() - SIZE/2, (int) renderTo.getY() - SIZE /2, SIZE, SIZE));
-	}
 
     @Override
     public void setColor(Color color) {
@@ -39,7 +33,7 @@ public class Obstacle extends Entity implements ShapeBased{
 
 
     @Override
-    public Map<Coordinate2D, Map<Shape, Color>> getDrawsShapes() {
+    public Map<Shape, Color> getDrawsShapes() {
         return shapes;
     }
 }

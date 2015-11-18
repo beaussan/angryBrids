@@ -34,17 +34,31 @@ public class DrawBird {
         return drawBird(g, fromTransf.getX(), fromTransf.getY(), transfTo.getX(), transfTo.getY(), colorBody, colorArrow);
     }
 
-    public static Ellipse2D drawBird(Graphics g, double x, double y, double xNext, double yNext) {
-        return drawBird(g, x, y, xNext, yNext, COLOR_BODY, COLOR_ARROW);
+
+    public static Ellipse2D getCircle(Coordinate2D cordsFrom) {
+        return getCircle(cordsFrom.getX(), cordsFrom.getY());
     }
 
-    public static Ellipse2D drawBird(Graphics g, double x, double y, double xNext, double yNext, Color colorBody) {
-        return drawBird(g, x, y, xNext, yNext, colorBody, COLOR_ARROW);
+    public static Ellipse2D getSwingCircle(Coordinate2D cordsFrom) {
+        Coordinate2D trasf = Tools.getSwingCords(cordsFrom);
+        return getCircle(trasf.getX(), trasf.getY());
     }
 
     public static Ellipse2D getCircle(double x, double y){
         return new Ellipse2D.Double(x - (SIZE_BIRD / 2), y - (SIZE_BIRD / 2), SIZE_BIRD, SIZE_BIRD);
     }
+
+
+    public static Polygon getArrow(Coordinate2D cordsFrom, Coordinate2D cordsTo) {
+        return getArrow(cordsFrom.getX(), cordsFrom.getY(), cordsTo.getX(), cordsTo.getY());
+    }
+
+    public static Polygon getSwingArrow(Coordinate2D cordsFrom, Coordinate2D cordsTo) {
+        Coordinate2D trasf = Tools.getSwingCords(cordsFrom);
+        Coordinate2D transfTo = Tools.getSwingCords(cordsTo);
+        return getArrow(trasf.getX(), trasf.getY(), transfTo.getX(), transfTo.getY());
+    }
+
 
     public static Polygon getArrow(double x, double y, double xNext, double yNext){
 
