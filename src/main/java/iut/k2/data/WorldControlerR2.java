@@ -2,12 +2,18 @@ package iut.k2.data;
 
 import iut.k2.data.objects.Entity;
 import iut.k2.data.objects.Pecker;
+import iut.k2.physics.Coordinate2D;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.sun.javafx.geom.Ellipse2D;
+
 import javax.annotation.Nonnull;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -81,6 +87,29 @@ public class WorldControlerR2 extends AbstractWorldControler {
     public void handleInput() {
         handleDebugInput();
     }
+    
+    
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		System.out.println("x "+e.getX()+",y "+e.getY());
+		
+		if((new Ellipse2D(0, 590, 20, 20)).contains(e.getX(), e.getY())){
+		 for (Entity en : getLevel().getLsEntitys()) {
+	            if (en instanceof Pecker && en.getCoordinate().equals(new Coordinate2D(10,0))) {
+	                en.setTerminalVelocity(new Coordinate2D(1000.0f, 1000.0f));
+	                en.setFriction(new Coordinate2D(.005, 0));
+	                en.setAcceleration(new Coordinate2D(0.0f, -0.25f));
+	                en.setVelocity(new Coordinate2D(100	, 300));
+	            }
+		 }
+		}
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 
     /**
      * render on allss renderers
@@ -163,6 +192,8 @@ public class WorldControlerR2 extends AbstractWorldControler {
             }
         }
     }
+
+
 
 
 }

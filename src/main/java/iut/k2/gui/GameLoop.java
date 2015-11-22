@@ -37,12 +37,14 @@ public class GameLoop extends JFrame {
         setVisible(true);
         setSize(new Dimension(Constants.SIZE_WIDE + 20, Constants.SIZE_HEIGHT + 20));
         setLocationRelativeTo(null);
+        addMouseMotionListener(abstractWorldControler);
 
         // create the buffering strategy which will allow AWT
         // to manage our accelerated graphics
         createBufferStrategy(3);
         strategy = getBufferStrategy();
         new WorldRenderer(strategy, abstractWorldControler);
+        
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 

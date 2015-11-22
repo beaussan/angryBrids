@@ -1,10 +1,13 @@
 package iut.k2.data;
 
 import iut.k2.util.KeyMap;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
+
+import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -14,7 +17,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * Created by Nicolas Beaussart on 13/10/15 for angryBrids.
  */
-public abstract class AbstractWorldControler implements Runnable{
+public abstract class AbstractWorldControler implements Runnable, MouseMotionListener{
     private final static Logger LOG = LoggerFactory.getLogger(AbstractWorldControler.class);
     private final KeyMap keyMap;
     private final Level level;
