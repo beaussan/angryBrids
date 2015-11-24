@@ -1,10 +1,12 @@
 Nicolas:
-    -
+    - Modifying the code to fit the requirements of the project(No Awt or Swing in the model).
 Benjamin:
-    -
+    - Working on concrete classes of Shapes
+        - DONE : Rectangle, Rectangle2D
+        - DOING: Triangle, Circle
 Bastien:
-    -
+    - Finding a solution on how to launch the bird using the mouse more accuratly
 Eddy:
-    -
+    - Bug finding
 Lucas:
     - 
