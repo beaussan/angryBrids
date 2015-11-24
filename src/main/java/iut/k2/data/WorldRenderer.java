@@ -72,7 +72,10 @@ public class WorldRenderer {
                 if (ago instanceof ShapeBased) {
                     ShapeBased shapeBased = (ShapeBased) ago;
                     for (Shape shape : shapeBased.getDrawsShapes().keySet()) {
-                        g.setColor(shapeBased.getDrawsShapes().get(shape));
+                    	if (!g.getColor().equals(shapeBased.getDrawsShapes().get(shape))){
+                    		g.setColor(shapeBased.getDrawsShapes().get(shape));
+                    	}
+                        
                         ((Graphics2D) g).fill(shape);
                     }
                 } else if (ago instanceof SpriteBased) {
