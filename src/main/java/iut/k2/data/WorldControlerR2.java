@@ -88,7 +88,7 @@ public class WorldControlerR2 extends AbstractWorldControler {
     
 	@Override
 	public void mouseDragged(MouseEvent e) {
-		System.out.println("x "+e.getX()+",y "+e.getY());
+        LOG.debug("x : {}, y : {}", e.getX(), e.getY());
 
         if ((new Ellipse2D.Double(0, 590, 20, 20)).contains(e.getX(), e.getY())) {
             for (Entity en : getLevel().getLsEntitys()) {
