@@ -8,7 +8,7 @@ public interface Shape {
 	 * the Rectangle
 	 */
 	public boolean contains(double x, double y, double w, double h);
-	public boolean contains(Rectangle2D r);
+	public boolean contains(Shape s);
 	public Rectangle getBounds();
 	public Rectangle2D getBounds2D();
 	/**
@@ -16,6 +16,6 @@ public interface Shape {
 	 * it intersects it.
 	 */
 	public boolean intersects(double x, double y, double w, double h);
-	public boolean intersects(Rectangle2D r2);
+	public boolean intersects(Shape s);
 	
 }

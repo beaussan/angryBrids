@@ -57,14 +57,18 @@ public class Rectangle2D implements Shape{
 	}
 
 	@Override
-	public boolean contains(Rectangle2D r) {
+	public boolean contains(Shape s) {
 		//Données de la figure en paramère
-		double xMin = r.getX();
-		double yMin = r.getY();
-		double width = r.getWidth();
-		double height = r.getHeight();
-		
-		return contains(xMin, yMin, width, height);
+		if(s instanceof Rectangle2D){
+			Rectangle2D r = (Rectangle2D)s;
+			double xMin = r.getX();
+			double yMin = r.getY();
+			double width = r.getWidth();
+			double height = r.getHeight();
+			
+			return contains(xMin, yMin, width, height);
+		}
+		return false;
 	}
 
 	@Override
@@ -101,11 +105,19 @@ public class Rectangle2D implements Shape{
 	}
 
 	@Override
-	public boolean intersects(Rectangle2D r2) {
-		return intersects(r2.getX(), 
+	public boolean intersects(Shape s) {
+		if(s instanceof Rectangle2D){
+			Rectangle2D r2 = (Rectangle2D)s;
+			return intersects(r2.getX(), 
 				r2.getY(), 
 				r2.getWidth(), 
 				r2.getHeight());
+		}else if(s instanceof Triangle){
+			
+		}else if(s instanceof Circle){
+			
+		}
+		return false;
 	}
 
 }

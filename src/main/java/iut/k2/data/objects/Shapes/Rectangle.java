@@ -56,6 +56,7 @@ public class Rectangle implements Shape{
 		return retour;
 	}
 
+	/*
 	@Override
 	public boolean contains(Rectangle2D r) {
 		//Données de la figure en paramère
@@ -66,6 +67,7 @@ public class Rectangle implements Shape{
 		
 		return contains(xMin, yMin, width, height);
 	}
+	*/
 
 	@Override
 	public Rectangle getBounds() {
@@ -99,11 +101,19 @@ public class Rectangle implements Shape{
 	}
 
 	@Override
-	public boolean intersects(Rectangle2D r2) {
-		return intersects(r2.getX(), 
+	public boolean intersects(Shape s) {
+		if(s instanceof Rectangle2D){
+			Rectangle2D r2 = (Rectangle2D)s;
+			return intersects(r2.getX(), 
 				r2.getY(), 
 				r2.getWidth(), 
 				r2.getHeight());
+		}else if(s instanceof Triangle){
+			
+		}else if(s instanceof Circle){
+			
+		}
+		return false;
 	}
 	
 	public int getX() {
@@ -120,6 +130,12 @@ public class Rectangle implements Shape{
 
 	public int getHeight() {
 		return height;
+	}
+
+	@Override
+	public boolean contains(Shape s) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

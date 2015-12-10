@@ -15,7 +15,7 @@ public class Triangle implements Shape{
 	}
 
 	@Override
-	public boolean contains(Rectangle2D r) {
+	public boolean contains(Shape s) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -39,7 +39,7 @@ public class Triangle implements Shape{
 	}
 
 	@Override
-	public boolean intersects(Rectangle2D r2) {
+	public boolean intersects(Shape s) {
 		// TODO Auto-generated method stub
 		return false;
 	}
