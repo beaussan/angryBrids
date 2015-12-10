@@ -108,10 +108,9 @@ public class Rectangle implements Shape{
 				r2.getY(), 
 				r2.getWidth(), 
 				r2.getHeight());
-		}else if(s instanceof Triangle){
-			
 		}else if(s instanceof Circle){
-			
+			Circle c = (Circle)s;
+			return s.intersects(this);
 		}
 		return false;
 	}

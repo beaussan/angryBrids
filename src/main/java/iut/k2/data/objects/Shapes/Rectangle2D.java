@@ -11,6 +11,7 @@ public class Rectangle2D implements Shape{
 		this.x = x;
 		this.y = y;
 		this.width = width;
+		this.height = height;
 	}
 	
 	public double getX() {
@@ -112,10 +113,9 @@ public class Rectangle2D implements Shape{
 				r2.getY(), 
 				r2.getWidth(), 
 				r2.getHeight());
-		}else if(s instanceof Triangle){
-			
 		}else if(s instanceof Circle){
-			
+			Circle c = (Circle)s;
+			return s.intersects(this);
 		}
 		return false;
 	}
