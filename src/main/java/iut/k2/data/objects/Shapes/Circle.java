@@ -96,8 +96,6 @@ public class Circle implements Shape{
 			for(Rectangle2D r2 : hitBoxes){
 				if(r2.intersects(s)){
 					return true;
-				}else{
-					return false;
 				}
 			}
 		}
@@ -146,17 +144,26 @@ public class Circle implements Shape{
 		f.setPreferredSize(new Dimension(500, 500));
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	final Circle c = new Circle(100, 100, 20);
+    	Rectangle2D r2 = new Rectangle2D(63, 85, 15, 15);
+    	Rectangle2D r22 = new Rectangle2D(100, 110, 20, 20);
 		JPanel p = new JPanel(){
 			public void paintComponent(Graphics g){
 				for(Rectangle2D r : c.getHitBoxes()){
+					System.out.println((int)r.getX()+" " +(int)r.getY()+" "+ (int)r.getWidth()+" "+ (int)r.getHeight());
 					g.drawRect((int)r.getX(), (int)r.getY(), (int)r.getWidth(), (int)r.getHeight());
 				}
+				
+				g.setColor(Color.RED);
+				g.drawRect(63, 85, 15, 15);
 				g.setColor(Color.GREEN);
-				g.drawRect(73, 73, 15, 15);
+				g.drawRect(100, 110, 20, 20);
 				g.setColor(Color.BLACK);
 				g.drawOval(100-40/2, 100-40/2, 40, 40);
+				
 			}
 		};
+		System.out.println("Cercle intersects Red: " + c.intersects(r2));
+		System.out.println("Cercle intersects Green: " + c.intersects(r22));
 		
 		f.getContentPane().add(p);
 		f.pack();
