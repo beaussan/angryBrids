@@ -13,7 +13,37 @@ public class CollisionTest {
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();
-
+    
+    @Test
+    public void collisionCercleCercle(){
+    	Circle c = new Circle(100, 100, 20);
+    	Circle c2 = new Circle(100, 120, 20);
+    	Circle c3 = new Circle(90, 133, 10);
+    	
+    	assertTrue(c.intersects(c2));
+    	assertFalse(c.intersects(c3));
+    }
+    
+    @Test
+    public void collisionRectangleRectangle(){
+    	//Gris
+    	Rectangle2D r= new Rectangle2D(100, 100, 20, 20);
+    	//Rouge
+    	Rectangle2D r2 = new Rectangle2D(120, 120, 15, 15);
+    	//Vert
+    	Rectangle2D r22 = new Rectangle2D(130, 130, 20, 20);
+    	
+    	assertTrue(r.intersects(r2));
+    	assertTrue(r2.intersects(r));
+    	
+    	assertFalse(r.intersects(r22));
+    	assertFalse(r22.intersects(r));
+    	
+    	assertTrue(r2.intersects(r22));
+    	assertTrue(r22.intersects(r2));
+    	
+    }
+    
     @Test
     public void collisionCircleRectangle() {
     	Circle c = new Circle(100, 100, 20);
@@ -24,16 +54,6 @@ public class CollisionTest {
     	assertFalse(c.intersects(r2));
     	assertTrue(r22.intersects(c));
     	assertFalse(r2.intersects(c));
-    }
-    
-    @Test
-    public void collisionCercleCercle(){
-    	Circle c = new Circle(100, 100, 20);
-    	Circle c2 = new Circle(100, 120, 20);
-    	Circle c3 = new Circle(90, 133, 10);
-    	
-    	assertTrue(c.intersects(c2));
-    	assertFalse(c.intersects(c3));
     }
     
 }

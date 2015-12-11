@@ -26,6 +26,7 @@ public class Circle implements Shape{
 	}
 	
 	private void generateHitBoxes(){
+		
 		double largeRect1L = 2*Math.abs(Math.cos(9*Math.PI/10)*radius);
 		double largeRect1H = 2*Math.abs(Math.sin(9*Math.PI/10)*radius);
 		double largeRect1X = Math.cos(9*Math.PI/10)*radius+coord.getX();
@@ -45,11 +46,25 @@ public class Circle implements Shape{
 		double largeRect4H = 2*Math.abs(Math.sin(6*Math.PI/10)*radius);
 		double largeRect4X = Math.cos(6*Math.PI/10)*radius+coord.getX();
 		double largeRect4Y = -(Math.sin(6*Math.PI/10)*radius)+coord.getY();
-	
+		
+		/*
+		int parts = 5;
+		int pas = 2*parts;
+		int nbRectangles = parts-1;
+		for(int i = 1; i < nbRectangles; i++){
+			double largeRectL = 2*Math.abs(Math.cos((pas-i)*Math.PI/pas)*radius);
+			double largeRectH = 2*Math.abs(Math.sin((pas-i)*Math.PI/pas)*radius);
+			double largeRectX = Math.cos((pas-i)*Math.PI/pas)*radius+coord.getX();
+			double largeRectY = -(Math.sin((pas-i)*Math.PI/pas)*radius)+coord.getY();
+			hitBoxes.add(new Rectangle2D(largeRectL, largeRectH, largeRectX, largeRectY));
+		}
+		*/
+		
 		hitBoxes.add(new Rectangle2D(largeRect1X, largeRect1Y, largeRect1L, largeRect1H));
 		hitBoxes.add(new Rectangle2D(largeRect2X, largeRect2Y, largeRect2L, largeRect2H));
 		hitBoxes.add(new Rectangle2D(largeRect3X, largeRect3Y, largeRect3L, largeRect3H));
 		hitBoxes.add(new Rectangle2D(largeRect4X, largeRect4Y, largeRect4L, largeRect4H));
+		
 	}
 	
 	@Override
@@ -95,7 +110,6 @@ public class Circle implements Shape{
 		}else{
 			int cmp = 0;
 			for(Rectangle2D r2 : hitBoxes){
-				System.out.println(cmp);
 				if(r2.intersects(s)){
 					return true;
 				}
@@ -158,8 +172,9 @@ public class Circle implements Shape{
 		f.setPreferredSize(new Dimension(500, 500));
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	final Circle c = new Circle(100, 100, 20);
-    	final Rectangle2D r2 = new Rectangle2D(60, 70, 15, 15);
-    	final Rectangle2D r22 = new Rectangle2D(110, 110, 20, 20);
+    	final Rectangle2D r= new Rectangle2D(100, 100, 20, 20);
+    	final Rectangle2D r2 = new Rectangle2D(110, 110, 15, 15);
+    	final Rectangle2D r22 = new Rectangle2D(130, 130, 20, 20);
 		JPanel p = new JPanel(){
 			public void paintComponent(Graphics g){
 				for(Rectangle2D r : c.getHitBoxes()){
@@ -167,6 +182,9 @@ public class Circle implements Shape{
 					g.drawRect((int)r.getX(), (int)r.getY(), (int)r.getWidth(), (int)r.getHeight());
 				}
 				
+				g.setColor(Color.DARK_GRAY);
+				//System.out.println((int)r2.getX()+" " +(int)r2.getY()+" "+ (int)r2.getWidth()+" "+ (int)r2.getHeight());
+				g.drawRect((int)r.getX(), (int)r.getY(), (int)r.getWidth(), (int)r.getHeight());
 				g.setColor(Color.RED);
 				//System.out.println((int)r2.getX()+" " +(int)r2.getY()+" "+ (int)r2.getWidth()+" "+ (int)r2.getHeight());
 				g.drawRect((int)r2.getX(), (int)r2.getY(), (int)r2.getWidth(), (int)r2.getHeight());
@@ -179,9 +197,11 @@ public class Circle implements Shape{
 				
 			}
 		};
+		/*
+		System.out.println("Cercle intersects Gray: " + c.intersects(r));
 		System.out.println("Cercle intersects Red: " + c.intersects(r2));
 		System.out.println("Cercle intersects Green: " + c.intersects(r22)) ;
-		
+		*/
 		f.getContentPane().add(p);
 		f.pack();
 		f.setVisible(true);

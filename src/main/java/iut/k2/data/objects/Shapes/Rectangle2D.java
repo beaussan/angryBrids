@@ -95,9 +95,9 @@ public class Rectangle2D implements Shape{
 		boolean retour;
 		
 		double xMin = x;
-		double xMax = x + width;
+		double xMax = x + w;
 		double yMin = y;
-		double yMax = y + height;
+		double yMax = y + h;
 		
 		retour = contains(xMin,yMin) || 
 				contains(xMin,yMax) ||
