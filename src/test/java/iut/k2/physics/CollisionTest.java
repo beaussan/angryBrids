@@ -44,10 +44,14 @@ public class CollisionTest {
     	
     }
     
+    /**
+     * Can fail due to the choice of the precision for the hitboxes of the Circle
+     * The more Rectangle there are, the more precise the hitBox of the Circle will get
+     */
     @Test
     public void collisionCircleRectangle() {
     	Circle c = new Circle(100, 100, 20);
-    	Rectangle2D r2 = new Rectangle2D(73, 73, 15, 15);
+    	Rectangle2D r2 = new Rectangle2D(71, 71, 15, 15);
     	Rectangle2D r22 = new Rectangle2D(100, 100, 20, 20);
     	
     	assertTrue(c.intersects(r22));

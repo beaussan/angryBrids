@@ -178,10 +178,9 @@ public class Circle implements Shape{
 		JFrame f = new JFrame("test");
 		f.setPreferredSize(new Dimension(500, 500));
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    	final Circle c = new Circle(100, 100, 20);
-    	final Rectangle2D r= new Rectangle2D(100, 100, 20, 20);
-    	final Rectangle2D r2 = new Rectangle2D(110, 110, 15, 15);
-    	final Rectangle2D r22 = new Rectangle2D(130, 130, 20, 20);
+		final Circle c = new Circle(100, 100, 20);
+    	final Rectangle2D r = new Rectangle2D(71, 71, 15, 15);
+    	final Rectangle2D r2 = new Rectangle2D(100, 100, 20, 20);
 		JPanel p = new JPanel(){
 			public void paintComponent(Graphics g){
 				for(Rectangle2D r : c.getHitBoxes()){
@@ -195,9 +194,11 @@ public class Circle implements Shape{
 				g.setColor(Color.RED);
 				//System.out.println((int)r2.getX()+" " +(int)r2.getY()+" "+ (int)r2.getWidth()+" "+ (int)r2.getHeight());
 				g.drawRect((int)r2.getX(), (int)r2.getY(), (int)r2.getWidth(), (int)r2.getHeight());
-				g.setColor(Color.GREEN);
+				//g.setColor(Color.GREEN);
 				//System.out.println((int)r22.getX()+" " +(int)r22.getY()+" "+ (int)r22.getWidth()+" "+ (int)r22.getHeight());
-				g.drawRect((int)r22.getX(), (int)r22.getY(), (int)r22.getWidth(), (int)r22.getHeight());
+				//g.drawRect((int)r22.getX(), (int)r22.getY(), (int)r22.getWidth(), (int)r22.getHeight());
+				
+				
 				g.setColor(Color.BLACK);
 				g.drawOval((int)(c.getCenter().getX()-c.getRadius()), (int)(c.getCenter().getY()
 						-c.getRadius()), (int)(c.getRadius()*2), (int)(c.getRadius()*2));
