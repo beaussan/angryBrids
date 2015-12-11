@@ -70,20 +70,17 @@ public class Circle implements Shape{
 
 	@Override
 	public boolean contains(double x, double y, double w, double h) {
-		boolean retour = true;
-		
 		//Données de la figure en paramère
 		double xMin = x;
 		double xMax = x + w;
 		double yMin = y;
 		double yMax = y + h;
 		
-		retour = retour && contains(xMin, yMin);
-		retour = retour && contains(xMin, yMax);
-		retour = retour && contains(xMax, yMin);
-		retour = retour && contains(xMax, yMax);
+		return contains(xMin, yMin)
+				&& contains(xMin, yMax)
+				&& contains(xMax, yMin)
+				&& contains(xMax, yMax);
 		
-		return retour;
 	}
 
 	@Override
@@ -111,8 +108,8 @@ public class Circle implements Shape{
 			if(getCenter().equals(c.getCenter())){
 				return true;
 			}else{
-				double distance = getDistance(c.getCenter());
-				if(distance < c.getRadius()+getRadius()){
+				double distanceCarre = getDistanceCarre(c.getCenter());
+				if(distanceCarre < (c.getRadius()+getRadius())*(c.getRadius()+getRadius())){
 					return true;
 				}else{
 					return false;
@@ -120,24 +117,22 @@ public class Circle implements Shape{
 			}
 			
 		}else{
-			int cmp = 0;
 			for(Rectangle2D r2 : hitBoxes){
 				if(r2.intersects(s)){
 					return true;
 				}
-				cmp++;
 			}
 		}
 		return false;
 	}
 	
-	public double getDistance(Coordinate2D c2){
+	public double getDistanceCarre(Coordinate2D c2){
 		double xA = coord.getX();
 		double yA = coord.getY();
 		double xB = c2.getX();
 		double yB = c2.getY();
 		
-		return Math.sqrt((xB-xA)*(xB-xA)+(yB-yA)*(yB-yA));
+		return (xB-xA)*(xB-xA)+(yB-yA)*(yB-yA);
 	}
 	
 	@Override
