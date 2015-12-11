@@ -11,6 +11,21 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+/**
+ * Circle is an implementation of the interface Shape which 
+ * is used for dealing with hitBoxes.
+ * Circle contains 3 attributes: its coordinates, its radius, 
+ * and a list of its hitBoxes
+ *   
+ * The coordinates of the Circle are located on its center.
+ * 
+ * The Rectangles used for the hitBoxes are created inside the Circle,
+ * so everytime we want to check for a collision, we will have to test
+ * the collision on each Rectangle until a collision is found.
+ *  
+ * @author dhoopb
+ *
+ */
 public class Circle implements Shape{
 
 	//Placé au centre du Cercle
@@ -25,6 +40,10 @@ public class Circle implements Shape{
 		generateHitBoxes();
 	}
 	
+	/**
+	 * Generate the hitBoxes (list of Rectangle2D) 
+	 * for the Circle
+	 */
 	private void generateHitBoxes(){
 		hitBoxes.clear();
 
@@ -42,13 +61,29 @@ public class Circle implements Shape{
 	
 	@Override
 	public boolean contains(double x, double y) {
+		for(Rectangle2D r : hitBoxes){
+			if(r.contains(x, y))
+				return true;
+		}
 		return false;
 	}
 
 	@Override
 	public boolean contains(double x, double y, double w, double h) {
+		boolean retour = true;
 		
-		return false;
+		//Données de la figure en paramère
+		double xMin = x;
+		double xMax = x + w;
+		double yMin = y;
+		double yMax = y + h;
+		
+		retour = retour && contains(xMin, yMin);
+		retour = retour && contains(xMin, yMax);
+		retour = retour && contains(xMax, yMin);
+		retour = retour && contains(xMax, yMax);
+		
+		return retour;
 	}
 
 	@Override
