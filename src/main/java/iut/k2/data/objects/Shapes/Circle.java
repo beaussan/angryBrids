@@ -14,8 +14,8 @@ import javax.swing.JPanel;
 /**
  * Circle is an implementation of the interface Shape which 
  * is used for dealing with hitBoxes.
- * Circle contains 3 attributes: its coordinates, its radius, 
- * and a list of its hitBoxes
+ * Circle contains 4 attributes: its coordinates, its radius, 
+ * the number of hitBoxes and a list of its hitBoxes
  *   
  * The coordinates of the Circle are located on its center.
  * 
@@ -28,14 +28,16 @@ import javax.swing.JPanel;
  */
 public class Circle implements Shape{
 
-	//Placé au centre du Cercle
-	private Coordinate2D coord;
+	private Coordinate2D coord; 			//coord indicates the center of the Circle
 	private double radius;
+	
+	private final int nbRectangle = 10; 	//The more rectangles, the more precise
 	private List<Rectangle2D> hitBoxes;
 	
 	public Circle(double x, double y, double radius){
 		coord = new Coordinate2D(x, y);
-		this.radius = radius;
+		if(radius > 0)
+			this.radius = radius;
 		hitBoxes = new ArrayList<Rectangle2D>();
 		generateHitBoxes();
 	}
@@ -47,13 +49,16 @@ public class Circle implements Shape{
 	private void generateHitBoxes(){
 		hitBoxes.clear();
 
-		int parts = 5;
+		int parts = nbRectangle+1;
 		int pas = 2*parts;
+		
+		//Optimization for calculs made multiple times
+		double interval = Math.PI/pas;
 		for(int i = 1; i < parts; i++){
-			double largeRectL = 2*Math.abs(Math.cos((pas-i)*Math.PI/pas)*radius);
-			double largeRectH = 2*Math.abs(Math.sin((pas-i)*Math.PI/pas)*radius);
-			double largeRectX = Math.cos((pas-i)*Math.PI/pas)*radius+coord.getX();
-			double largeRectY = -(Math.sin((pas-i)*Math.PI/pas)*radius)+coord.getY();
+			double largeRectL = 2*Math.abs(Math.cos((pas-i)*interval)*radius);
+			double largeRectH = 2*Math.abs(Math.sin((pas-i)*interval)*radius);
+			double largeRectX = Math.cos((pas-i)*interval)*radius+coord.getX();
+			double largeRectY = -(Math.sin((pas-i)*interval)*radius)+coord.getY();
 			hitBoxes.add(new Rectangle2D(largeRectX, largeRectY, largeRectL, largeRectH));
 		}
 		
