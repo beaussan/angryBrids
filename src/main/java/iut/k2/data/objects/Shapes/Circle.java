@@ -26,44 +26,17 @@ public class Circle implements Shape{
 	}
 	
 	private void generateHitBoxes(){
-		
-		double largeRect1L = 2*Math.abs(Math.cos(9*Math.PI/10)*radius);
-		double largeRect1H = 2*Math.abs(Math.sin(9*Math.PI/10)*radius);
-		double largeRect1X = Math.cos(9*Math.PI/10)*radius+coord.getX();
-		double largeRect1Y = -(Math.sin(9*Math.PI/10)*radius)+coord.getY();
-		
-		double largeRect2L = 2*Math.abs(Math.cos(8*Math.PI/10)*radius);
-		double largeRect2H = 2*Math.abs(Math.sin(8*Math.PI/10)*radius);
-		double largeRect2X = Math.cos(8*Math.PI/10)*radius+coord.getX();
-		double largeRect2Y = -(Math.sin(8*Math.PI/10)*radius)+coord.getY();
-		
-		double largeRect3L = 2*Math.abs(Math.cos(7*Math.PI/10)*radius);
-		double largeRect3H = 2*Math.abs(Math.sin(7*Math.PI/10)*radius);
-		double largeRect3X = Math.cos(7*Math.PI/10)*radius+coord.getX();
-		double largeRect3Y = -(Math.sin(7*Math.PI/10)*radius)+coord.getY();
-		
-		double largeRect4L = 2*Math.abs(Math.cos(6*Math.PI/10)*radius);
-		double largeRect4H = 2*Math.abs(Math.sin(6*Math.PI/10)*radius);
-		double largeRect4X = Math.cos(6*Math.PI/10)*radius+coord.getX();
-		double largeRect4Y = -(Math.sin(6*Math.PI/10)*radius)+coord.getY();
-		
-		/*
+		hitBoxes.clear();
+
 		int parts = 5;
 		int pas = 2*parts;
-		int nbRectangles = parts-1;
-		for(int i = 1; i < nbRectangles; i++){
+		for(int i = 1; i < parts; i++){
 			double largeRectL = 2*Math.abs(Math.cos((pas-i)*Math.PI/pas)*radius);
 			double largeRectH = 2*Math.abs(Math.sin((pas-i)*Math.PI/pas)*radius);
 			double largeRectX = Math.cos((pas-i)*Math.PI/pas)*radius+coord.getX();
 			double largeRectY = -(Math.sin((pas-i)*Math.PI/pas)*radius)+coord.getY();
-			hitBoxes.add(new Rectangle2D(largeRectL, largeRectH, largeRectX, largeRectY));
+			hitBoxes.add(new Rectangle2D(largeRectX, largeRectY, largeRectL, largeRectH));
 		}
-		*/
-		
-		hitBoxes.add(new Rectangle2D(largeRect1X, largeRect1Y, largeRect1L, largeRect1H));
-		hitBoxes.add(new Rectangle2D(largeRect2X, largeRect2Y, largeRect2L, largeRect2H));
-		hitBoxes.add(new Rectangle2D(largeRect3X, largeRect3Y, largeRect3L, largeRect3H));
-		hitBoxes.add(new Rectangle2D(largeRect4X, largeRect4Y, largeRect4L, largeRect4H));
 		
 	}
 	
