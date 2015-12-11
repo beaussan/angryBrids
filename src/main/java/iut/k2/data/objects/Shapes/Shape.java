@@ -1,5 +1,7 @@
 package iut.k2.data.objects.Shapes;
 
+import iut.k2.physics.Coordinate2D;
+
 public interface Shape {
 
 	public boolean contains(double x, double y);
@@ -17,5 +19,7 @@ public interface Shape {
 	 */
 	public boolean intersects(double x, double y, double w, double h);
 	public boolean intersects(Shape s);
+	
+	public void move(Coordinate2D c);
 	
 }

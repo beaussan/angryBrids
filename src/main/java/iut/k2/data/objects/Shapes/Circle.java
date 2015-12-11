@@ -93,10 +93,13 @@ public class Circle implements Shape{
 			}
 			
 		}else{
+			int cmp = 0;
 			for(Rectangle2D r2 : hitBoxes){
+				System.out.println(cmp);
 				if(r2.intersects(s)){
 					return true;
 				}
+				cmp++;
 			}
 		}
 		return false;
@@ -115,7 +118,8 @@ public class Circle implements Shape{
 	public boolean contains(Shape s) {
 		// TODO Auto-generated method stub
 		return false;
-	}
+	}		// TODO Auto-generated method stub
+	
 	
 	public Coordinate2D getCenter(){
 		return coord;
@@ -138,36 +142,51 @@ public class Circle implements Shape{
 		this.radius = radius;
 		generateHitBoxes();
 	}
+
+	@Override
+	public void move(Coordinate2D c) {
+		coord.setX(coord.getX()+c.getX());
+		coord.setY(coord.getY()+c.getY());
+		generateHitBoxes();
+	}
 	
+	/*
+	 * Testing method for showing the hitboxes
+	 */
 	public static void main(String[] args) {
 		JFrame f = new JFrame("test");
 		f.setPreferredSize(new Dimension(500, 500));
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	final Circle c = new Circle(100, 100, 20);
-    	Rectangle2D r2 = new Rectangle2D(63, 85, 15, 15);
-    	Rectangle2D r22 = new Rectangle2D(100, 110, 20, 20);
+    	final Rectangle2D r2 = new Rectangle2D(60, 70, 15, 15);
+    	final Rectangle2D r22 = new Rectangle2D(110, 110, 20, 20);
 		JPanel p = new JPanel(){
 			public void paintComponent(Graphics g){
 				for(Rectangle2D r : c.getHitBoxes()){
-					System.out.println((int)r.getX()+" " +(int)r.getY()+" "+ (int)r.getWidth()+" "+ (int)r.getHeight());
+					//System.out.println((int)r.getX()+" " +(int)r.getY()+" "+ (int)r.getWidth()+" "+ (int)r.getHeight());
 					g.drawRect((int)r.getX(), (int)r.getY(), (int)r.getWidth(), (int)r.getHeight());
 				}
 				
 				g.setColor(Color.RED);
-				g.drawRect(63, 85, 15, 15);
+				//System.out.println((int)r2.getX()+" " +(int)r2.getY()+" "+ (int)r2.getWidth()+" "+ (int)r2.getHeight());
+				g.drawRect((int)r2.getX(), (int)r2.getY(), (int)r2.getWidth(), (int)r2.getHeight());
 				g.setColor(Color.GREEN);
-				g.drawRect(100, 110, 20, 20);
+				//System.out.println((int)r22.getX()+" " +(int)r22.getY()+" "+ (int)r22.getWidth()+" "+ (int)r22.getHeight());
+				g.drawRect((int)r22.getX(), (int)r22.getY(), (int)r22.getWidth(), (int)r22.getHeight());
 				g.setColor(Color.BLACK);
-				g.drawOval(100-40/2, 100-40/2, 40, 40);
+				g.drawOval((int)(c.getCenter().getX()-c.getRadius()), (int)(c.getCenter().getY()
+						-c.getRadius()), (int)(c.getRadius()*2), (int)(c.getRadius()*2));
 				
 			}
 		};
 		System.out.println("Cercle intersects Red: " + c.intersects(r2));
-		System.out.println("Cercle intersects Green: " + c.intersects(r22));
+		System.out.println("Cercle intersects Green: " + c.intersects(r22)) ;
 		
 		f.getContentPane().add(p);
 		f.pack();
 		f.setVisible(true);
 		
 	}
+
+
 }

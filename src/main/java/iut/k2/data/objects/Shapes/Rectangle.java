@@ -1,5 +1,7 @@
 package iut.k2.data.objects.Shapes;
 
+import iut.k2.physics.Coordinate2D;
+
 public class Rectangle implements Shape{
 
 	private int x;
@@ -35,7 +37,7 @@ public class Rectangle implements Shape{
 		int xMax = xMin + width;
 		int yMin = this.y;
 		int yMax = yMin + height;
-		return (x > xMin && x < xMax) && (y > yMin && y < yMax);
+		return (x >= xMin && x <= xMax) && (y >= yMin && y <= yMax);
 	}
 
 	@Override
@@ -135,6 +137,12 @@ public class Rectangle implements Shape{
 	public boolean contains(Shape s) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public void move(Coordinate2D c) {
+		x += c.getX();
+		y += c.getY();
 	}
 
 }
