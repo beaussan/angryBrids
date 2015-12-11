@@ -92,18 +92,25 @@ public class Rectangle2D implements Shape{
 
 	@Override
 	public boolean intersects(double x, double y, double w, double h) {
-		boolean retour;
+		boolean retour = false;
 		
 		double xMin = x;
 		double xMax = x + w;
 		double yMin = y;
 		double yMax = y + h;
 		
-		retour = contains(xMin,yMin) || 
+		if(h == 0){
+			retour = contains(xMin, yMin) ||
+					contains(xMax, yMin);
+		}else if(w == 0){
+			retour = contains(xMin, yMin) ||
+					contains(xMin, yMax);
+		}else{
+			retour = contains(xMin,yMin) || 
 				contains(xMin,yMax) ||
 				contains(xMax,yMin) ||
 				contains(xMax,yMax);
-		
+		}
 		return retour;
 	}
 

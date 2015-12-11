@@ -23,7 +23,7 @@ import javax.swing.JPanel;
  * so everytime we want to check for a collision, we will have to test
  * the collision on each Rectangle until a collision is found.
  *  
- * @author dhoopb
+ * @author Benjamin D'Hoop
  *
  */
 public class Circle implements Shape{
@@ -108,11 +108,15 @@ public class Circle implements Shape{
 	public boolean intersects(Shape s) {
 		if(s instanceof Circle){
 			Circle c = (Circle)s;
-			double distance = getDistance(c.getCenter());
-			if(distance < c.getRadius()+getRadius()){
+			if(getCenter().equals(c.getCenter())){
 				return true;
 			}else{
-				return false;
+				double distance = getDistance(c.getCenter());
+				if(distance < c.getRadius()+getRadius()){
+					return true;
+				}else{
+					return false;
+				}
 			}
 			
 		}else{
