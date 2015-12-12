@@ -16,6 +16,10 @@ public class Pecker extends Entity implements ShapeBased {
 
     private Map<Shape, Color> shapeColorMap = new LinkedHashMap<>();
 
+    /**
+     * Instantiate a motionless Pecker 
+     *
+     */
 	public Pecker(Coordinate2D c) {
 		super(c);
         LOG.debug("Creating new Pecker at {}", c);
@@ -24,9 +28,13 @@ public class Pecker extends Entity implements ShapeBased {
         setTerminalVelocity(new Coordinate2D(1000.0f, 1000.0f));
         setFriction(new Coordinate2D(.005, 0));
         setAcceleration(new Coordinate2D(0.0f, -0.25f));
-        //setVelocity(new Coordinate2D(200, 300));
     }
 
+    /**
+     * Update the delta time and the bird position
+     *
+     * @param deltaTime
+     */
     @Override
     public void update(float deltaTime) {
         super.update(deltaTime);
@@ -35,6 +43,11 @@ public class Pecker extends Entity implements ShapeBased {
         hasToUbdShape = true;
     }
 
+    /**
+     * Return a map with a beak and a head in order to draw the bird in the view
+     *
+     * @return shapeColorMap
+     */
     private Map<Shape, Color> genShapes() {
         shapeColorMap.clear();
         shapeColorMap.put(DrawBird.getSwingArrow(getCoordinate(), getCoordinate().add(getVelocity().times(2))), Color.YELLOW);

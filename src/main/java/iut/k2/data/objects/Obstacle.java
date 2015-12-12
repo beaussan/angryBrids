@@ -16,6 +16,10 @@ public class Obstacle extends Entity implements ShapeBased{
 
     private Color col = Color.BLUE;
 
+    /**
+     * Instantiate an obstacle with a color and add it to the map of shapes
+     * to be displayed in the view
+     */
 	public Obstacle(Coordinate2D c) {
 		super(c);
         renderTo = Tools.getSwingCords(c);
@@ -26,12 +30,21 @@ public class Obstacle extends Entity implements ShapeBased{
 
     }
 
+	 /**
+     * Change the color of the obstacle
+     *
+     * @param color
+     */
     @Override
     public void setColor(Color color) {
         col = color;
     }
 
-
+    /**
+     * Return the map of shapes of this object
+     *
+     * @return shapes
+     */
     @Override
     public Map<Shape, Color> getDrawsShapes() {
         return shapes;
