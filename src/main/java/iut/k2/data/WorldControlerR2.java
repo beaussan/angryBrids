@@ -31,6 +31,9 @@ public class WorldControlerR2 extends AbstractWorldControler {
 		super(level);
 	}
 
+    /**
+     * Set the velocity of the bird
+     */
 	public void bouncyBird() {
 
 		for (Entity e : getLevel().getLsEntitys()) {
@@ -52,6 +55,9 @@ public class WorldControlerR2 extends AbstractWorldControler {
 		}
 	}
 
+    /**
+     * Check if there is any collisions between entity
+     */
 	public void checkColisions() {
 
 		List<Entity> lsEntity = getLevel().getLsEntitys();
@@ -87,6 +93,11 @@ public class WorldControlerR2 extends AbstractWorldControler {
 		handleDebugInput();
 	}
 
+    /**
+     * Check if the bird have been dragged from the starting position
+     *      
+     * @param e
+     */
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		//LOG.debug("x : {}, y : {}", e.getX(), e.getY());
@@ -132,11 +143,16 @@ public class WorldControlerR2 extends AbstractWorldControler {
 
 	}
 
+    /**
+     * Wait for a drop when the bird has been dragged successfully and set the
+     * velocity of the bird which will start moving
+     *
+     * @param e
+     */
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		
 		if (birdgrap == true) {
-			System.out.println(e.getX() + "    " + e.getY());
 			double x = e.getX();
 			double y = (590 - e.getY()) * 1.75;
 			for (Entity en : getLevel().getLsEntitys()) {
@@ -165,7 +181,7 @@ public class WorldControlerR2 extends AbstractWorldControler {
 		while (nmbRuns < NMB_RUNS) {
 			getLevel().init();
 
-			// keep looping round til the game ends
+			// keep looping round till the game ends
 			timer.scheduleAtFixedRate(new RunTimer(), 0, 10);
 			while (isGameRunning()) {
 			}

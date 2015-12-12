@@ -40,7 +40,7 @@ public class Pecker extends Entity implements ShapeBased {
         shapeColorMap.put(DrawBird.getSwingArrow(getCoordinate(), getCoordinate().add(getVelocity().times(2))), Color.YELLOW);
         shapeColorMap.put(DrawBird.getSwingCircle(getCoordinate()), Color.RED);
         hasToUbdShape = false;
-        //LOG.debug("Generating a thing !!!!!!!");
+        LOG.debug("Generating a thing !!!!!!!");
         return shapeColorMap;
     }
 
