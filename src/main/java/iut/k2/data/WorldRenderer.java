@@ -94,16 +94,27 @@ public class WorldRenderer {
                             		circle.getCoordTL().getY(), 
                             		circle.getRadius()*2,
                             		circle.getRadius()*2));
-                            /*
-                             * Debugging
-                             * g.setColor(Color.YELLOW);
-                             * ((Graphics2D)g).drawLine((int)circle.getCoordTL().getX(), (int)circle.getCoordTL().getY(), (int)circle.getCoordTL().getX(), (int)circle.getCoordTL().getY());
-                             * g.setColor(Color.YELLOW);
-                             * g.drawString((int)circle.getCoordTL().getX() +","+ (int)(circle.getCoordTL().getY()+circle.getRadius()*2),(int)circle.getCoordTL().getX(), (int)(circle.getCoordTL().getY()+circle.getRadius()*2));
-                             * ((Graphics2D)g).drawLine((int)circle.getCoordTL().getX(), (int)(circle.getCoordTL().getY()+circle.getRadius()*2), (int)circle.getCoordTL().getX(), (int)(circle.getCoordTL().getY()+circle.getRadius()*2));
-                             * g.setColor(Color.WHITE);
-                             * ((Graphics2D)g).drawLine((int)circle.getCoordCenter().getX(), (int)circle.getCoordCenter().getY(), (int)circle.getCoordCenter().getX(), (int)circle.getCoordCenter().getY());
-                            */
+                          
+	                              
+							g.setColor(Color.YELLOW);
+							((Graphics2D) g).drawLine((int) circle.getCoordTL().getX(),
+									(int) circle.getCoordTL().getY(), (int) circle.getCoordTL().getX(),
+									(int) circle.getCoordTL().getY());
+							g.setColor(Color.YELLOW);
+							g.drawString(
+									(int) circle.getCoordTL().getX() + ","
+											+ (int) (circle.getCoordTL().getY() + circle.getRadius() * 2),
+									(int) circle.getCoordTL().getX(),
+									(int) (circle.getCoordTL().getY() + circle.getRadius() * 2));
+							((Graphics2D) g).drawLine((int) circle.getCoordTL().getX(),
+									(int) (circle.getCoordTL().getY() + circle.getRadius() * 2),
+									(int) circle.getCoordTL().getX(),
+									(int) (circle.getCoordTL().getY() + circle.getRadius() * 2));
+							g.setColor(Color.WHITE);
+							((Graphics2D) g).drawLine((int) circle.getCoordCenter().getX(),
+									(int) circle.getCoordCenter().getY(), (int) circle.getCoordCenter().getX(),
+									(int) circle.getCoordCenter().getY());
+
                         }else if(shape instanceof Rectangle2D){
                         	Rectangle2D r2 = (Rectangle2D)shape;
                             ((Graphics2D) g).fill(new java.awt.geom.Rectangle2D.Double(r2.getX(), r2.getY(), r2.getWidth(), r2.getHeight()));

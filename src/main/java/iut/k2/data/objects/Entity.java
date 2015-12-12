@@ -22,7 +22,7 @@ public abstract class Entity extends AbstractGameObject {
     private Coordinate2D acceleration;
 
     public Entity(@Nullable Coordinate2D c) {
-        this.position = (c == null) ? new Coordinate2D(10, 10) : c;
+        this.position = (c == null) ? new Coordinate2D(50, 50) : c;
         lsShapes = new ArrayList<>();
         rotation = 0;
         velocity = new Coordinate2D(0, 0);

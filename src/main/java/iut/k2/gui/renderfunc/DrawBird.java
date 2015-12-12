@@ -41,14 +41,13 @@ public class DrawBird {
     public static Circle drawBird(Graphics g, double x, double y, double xNext, double yNext, Color colorBody, Color colorArrow) {
         Color c = g.getColor();
 
-        Polygon poly = getArrow(x,y,xNext, yNext);
-        g.setColor(colorArrow);
-
-        g.fillPolygon(new java.awt.Polygon(poly.getArrayX(), poly.getArrayY(), poly.getNbPoints()));
-
-
-        g.setColor(colorBody);
+        
         Circle el = getCircle(x,y);
+        Polygon poly = getArrow(el.getCoordCenter().getX(),el.getCoordCenter().getY(),xNext, yNext);
+        
+        g.setColor(colorArrow);
+        g.fillPolygon(new java.awt.Polygon(poly.getArrayX(), poly.getArrayY(), poly.getNbPoints()));
+        g.setColor(colorBody);
         ((Graphics2D)g).fill(new Ellipse2D.Double(el.getCoordTL().getX(), el.getCoordTL().getY(), el.getRadius()*2, el.getRadius()*2));
 
 

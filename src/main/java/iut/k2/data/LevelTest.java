@@ -18,7 +18,7 @@ public class LevelTest extends Level {
     private Coordinate2D startPos = new Coordinate2D(10, 10);
 
     public LevelTest() {
-        this(new Coordinate2D(10, 10));
+        this(new Coordinate2D(70, 0));
     }
     public LevelTest(Coordinate2D source) {
         super();

@@ -7,7 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
-import java.awt.*;
+import iut.k2.data.objects.Shapes.*;
+
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Ellipse2D;
@@ -101,12 +103,11 @@ public class WorldControlerR2 extends AbstractWorldControler {
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		//LOG.debug("x : {}, y : {}", e.getX(), e.getY());
-		//FIXME to remove elipse2D
 		
-		if ((new Ellipse2D.Double(0, 590, 20, 20)).contains(e.getX(), e.getY())) {
-			for (Entity en : getLevel().getLsEntitys()) {
-				if (en instanceof Pecker
-						&& en.getCoordinate().equals(new Coordinate2D(10, 0))) {
+		for (Entity en : getLevel().getLsEntitys()) {
+			for (Shape s : en.getLsShapes()) {
+				//TODO Check if click is in Circle (reverse coordinates)
+				if (en instanceof Pecker && s instanceof Circle) {
 					birdgrap = true;
 				}
 			}
@@ -120,9 +121,8 @@ public class WorldControlerR2 extends AbstractWorldControler {
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
+	public void mouseClicked(MouseEvent e) {		
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -161,8 +161,8 @@ public class WorldControlerR2 extends AbstractWorldControler {
 				en.setAcceleration(new Coordinate2D(0.0f, -0.25f));
 				en.setVelocity(new Coordinate2D(x, y));
 			}
+			birdgrap = false;
 		}
-		birdgrap = false;
 	}
 
 	/**
