@@ -4,7 +4,7 @@ Benjamin:
     - Working on concrete classes of Shapes
         - TODO: Optimization
         - DOING:
-        - DONE : Rectangle, Rectangle2D, Circle
+        - DONE : Rectangle, Rectangle2D, Circle, Polygon  
     - Create test for classes: 
         - TODO: ?
         - DOING:
