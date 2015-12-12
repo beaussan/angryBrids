@@ -28,8 +28,10 @@ public class Obstacle extends Entity implements ShapeBased{
 		super(c);
         renderTo = Tools.getSwingCords(c);
         addShape(new Circle(c.getX(), c.getY(), SIZE));
+        //addShape(new Rectangle((int)c.getX(), (int)c.getY(), 30, 30));
         shapes = new HashMap<>();
         shapes.put(new Circle(renderTo.getX(), renderTo.getY(), SIZE), Color.BLUE);
+        //shapes.put(new Rectangle((int)renderTo.getX(), (int)renderTo.getY(), 30, 30), Color.BLUE);
         savedcoordinatesh= new Coordinate2D(renderTo.getX()+30 , renderTo.getY()+30);
         savedcoordinatesb= new Coordinate2D(renderTo.getX()-30 , renderTo.getY()-30);
     }
@@ -58,20 +60,38 @@ public class Obstacle extends Entity implements ShapeBased{
     	if(pos){
     		renderTo.setX(renderTo.getX()-1);
     		renderTo.setY(renderTo.getY()-1);
-            addShape(new Circle(renderTo.getX(), renderTo.getY(), SIZE));
-            shapes.clear();
-            shapes.put(new Circle(renderTo.getX(), renderTo.getY(), SIZE), Color.BLUE);
+    		for(Shape shape :shapes.keySet()){
+    			if(shape instanceof Circle){
+    				addShape(new Circle(renderTo.getX(), renderTo.getY(), SIZE));
+    				shapes.clear();
+    				shapes.put(new Circle(renderTo.getX(), renderTo.getY(), SIZE), Color.BLUE);
+    		}
+    			if(shape instanceof Rectangle){
+    		        addShape(new Rectangle((int)renderTo.getX(), (int)renderTo.getY(), 30, 30));
+    	            shapes.clear();
+    	            shapes.put(new Rectangle((int)renderTo.getX(), (int)renderTo.getY(), 30, 30), Color.BLUE);
+    	    	}
             if((renderTo.getX()==savedcoordinatesb.getX()) && (renderTo.getY()==savedcoordinatesb.getY()))
     		pos=false;
+    		}
     	}
     	else{
     		renderTo.setX(renderTo.getX()+1);
     		renderTo.setY(renderTo.getY()+1);
-            addShape(new Circle(renderTo.getX(), renderTo.getY(), SIZE));
-            shapes.clear();
-            shapes.put(new Circle(renderTo.getX(), renderTo.getY(), SIZE), Color.BLUE);
+    		for(Shape shape :shapes.keySet()){
+    			if(shape instanceof Circle){
+    				addShape(new Circle(renderTo.getX(), renderTo.getY(), SIZE));
+    				shapes.clear();
+    				shapes.put(new Circle(renderTo.getX(), renderTo.getY(), SIZE), Color.BLUE);
+    			}
+       			if(shape instanceof Rectangle){
+    		        addShape(new Rectangle((int)renderTo.getX(), (int)renderTo.getY(), 30, 30));
+    	            shapes.clear();
+    	            shapes.put(new Rectangle((int)renderTo.getX(), (int)renderTo.getY(), 30, 30), Color.BLUE);
+    	    	}
             if((renderTo.getX()==savedcoordinatesh.getX()) && (renderTo.getY()==savedcoordinatesh.getY()))
     		pos=true;
+    		}
     	}
     	
     }
