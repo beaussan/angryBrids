@@ -5,7 +5,9 @@ import iut.k2.physics.Coordinate2D;
 import iut.k2.util.MathUtils;
 
 import javax.annotation.Nullable;
-import java.awt.*;
+import iut.k2.data.objects.Shapes.*;
+
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -157,7 +159,7 @@ public abstract class Entity extends AbstractGameObject {
     public boolean overlap(Entity other) {
         for (Shape s : lsShapes) {
             for (Shape so : other.lsShapes) {
-                if (s.intersects(so.getBounds2D())) {
+                if (s.intersects(so)) {
                     return true;
                 }
             }

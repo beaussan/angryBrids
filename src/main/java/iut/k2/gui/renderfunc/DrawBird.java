@@ -1,10 +1,14 @@
 package iut.k2.gui.renderfunc;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Ellipse2D;
+
+import iut.k2.data.objects.Shapes.Circle;
+import iut.k2.data.objects.Shapes.Polygon;
 import iut.k2.physics.Coordinate2D;
 import iut.k2.util.Tools;
-
-import java.awt.*;
-import java.awt.geom.Ellipse2D;
 
 
 /**
@@ -12,40 +16,57 @@ import java.awt.geom.Ellipse2D;
  */
 public class DrawBird {
 
-    public static final int SIZE_BIRD = 20;
-    public static final int SIEE_ARROW = 30;
+    public static final int SIZE_BIRD = 25;
+    public static final int SIZE_ARROW = 22;
     public static final int SIZE_SIDE = 10;
     public static final Color COLOR_ARROW = Color.ORANGE;
     public static final Color COLOR_BODY = Color.RED;
     public static boolean IS_SKELETON = false;
 
-    public static Ellipse2D drawBird(Graphics g, Coordinate2D cordsFrom, Coordinate2D cordsTo) {
+    public static Circle drawBird(Graphics g, Coordinate2D cordsFrom, Coordinate2D cordsTo) {
         return drawBird(g, cordsFrom, cordsTo, COLOR_BODY, COLOR_ARROW);
     }
 
 
-    public static Ellipse2D drawBird(Graphics g, Coordinate2D cordsFrom, Coordinate2D cordsTo, Color colorBody) {
+    public static Circle drawBird(Graphics g, Coordinate2D cordsFrom, Coordinate2D cordsTo, Color colorBody) {
         return drawBird(g, cordsFrom, cordsTo, colorBody, COLOR_ARROW);
     }
 
-    public static Ellipse2D drawBird(Graphics g, Coordinate2D cordsFrom, Coordinate2D cordsTo, Color colorBody, Color colorArrow) {
+    public static Circle drawBird(Graphics g, Coordinate2D cordsFrom, Coordinate2D cordsTo, Color colorBody, Color colorArrow) {
         Coordinate2D fromTransf = Tools.getSwingCords(cordsFrom);
         Coordinate2D transfTo = Tools.getSwingCords(cordsTo);
         return drawBird(g, fromTransf.getX(), fromTransf.getY(), transfTo.getX(), transfTo.getY(), colorBody, colorArrow);
     }
+    
+    public static Circle drawBird(Graphics g, double x, double y, double xNext, double yNext, Color colorBody, Color colorArrow) {
+        Color c = g.getColor();
+
+        Polygon poly = getArrow(x,y,xNext, yNext);
+        g.setColor(colorArrow);
+
+        g.fillPolygon(new java.awt.Polygon(poly.getArrayX(), poly.getArrayY(), poly.getNbPoints()));
 
 
-    public static Ellipse2D getCircle(Coordinate2D cordsFrom) {
+        g.setColor(colorBody);
+        Circle el = getCircle(x,y);
+        ((Graphics2D)g).fill(new Ellipse2D.Double(el.getCoordCenter().getX(), el.getCoordCenter().getY(), el.getRadius(), el.getRadius()));
+
+
+        g.setColor(c);
+        return el;
+    }
+
+    public static Circle getCircle(Coordinate2D cordsFrom) {
         return getCircle(cordsFrom.getX(), cordsFrom.getY());
     }
 
-    public static Ellipse2D getSwingCircle(Coordinate2D cordsFrom) {
+    public static Circle getSwingCircle(Coordinate2D cordsFrom) {
         Coordinate2D trasf = Tools.getSwingCords(cordsFrom);
         return getCircle(trasf.getX(), trasf.getY());
     }
 
-    public static Ellipse2D getCircle(double x, double y){
-        return new Ellipse2D.Double(x - (SIZE_BIRD / 2), y - (SIZE_BIRD / 2), SIZE_BIRD, SIZE_BIRD);
+    public static Circle getCircle(double x, double y){
+        return new Circle(x, y, SIZE_BIRD);
     }
 
 
@@ -67,8 +88,8 @@ public class DrawBird {
 
         //LOG.fine(angle);
 
-        int xTo = (int) x + (int) (SIEE_ARROW * Math.cos(angle));
-        int yTo = (int) y + (int) (SIEE_ARROW * Math.sin(angle));
+        int xTo = (int) x + (int) (SIZE_ARROW * Math.cos(angle));
+        int yTo = (int) y + (int) (SIZE_ARROW * Math.sin(angle));
 
 
         int lineX = (int) x;
@@ -96,25 +117,6 @@ public class DrawBird {
 
         return new Polygon(new int[]{xTo, xTop, xBot}, new int[]{yTo, yTop, yBot}, 3);
     }
-
-    public static Ellipse2D drawBird(Graphics g, double x, double y, double xNext, double yNext, Color colorBody, Color colorArrow) {
-        Color c = g.getColor();
-
-        Polygon poly = getArrow(x,y,xNext, yNext);
-        g.setColor(colorArrow);
-
-        g.fillPolygon(poly);
-
-
-        g.setColor(colorBody);
-        Ellipse2D el = getCircle(x,y);
-        ((Graphics2D)g).fill(el);
-
-
-        g.setColor(c);
-        return el;
-    }
-
 
     public static double getAngle(double x, double y, double xNext, double yNext) {
         return Math.atan2(yNext - y, xNext - x);

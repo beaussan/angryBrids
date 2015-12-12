@@ -8,9 +8,14 @@ import iut.k2.data.objects.SpriteBased;
 import iut.k2.gui.Sprite;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import iut.k2.data.objects.Shapes.*;
 
 import javax.annotation.Nonnull;
-import java.awt.*;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferStrategy;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -75,8 +80,25 @@ public class WorldRenderer {
                     	if (!g.getColor().equals(shapeBased.getDrawsShapes().get(shape))){
                     		g.setColor(shapeBased.getDrawsShapes().get(shape));
                     	}
-                        
-                        ((Graphics2D) g).fill(shape);
+                        if(shape instanceof Circle){
+                        	Circle circle = (Circle)shape;
+                            ((Graphics2D) g).fill(new Ellipse2D.Double(
+                            		circle.getCoordCenter().getX(), 
+                            		circle.getCoordCenter().getY(), 
+                            		circle.getRadius(),
+                            		circle.getRadius()));
+                        }else if(shape instanceof Rectangle2D){
+                        	Rectangle2D r2 = (Rectangle2D)shape;
+                            ((Graphics2D) g).fill(new java.awt.geom.Rectangle2D.Double(r2.getX(), r2.getY(), r2.getWidth(), r2.getHeight()));
+                        }else if(shape instanceof Rectangle){
+                        	Rectangle r2 = (Rectangle)shape;
+                            ((Graphics2D) g).fill(new java.awt.Rectangle(r2.getX(), r2.getY(), r2.getWidth(), r2.getHeight()));
+                        }else if(shape instanceof Polygon){
+                        	Polygon p = (Polygon)shape;
+                            ((Graphics2D) g).fill(new java.awt.Polygon(p.getArrayX(), p.getArrayY(), p.getNbPoints()));
+                        }else{
+                        	LOG.debug("No instance of type:" + shape.toString());
+                        }
                     }
                 } else if (ago instanceof SpriteBased) {
                     SpriteBased sb = (SpriteBased) ago;

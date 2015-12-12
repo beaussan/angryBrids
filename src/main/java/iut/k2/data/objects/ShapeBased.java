@@ -1,7 +1,9 @@
 package iut.k2.data.objects;
 
-import java.awt.*;
+import java.awt.Color;
 import java.util.Map;
+
+import iut.k2.data.objects.Shapes.Shape;
 
 /**
  * Created by beaussan on 17/11/15.
