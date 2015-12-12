@@ -16,7 +16,7 @@ import iut.k2.util.Tools;
  */
 public class DrawBird {
 
-    public static final int SIZE_BIRD = 25;
+    public static final int SIZE_BIRD = 23;
     public static final int SIZE_ARROW = 35;
     public static final int SIZE_SIDE = 20;
     public static final Color COLOR_ARROW = Color.ORANGE;
@@ -49,7 +49,7 @@ public class DrawBird {
 
         g.setColor(colorBody);
         Circle el = getCircle(x,y);
-        ((Graphics2D)g).fill(new Ellipse2D.Double(el.getCoordCenter().getX(), el.getCoordCenter().getY(), el.getRadius()*2, el.getRadius()*2));
+        ((Graphics2D)g).fill(new Ellipse2D.Double(el.getCoordTL().getX(), el.getCoordTL().getY(), el.getRadius()*2, el.getRadius()*2));
 
 
         g.setColor(c);
