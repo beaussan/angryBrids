@@ -17,8 +17,8 @@ import iut.k2.util.Tools;
 public class DrawBird {
 
     public static final int SIZE_BIRD = 25;
-    public static final int SIZE_ARROW = 22;
-    public static final int SIZE_SIDE = 10;
+    public static final int SIZE_ARROW = 35;
+    public static final int SIZE_SIDE = 20;
     public static final Color COLOR_ARROW = Color.ORANGE;
     public static final Color COLOR_BODY = Color.RED;
     public static boolean IS_SKELETON = false;
@@ -49,7 +49,7 @@ public class DrawBird {
 
         g.setColor(colorBody);
         Circle el = getCircle(x,y);
-        ((Graphics2D)g).fill(new Ellipse2D.Double(el.getCoordCenter().getX(), el.getCoordCenter().getY(), el.getRadius(), el.getRadius()));
+        ((Graphics2D)g).fill(new Ellipse2D.Double(el.getCoordCenter().getX(), el.getCoordCenter().getY(), el.getRadius()*2, el.getRadius()*2));
 
 
         g.setColor(c);
@@ -77,7 +77,7 @@ public class DrawBird {
     public static Polygon getSwingArrow(Coordinate2D cordsFrom, Coordinate2D cordsTo) {
         Coordinate2D trasf = Tools.getSwingCords(cordsFrom);
         Coordinate2D transfTo = Tools.getSwingCords(cordsTo);
-        return getArrow(trasf.getX(), trasf.getY(), transfTo.getX(), transfTo.getY());
+        return getArrow(trasf.getX()-SIZE_BIRD, trasf.getY()-SIZE_BIRD, transfTo.getX()-SIZE_BIRD, transfTo.getY()-SIZE_BIRD);
     }
 
 

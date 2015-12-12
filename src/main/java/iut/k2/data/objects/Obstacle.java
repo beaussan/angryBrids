@@ -20,9 +20,9 @@ public class Obstacle extends Entity implements ShapeBased{
 	public Obstacle(Coordinate2D c) {
 		super(c);
         renderTo = Tools.getSwingCords(c);
-        addShape(new Circle(c.getX()+SIZE/2, c.getY()+SIZE/2, SIZE));
+        addShape(new Circle(c.getX(), c.getY(), SIZE));
         shapes = new HashMap<>();
-        shapes.put(new Circle(renderTo.getX()+SIZE/2, renderTo.getY()+SIZE/2, SIZE), Color.BLUE);
+        shapes.put(new Circle(renderTo.getX(), renderTo.getY(), SIZE), Color.BLUE);
 
 
     }

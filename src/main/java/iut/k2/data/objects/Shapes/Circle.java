@@ -46,6 +46,11 @@ public class Circle implements Shape{
 	 * @param radius
 	 */
 	public Circle(double x, double y, double radius){
+		//Désolé pour le français
+		//Comme le point en haut à gauche a un minimul à 0,0
+		//On rétablit ses coordonnées pour qu'il rentre dans l'écran
+		x -= radius*2;
+		y -= radius*2;
 		coordTL = new Coordinate2D(x, y);
 		coordCenter = new Coordinate2D(x+radius, y+radius);
 		if(radius > 0)
@@ -200,7 +205,7 @@ public class Circle implements Shape{
 		JFrame f = new JFrame("test");
 		f.setPreferredSize(new Dimension(500, 500));
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		final Circle c = new Circle(0, 0, 20);
+		final Circle c = new Circle(100, 100, 20);
     	final Rectangle2D r = new Rectangle2D(71, 71, 15, 15);
     	final Rectangle2D r2 = new Rectangle2D(100, 100, 20, 20);
 		JPanel p = new JPanel(){
