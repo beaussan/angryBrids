@@ -1,13 +1,17 @@
 package iut.k2.data;
 
 import com.google.common.base.Strings;
+
 import iut.k2.Constants;
 import iut.k2.data.objects.AbstractGameObject;
+import iut.k2.data.objects.Obstacle;
 import iut.k2.data.objects.ShapeBased;
 import iut.k2.data.objects.SpriteBased;
 import iut.k2.gui.Sprite;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import iut.k2.data.objects.Shapes.*;
 
 import javax.annotation.Nonnull;
@@ -75,6 +79,9 @@ public class WorldRenderer {
         for (Integer in : l.getLsObjects().keySet()) {
             for (AbstractGameObject ago : l.getLsObjects().get(in)) {
                 if (ago instanceof ShapeBased) {
+                   	if (ago instanceof Obstacle){
+                		((Obstacle) ago).updatePosition();
+                	}
                     ShapeBased shapeBased = (ShapeBased) ago;
                     for (Shape shape : shapeBased.getDrawsShapes().keySet()) {
                     	if (!g.getColor().equals(shapeBased.getDrawsShapes().get(shape))){
