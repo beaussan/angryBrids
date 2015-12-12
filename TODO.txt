@@ -10,7 +10,9 @@ Benjamin:
         - DOING:
         - DONE: Rectangle2D, Collisions(not a class)
 Bastien:
-    - Finding a solution on how to launch the bird using the mouse more accuratly
+    - TODO: some testing
+    - DONE: Finding a solution on how to launch the bird using the mouse more accuratly
+    - DOING: Javadoc
 Eddy:
     - Bug finding
 Lucas:
