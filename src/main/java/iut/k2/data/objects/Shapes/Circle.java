@@ -14,10 +14,12 @@ import javax.swing.JPanel;
 /**
  * Circle is an implementation of the interface Shape which 
  * is used for dealing with hitBoxes.
- * Circle contains 4 attributes: its coordinates, its radius, 
+ * Circle contains 4 attributes: its coordinates, its center-coordinates, its radius, 
  * the number of hitBoxes and a list of its hitBoxes
  *   
- * The coordinates of the Circle are located on its center.
+ * The coordinates of the Circle are based on the topLeft point of the
+ * Rectangle containing the Circle (just like java.swing)
+ * 
  * 
  * The Rectangles used for the hitBoxes are created inside the Circle,
  * so everytime we want to check for a collision, we will have to test
@@ -28,14 +30,29 @@ import javax.swing.JPanel;
  */
 public class Circle implements Shape{
 
-	private Coordinate2D coord; 			//coord indicates the center of the Circle
+	private Coordinate2D coordTL;
+	private Coordinate2D coordCenter; 			//coordCenter indicates the center of the Circle
 	private double radius;
 	
 	private final int nbRectangle = 10; 	//The more rectangles, the more precise
 	private List<Rectangle2D> hitBoxes;
 	
+	
+	/**
+	 * The X and Y coordinates correspond to the topLeft point
+	 * of the rectangle containing the Circle
+	 * @param x
+	 * @param y
+	 * @param radius
+	 */
 	public Circle(double x, double y, double radius){
-		coord = new Coordinate2D(x, y);
+		//Désolé pour le français
+		//Comme le point en haut à gauche a un minimul à 0,0
+		//On rétablit ses coordonnées pour qu'il rentre dans l'écran
+		x -= radius*2;
+		y -= radius*2;
+		coordTL = new Coordinate2D(x, y);
+		coordCenter = new Coordinate2D(x+radius, y+radius);
 		if(radius > 0)
 			this.radius = radius;
 		hitBoxes = new ArrayList<Rectangle2D>();
@@ -57,8 +74,8 @@ public class Circle implements Shape{
 		for(int i = 1; i < parts; i++){
 			double largeRectL = 2*Math.abs(Math.cos((pas-i)*interval)*radius);
 			double largeRectH = 2*Math.abs(Math.sin((pas-i)*interval)*radius);
-			double largeRectX = Math.cos((pas-i)*interval)*radius+coord.getX();
-			double largeRectY = -(Math.sin((pas-i)*interval)*radius)+coord.getY();
+			double largeRectX = Math.cos((pas-i)*interval)*radius+coordCenter.getX();
+			double largeRectY = -(Math.sin((pas-i)*interval)*radius)+coordCenter.getY();
 			hitBoxes.add(new Rectangle2D(largeRectX, largeRectY, largeRectL, largeRectH));
 		}
 		
@@ -75,7 +92,7 @@ public class Circle implements Shape{
 
 	@Override
 	public boolean contains(double x, double y, double w, double h) {
-		//DonnÃ©es de la figure en paramÃ¨re
+		//Donnees de la figure en parametre
 		double xMin = x;
 		double xMax = x + w;
 		double yMin = y;
@@ -110,10 +127,10 @@ public class Circle implements Shape{
 	public boolean intersects(Shape s) {
 		if(s instanceof Circle){
 			Circle c = (Circle)s;
-			if(getCenter().equals(c.getCenter())){
+			if(getCoordCenter().equals(c.getCoordCenter())){
 				return true;
 			}else{
-				double distanceCarre = getDistanceCarre(c.getCenter());
+				double distanceCarre = getDistanceCarre(c.getCoordCenter());
 				if(distanceCarre < (c.getRadius()+getRadius())*(c.getRadius()+getRadius())){
 					return true;
 				}else{
@@ -132,8 +149,8 @@ public class Circle implements Shape{
 	}
 	
 	public double getDistanceCarre(Coordinate2D c2){
-		double xA = coord.getX();
-		double yA = coord.getY();
+		double xA = coordCenter.getX();
+		double yA = coordCenter.getY();
 		double xB = c2.getX();
 		double yB = c2.getY();
 		
@@ -144,11 +161,14 @@ public class Circle implements Shape{
 	public boolean contains(Shape s) {
 		// TODO Auto-generated method stub
 		return false;
-	}		// TODO Auto-generated method stub
+	}
 	
+	public Coordinate2D getCoordTL(){
+		return coordTL;
+	}
 	
-	public Coordinate2D getCenter(){
-		return coord;
+	public Coordinate2D getCoordCenter(){
+		return coordCenter;
 	}
 	
 	public double getRadius(){
@@ -159,8 +179,8 @@ public class Circle implements Shape{
 		return hitBoxes;
 	}
 	
-	public void setCenter(Coordinate2D coord){
-		this.coord = coord;
+	public void setCenter(Coordinate2D coordCenter){
+		this.coordCenter = coordCenter;
 		generateHitBoxes();
 	}
 	
@@ -171,8 +191,10 @@ public class Circle implements Shape{
 
 	@Override
 	public void move(Coordinate2D c) {
-		coord.setX(coord.getX()+c.getX());
-		coord.setY(coord.getY()+c.getY());
+		coordTL.setX(coordTL.getX()+c.getX());
+		coordTL.setY(coordTL.getY()+c.getY());
+		coordCenter.setX(coordCenter.getX()+c.getX());
+		coordCenter.setY(coordCenter.getY()+c.getY());
 		generateHitBoxes();
 	}
 	
@@ -204,9 +226,8 @@ public class Circle implements Shape{
 				//g.drawRect((int)r22.getX(), (int)r22.getY(), (int)r22.getWidth(), (int)r22.getHeight());
 				
 				
-				g.setColor(Color.BLACK);
-				g.drawOval((int)(c.getCenter().getX()-c.getRadius()), (int)(c.getCenter().getY()
-						-c.getRadius()), (int)(c.getRadius()*2), (int)(c.getRadius()*2));
+				g.setColor(Color.RED);
+				g.drawOval((int)c.getCoordTL().getX(), (int)c.getCoordTL().getY(), (int)(c.getRadius()*2), (int)(c.getRadius()*2));
 				
 			}
 		};
