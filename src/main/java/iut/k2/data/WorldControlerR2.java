@@ -149,7 +149,7 @@ public class WorldControlerR2 extends AbstractWorldControler {
 	}
 
 	/**
-	 * render on allss renderers
+	 * render on all renderer
 	 */
 	public void render() {
 		for (WorldRenderer worldRenderer : getWorldRenderers()) {
