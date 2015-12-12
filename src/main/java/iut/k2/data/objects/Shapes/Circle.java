@@ -206,8 +206,8 @@ public class Circle implements Shape{
 		f.setPreferredSize(new Dimension(500, 500));
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		final Circle c = new Circle(100, 100, 20);
-    	final Rectangle2D r = new Rectangle2D(71, 71, 15, 15);
-    	final Rectangle2D r2 = new Rectangle2D(100, 100, 20, 20);
+    	final Rectangle2D r2 = new Rectangle2D(60, 60, 15, 15);
+    	final Rectangle2D r22 = new Rectangle2D(94, 94, 20, 20);
 		JPanel p = new JPanel(){
 			public void paintComponent(Graphics g){
 				for(Rectangle2D r : c.getHitBoxes()){
@@ -217,13 +217,13 @@ public class Circle implements Shape{
 				
 				g.setColor(Color.DARK_GRAY);
 				//System.out.println((int)r2.getX()+" " +(int)r2.getY()+" "+ (int)r2.getWidth()+" "+ (int)r2.getHeight());
-				g.drawRect((int)r.getX(), (int)r.getY(), (int)r.getWidth(), (int)r.getHeight());
+				//g.drawRect((int)r.getX(), (int)r.getY(), (int)r.getWidth(), (int)r.getHeight());
 				g.setColor(Color.RED);
 				//System.out.println((int)r2.getX()+" " +(int)r2.getY()+" "+ (int)r2.getWidth()+" "+ (int)r2.getHeight());
 				g.drawRect((int)r2.getX(), (int)r2.getY(), (int)r2.getWidth(), (int)r2.getHeight());
-				//g.setColor(Color.GREEN);
+				g.setColor(Color.GREEN);
 				//System.out.println((int)r22.getX()+" " +(int)r22.getY()+" "+ (int)r22.getWidth()+" "+ (int)r22.getHeight());
-				//g.drawRect((int)r22.getX(), (int)r22.getY(), (int)r22.getWidth(), (int)r22.getHeight());
+				g.drawRect((int)r22.getX(), (int)r22.getY(), (int)r22.getWidth(), (int)r22.getHeight());
 				
 				
 				g.setColor(Color.RED);
@@ -231,11 +231,11 @@ public class Circle implements Shape{
 				
 			}
 		};
-		/*
-		System.out.println("Cercle intersects Gray: " + c.intersects(r));
+		
+		//System.out.println("Cercle intersects Gray: " + c.intersects(r));
 		System.out.println("Cercle intersects Red: " + c.intersects(r2));
 		System.out.println("Cercle intersects Green: " + c.intersects(r22)) ;
-		*/
+		
 		f.getContentPane().add(p);
 		f.pack();
 		f.setVisible(true);

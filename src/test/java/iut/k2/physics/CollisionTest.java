@@ -51,13 +51,13 @@ public class CollisionTest {
     @Test
     public void collisionCircleRectangle() {
     	Circle c = new Circle(100, 100, 20);
-    	Rectangle2D r2 = new Rectangle2D(71, 71, 15, 15);
-    	Rectangle2D r22 = new Rectangle2D(100, 100, 20, 20);
+    	Rectangle2D r2 = new Rectangle2D(60, 60, 15, 15);
+    	Rectangle2D r22 = new Rectangle2D(94, 94, 20, 20);
     	
-    	assertTrue(c.intersects(r22));
-    	assertFalse(c.intersects(r2));
-    	assertTrue(r22.intersects(c));
-    	assertFalse(r2.intersects(c));
+    	assertTrue(c.intersects(r2));
+    	assertFalse(c.intersects(r22));
+    	assertTrue(r2.intersects(c));
+    	assertFalse(r22.intersects(c));
     }
     
 }
