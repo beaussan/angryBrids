@@ -14,7 +14,7 @@ import java.util.List;
 public abstract class Entity extends AbstractGameObject {
 
     private Coordinate2D position;
-    private List<Shape> lsShapes;
+	private List<Shape> lsShapes;
     private float rotation;
     private Coordinate2D velocity;
     private Coordinate2D terminalVelocity;
@@ -151,6 +151,14 @@ public abstract class Entity extends AbstractGameObject {
     public void setVelocity(Coordinate2D velocity) {
         this.velocity = velocity;
     }
+    
+    public Coordinate2D getPosition() {
+		return position;
+	}
+
+	public void setPosition(Coordinate2D position) {
+		this.position = position;
+	}
 
     public void move(double x, double y) {
         setCoordinate(getCoordinate().add(x, y));

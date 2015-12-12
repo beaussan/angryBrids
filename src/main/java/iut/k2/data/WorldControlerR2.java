@@ -107,8 +107,9 @@ public class WorldControlerR2 extends AbstractWorldControler {
 		for (Entity en : getLevel().getLsEntitys()) {
 			for (Shape s : en.getLsShapes()) {
 				//TODO Check if click is in Circle (reverse coordinates)
-				if (en instanceof Pecker && s instanceof Circle) {
-					birdgrap = true;
+				if (new Ellipse2D.Double(24,554,46,46).contains(e.getX(), e.getY()))
+					if (en instanceof Pecker && s instanceof Circle && en.getPosition().equals(new Coordinate2D(70, 0))) {
+						birdgrap = true;
 				}
 			}
 		}
