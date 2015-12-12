@@ -65,14 +65,13 @@ public class Obstacle extends Entity implements ShapeBased{
     				addShape(new Circle(renderTo.getX(), renderTo.getY(), SIZE));
     				shapes.clear();
     				shapes.put(new Circle(renderTo.getX(), renderTo.getY(), SIZE), Color.BLUE);
-    		}
-    			if(shape instanceof Rectangle){
-    		        addShape(new Rectangle((int)renderTo.getX(), (int)renderTo.getY(), 30, 30));
+    			} else if(shape instanceof Rectangle2D){
+    		        addShape(new Rectangle2D(renderTo.getX(), renderTo.getY(), 30, 30));
     	            shapes.clear();
-    	            shapes.put(new Rectangle((int)renderTo.getX(), (int)renderTo.getY(), 30, 30), Color.BLUE);
+    	            shapes.put(new Rectangle2D(renderTo.getX(), renderTo.getY(), 30, 30), Color.BLUE);
     	    	}
             if((renderTo.getX()==savedcoordinatesb.getX()) && (renderTo.getY()==savedcoordinatesb.getY()))
-    		pos=false;
+            	pos=false;
     		}
     	}
     	else{

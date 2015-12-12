@@ -19,6 +19,7 @@ import javax.annotation.Nonnull;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferStrategy;
 
@@ -76,12 +77,10 @@ public class WorldRenderer {
     }
 
     private void renderWorld(Graphics g, Level l) {
+    	((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         for (Integer in : l.getLsObjects().keySet()) {
             for (AbstractGameObject ago : l.getLsObjects().get(in)) {
                 if (ago instanceof ShapeBased) {
-                   	if (ago instanceof Obstacle){
-                		((Obstacle) ago).updatePosition();
-                	}
                     ShapeBased shapeBased = (ShapeBased) ago;
                     for (Shape shape : shapeBased.getDrawsShapes().keySet()) {
                     	if (!g.getColor().equals(shapeBased.getDrawsShapes().get(shape))){
@@ -89,31 +88,13 @@ public class WorldRenderer {
                     	}
                         if(shape instanceof Circle){
                         	Circle circle = (Circle)shape;
-                            ((Graphics2D) g).fill(new Ellipse2D.Double(
+                        	((Graphics2D) g).fill(new Ellipse2D.Double(
                             		circle.getCoordTL().getX(),
                             		circle.getCoordTL().getY(), 
                             		circle.getRadius()*2,
                             		circle.getRadius()*2));
                           
-	                              
-							g.setColor(Color.YELLOW);
-							((Graphics2D) g).drawLine((int) circle.getCoordTL().getX(),
-									(int) circle.getCoordTL().getY(), (int) circle.getCoordTL().getX(),
-									(int) circle.getCoordTL().getY());
-							g.setColor(Color.YELLOW);
-							g.drawString(
-									(int) circle.getCoordTL().getX() + ","
-											+ (int) (circle.getCoordTL().getY() + circle.getRadius() * 2),
-									(int) circle.getCoordTL().getX(),
-									(int) (circle.getCoordTL().getY() + circle.getRadius() * 2));
-							((Graphics2D) g).drawLine((int) circle.getCoordTL().getX(),
-									(int) (circle.getCoordTL().getY() + circle.getRadius() * 2),
-									(int) circle.getCoordTL().getX(),
-									(int) (circle.getCoordTL().getY() + circle.getRadius() * 2));
-							g.setColor(Color.WHITE);
-							((Graphics2D) g).drawLine((int) circle.getCoordCenter().getX(),
-									(int) circle.getCoordCenter().getY(), (int) circle.getCoordCenter().getX(),
-									(int) circle.getCoordCenter().getY());
+                        	debugDrawCircle(g, circle);
 
                         }else if(shape instanceof Rectangle2D){
                         	Rectangle2D r2 = (Rectangle2D)shape;
@@ -138,6 +119,27 @@ public class WorldRenderer {
                 }
             }
         }
+    }
+    
+    private void debugDrawCircle(Graphics g, Circle circle){
+		g.setColor(Color.YELLOW);
+		((Graphics2D) g).drawLine((int) circle.getCoordTL().getX(),
+				(int) circle.getCoordTL().getY(), (int) circle.getCoordTL().getX(),
+				(int) circle.getCoordTL().getY());
+		g.setColor(Color.YELLOW);
+		g.drawString(
+				(int) circle.getCoordTL().getX() + ","
+						+ (int) (circle.getCoordTL().getY() + circle.getRadius() * 2),
+				(int) circle.getCoordTL().getX(),
+				(int) (circle.getCoordTL().getY() + circle.getRadius() * 2));
+		((Graphics2D) g).drawLine((int) circle.getCoordTL().getX(),
+				(int) (circle.getCoordTL().getY() + circle.getRadius() * 2),
+				(int) circle.getCoordTL().getX(),
+				(int) (circle.getCoordTL().getY() + circle.getRadius() * 2));
+		g.setColor(Color.WHITE);
+		((Graphics2D) g).drawLine((int) circle.getCoordCenter().getX(),
+				(int) circle.getCoordCenter().getY(), (int) circle.getCoordCenter().getX(),
+				(int) circle.getCoordCenter().getY());
     }
 
     private void writeTxtInfo(Graphics g) {
