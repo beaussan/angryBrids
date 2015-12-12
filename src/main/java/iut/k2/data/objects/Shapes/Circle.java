@@ -192,7 +192,7 @@ public class Circle implements Shape{
 	@Override
 	public void move(Coordinate2D c) {
 		coordTL.setX(coordTL.getX()+c.getX());
-		coordCenter.setY(coordTL.getY()+c.getY());
+		coordTL.setY(coordTL.getY()+c.getY());
 		coordCenter.setX(coordCenter.getX()+c.getX());
 		coordCenter.setY(coordCenter.getY()+c.getY());
 		generateHitBoxes();
