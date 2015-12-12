@@ -24,7 +24,7 @@ public class Pecker extends Entity implements ShapeBased {
         setTerminalVelocity(new Coordinate2D(1000.0f, 1000.0f));
         setFriction(new Coordinate2D(.005, 0));
         setAcceleration(new Coordinate2D(0.0f, -0.25f));
-        setVelocity(new Coordinate2D(200, 300));
+        //setVelocity(new Coordinate2D(200, 300));
     }
 
     @Override
@@ -40,7 +40,7 @@ public class Pecker extends Entity implements ShapeBased {
         shapeColorMap.put(DrawBird.getSwingArrow(getCoordinate(), getCoordinate().add(getVelocity().times(2))), Color.YELLOW);
         shapeColorMap.put(DrawBird.getSwingCircle(getCoordinate()), Color.RED);
         hasToUbdShape = false;
-        LOG.debug("Generating a thing !!!!!!!");
+        //LOG.debug("Generating a thing !!!!!!!");
         return shapeColorMap;
     }
 

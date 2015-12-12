@@ -91,7 +91,7 @@ public class WorldControlerR2 extends AbstractWorldControler {
 	public void mouseDragged(MouseEvent e) {
 		//LOG.debug("x : {}, y : {}", e.getX(), e.getY());
 		//FIXME to remove elipse2D
-		/*
+		
 		if ((new Ellipse2D.Double(0, 590, 20, 20)).contains(e.getX(), e.getY())) {
 			for (Entity en : getLevel().getLsEntitys()) {
 				if (en instanceof Pecker
@@ -99,7 +99,7 @@ public class WorldControlerR2 extends AbstractWorldControler {
 					birdgrap = true;
 				}
 			}
-		}*/
+		}
 	}
 
 	@Override
@@ -134,10 +134,11 @@ public class WorldControlerR2 extends AbstractWorldControler {
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		/*
+		
 		if (birdgrap == true) {
-			double x = e.getX() * 2;
-			double y = (e.getY() - 590) * 2.5;
+			System.out.println(e.getX() + "    " + e.getY());
+			double x = e.getX();
+			double y = (590 - e.getY()) * 1.75;
 			for (Entity en : getLevel().getLsEntitys()) {
 				en.setTerminalVelocity(new Coordinate2D(1000.0f, 1000.0f));
 				en.setFriction(new Coordinate2D(.005, 0));
@@ -145,7 +146,7 @@ public class WorldControlerR2 extends AbstractWorldControler {
 				en.setVelocity(new Coordinate2D(x, y));
 			}
 		}
-		birdgrap = false;*/
+		birdgrap = false;
 	}
 
 	/**

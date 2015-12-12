@@ -24,7 +24,7 @@ public class GameLoop extends JFrame {
 
     }
     /**
-     * The stragey that allows us to use accelerate page flipping
+     * The strategy that allows us to use accelerate page flipping
      */
     private BufferStrategy strategy;
     private boolean gameRunning = true;
