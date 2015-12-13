@@ -36,6 +36,7 @@ public class Circle implements Shape{
 	
 	private final int nbRectangle = 10; 	//The more rectangles, the more precise
 	private List<Rectangle2D> hitBoxes;
+	private Rectangle2D largeHitBox; 		//This hitBox is used for Optimization purpose
 	
 	
 	/**
@@ -64,13 +65,16 @@ public class Circle implements Shape{
 	 * for the Circle
 	 */
 	private void generateHitBoxes(){
+		//large hitBox
+		largeHitBox = new Rectangle2D(getCoordTL().getX(), getCoordTL().getY(), radius*2, radius*2);
+		
+		//inner hitBoxes
 		hitBoxes.clear();
 
-		int parts = nbRectangle+1;
+		int parts = nbRectangle+1;			//Optimization for calculs made multiple times
 		int pas = 2*parts;
-		
-		//Optimization for calculs made multiple times
 		double interval = Math.PI/pas;
+		
 		for(int i = 1; i < parts; i++){
 			double largeRectL = 2*Math.abs(Math.cos((pas-i)*interval)*radius);
 			double largeRectH = 2*Math.abs(Math.sin((pas-i)*interval)*radius);
@@ -127,9 +131,11 @@ public class Circle implements Shape{
 	public boolean intersects(Shape s) {
 		if(s instanceof Circle){
 			Circle c = (Circle)s;
-			if(getCoordCenter().equals(c.getCoordCenter())){
+			if(getCoordCenter().equals(c.getCoordCenter())){									//If the 2 circles are on the same coordinates, they intersect
 				return true;
-			}else{
+			}else if(!getLargeHitBox().intersects(c.getLargeHitBox())){							//Else if their largeHitBox don't touch, they don't intersect
+				return false;
+			}else{																				//Else if their distance is less than the sum of their radius, they intersect
 				double distanceCarre = getDistanceCarre(c.getCoordCenter());
 				if(distanceCarre < (c.getRadius()+getRadius())*(c.getRadius()+getRadius())){
 					return true;
@@ -148,6 +154,10 @@ public class Circle implements Shape{
 		return false;
 	}
 	
+	public Rectangle2D getLargeHitBox() {
+		return largeHitBox;
+	}
+
 	public double getDistanceCarre(Coordinate2D c2){
 		double xA = coordCenter.getX();
 		double yA = coordCenter.getY();

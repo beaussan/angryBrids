@@ -108,16 +108,19 @@ public class WorldControlerR2 extends AbstractWorldControler {
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		//LOG.debug("x : {}, y : {}", e.getX(), e.getY());
-		
+		/*
 		for (Entity en : getLevel().getLsEntitys()) {
 			for (Shape s : en.getLsShapes()) {
 				//TODO Check if click is in Circle (reverse coordinates)
-				if (new Ellipse2D.Double(24,554,46,46).contains(e.getX(), e.getY()))
-					if (en instanceof Pecker && s instanceof Circle && en.getPosition().equals(new Coordinate2D(70, 0))) {
+				
+				//Problem: This works only if the pecker starts at the same position
+				if (new Ellipse2D.Double(24,554,46,46).contains(e.getX(), e.getY()))		
+					if (en instanceof Pecker && s instanceof Circle && en.getPosition().equals(new Coordinate2D(70, 0)))
 						birdgrap = true;
-				}
 			}
-		}
+		}*/
+		if (new Ellipse2D.Double(24,554,46,46).contains(e.getX(), e.getY()))	
+			birdgrap = true;
 	}
 
 	@Override
