@@ -136,7 +136,7 @@ public class WorldRenderer {
     }
     
 	 /**
-     * A solution to draw circle correctly on the screen
+     * A solution find how to draw circle correctly on the screen
      *
      * @param g
      * @param circle

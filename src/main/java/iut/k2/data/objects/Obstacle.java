@@ -16,6 +16,7 @@ public class Obstacle extends Entity implements ShapeBased{
     private boolean pos =true;
     private Coordinate2D savedcoordinatesh;
     private Coordinate2D savedcoordinatesb;
+    private Coordinate2D base;
 
 
     private Color col = Color.BLUE;
@@ -34,6 +35,8 @@ public class Obstacle extends Entity implements ShapeBased{
         //shapes.put(new Rectangle((int)renderTo.getX(), (int)renderTo.getY(), 30, 30), Color.BLUE);
         savedcoordinatesh= new Coordinate2D(renderTo.getX()+30 , renderTo.getY()+30);
         savedcoordinatesb= new Coordinate2D(renderTo.getX()-30 , renderTo.getY()-30);
+        base= new Coordinate2D(c.getX(),c.getY());
+
     }
 
 	 /**
@@ -60,9 +63,12 @@ public class Obstacle extends Entity implements ShapeBased{
     	if(pos){
     		renderTo.setX(renderTo.getX()-1);
     		renderTo.setY(renderTo.getY()-1);
+    		base.setX(base.getX()-1);
+    		base.setY(base.getY()+1);
     		for(Shape shape :shapes.keySet()){
     			if(shape instanceof Circle){
-    				addShape(new Circle(renderTo.getX(), renderTo.getY(), SIZE));
+    				this.getLsShapes().clear();
+    				addShape(new Circle(base.getX(), base.getY(), SIZE));
     				shapes.clear();
     				shapes.put(new Circle(renderTo.getX(), renderTo.getY(), SIZE), Color.BLUE);
     			} else if(shape instanceof Rectangle2D){
@@ -77,9 +83,12 @@ public class Obstacle extends Entity implements ShapeBased{
     	else{
     		renderTo.setX(renderTo.getX()+1);
     		renderTo.setY(renderTo.getY()+1);
+    		base.setX(base.getX()+1);
+    		base.setY(base.getY()-1);
     		for(Shape shape :shapes.keySet()){
     			if(shape instanceof Circle){
-    				addShape(new Circle(renderTo.getX(), renderTo.getY(), SIZE));
+    				this.getLsShapes().clear();
+    				addShape(new Circle(base.getX(), base.getY(), SIZE));
     				shapes.clear();
     				shapes.put(new Circle(renderTo.getX(), renderTo.getY(), SIZE), Color.BLUE);
     			}

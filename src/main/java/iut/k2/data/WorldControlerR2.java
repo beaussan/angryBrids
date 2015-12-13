@@ -1,12 +1,17 @@
 package iut.k2.data;
 
+import iut.k2.data.objects.AbstractGameObject;
 import iut.k2.data.objects.Entity;
+import iut.k2.data.objects.Obstacle;
 import iut.k2.data.objects.Pecker;
+import iut.k2.data.objects.ShapeBased;
 import iut.k2.physics.Coordinate2D;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
+
 import iut.k2.data.objects.Shapes.*;
 
 import java.awt.Color;
@@ -188,6 +193,8 @@ public class WorldControlerR2 extends AbstractWorldControler {
 			}
 			timer.purge();
 			render();
+
+			
 			LOG.debug("Timer is over !");
 			nmbRuns++;
 			setGameRunning(true);
@@ -236,6 +243,13 @@ public class WorldControlerR2 extends AbstractWorldControler {
 			LOG.trace("Updating collisions");
 			checkColisions();
 			LOG.trace("Rendering !");
+			for (Integer in : getLevel().getLsObjects().keySet()) {
+	            for (AbstractGameObject ago : getLevel().getLsObjects().get(in)) {
+	                if (ago instanceof Obstacle){
+	                	((Obstacle) ago).updatePosition();
+	                }
+	            }
+			}
 			render();
 			if (cumul >= TIME_MAX_MS) {
 				endingGame = true;
