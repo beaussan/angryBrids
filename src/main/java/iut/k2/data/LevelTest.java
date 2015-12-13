@@ -69,8 +69,8 @@ public class LevelTest extends Level {
             int x = r.nextInt(Constants.SIZE_WIDE / 2) + Constants.SIZE_WIDE / 2;
             int y = r.nextInt(Constants.SIZE_HEIGHT);
             
-            int moveX = new Random().nextInt(200)-100;
-            int moveY = new Random().nextInt(200)-100;
+            int moveX = new Random().nextInt(250)-100;
+            int moveY = new Random().nextInt(250)-100;
 
             //Création d'un obstacle
             Obstacle o = new Obstacle(new Coordinate2D(x, y), moveX, moveY);

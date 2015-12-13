@@ -56,6 +56,9 @@ public class Obstacle extends Entity implements ShapeBased{
         return shapes;
     }
     
+    /**
+     * Move the obstacles
+     */
     public void updatePosition(){
     	if(pos){
     		renderTo.setX(renderTo.getX()-1);
