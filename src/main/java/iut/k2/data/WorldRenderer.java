@@ -103,6 +103,8 @@ public class WorldRenderer {
                     	}
                         if(shape instanceof Circle){
                         	Circle circle = (Circle)shape;
+                        	
+                        	//Drawing Green line during the grabbing of the Bird
                         	if(g.getColor() == Color.RED && abstractWorldControler.isBirdGrabbed()){
                         		g.setColor(Color.GREEN);
                         		((Graphics2D)g).drawLine((int)circle.getCoordCenter().getX(), 
@@ -110,6 +112,7 @@ public class WorldRenderer {
                         				(int)abstractWorldControler.getMouseCoordinate().getX(), 
                         				(int)abstractWorldControler.getMouseCoordinate().getY());
                         	}
+                        	
                         	((Graphics2D) g).fill(new Ellipse2D.Double(
                             		circle.getCoordTL().getX(),
                             		circle.getCoordTL().getY(), 
