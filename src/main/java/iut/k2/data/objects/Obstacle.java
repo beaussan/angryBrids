@@ -34,7 +34,6 @@ public class Obstacle extends Entity implements ShapeBased{
         shapes.put(new Circle(renderTo.getX(), renderTo.getY(), SIZE), Color.BLUE);
         //shapes.put(new Rectangle2D(renderTo.getX(), renderTo.getY(), 30, 30), Color.BLUE);
         //if(moveY>0){
-        System.out.println(directionX +  "          " + directionY);
         if(directionX>0 && directionY>0){
         	savedcoordinatesh = new Coordinate2D(renderTo.getX()+moveX , renderTo.getY()+moveY);
         	savedcoordinatesb = new Coordinate2D(renderTo.getX()-moveX , renderTo.getY()-moveY);
@@ -59,15 +58,7 @@ public class Obstacle extends Entity implements ShapeBased{
         	this.directionX = directionX;
         	this.directionY = directionY;
         }
-        else{
-        	System.out.println("test");
-        }
-        
-        /*}
-        else{
-            savedcoordinatesh = new Coordinate2D(renderTo.getX()+moveX , renderTo.getY()-moveY);
-            savedcoordinatesb = new Coordinate2D(renderTo.getX()-moveX , renderTo.getY()+moveY);
-        }*/
+
         base= new Coordinate2D(c.getX(),c.getY());
     }
 
@@ -95,8 +86,6 @@ public class Obstacle extends Entity implements ShapeBased{
      * Move the obstacles
      */
     public void updatePosition(){
-    	System.out.println("x "+ renderTo.getX() + " dir " + directionX); 
-    	System.out.println("y " + renderTo.getY()+ " dir " + directionY);
     	if(pos){
     		renderTo.setX(renderTo.getX()-directionX);
     		renderTo.setY(renderTo.getY()-directionY);
