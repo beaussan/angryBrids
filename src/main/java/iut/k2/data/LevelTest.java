@@ -68,11 +68,19 @@ public class LevelTest extends Level {
             //Coordonnées de l'obstacle
             int x = r.nextInt(Constants.SIZE_WIDE / 2) + Constants.SIZE_WIDE / 2;
             int y = r.nextInt(Constants.SIZE_HEIGHT);
+            int directionX = 0;
+            int directionY = 0;
             
-            int moveX = new Random().nextInt(70);
-            int moveY = new Random().nextInt(70);
-            int directionX = new Random().nextInt(10)-5;
-            int directionY = new Random().nextInt(10)-5;
+            int moveX = new Random().nextInt(100);
+            int moveY = new Random().nextInt(100);
+            do{
+            	while(directionX==0)
+            directionX = new Random().nextInt(3)-1;
+            }while(directionX==0 && ((double)x + (double)moveX) % (double)directionX !=0 && ((double)x-(double)moveX) % (double)directionX != 0);
+            do{
+            	while(directionY==0)
+            directionY = new Random().nextInt(3)-1;
+            }while(directionY==0 && ((double)y + (double)moveY) % (double)directionY !=0 && ((double)y-(double)moveY) % (double)directionY != 0);
 
             //Création d'un obstacle
             Obstacle o = new Obstacle(new Coordinate2D(x, y), moveX, moveY, directionX, directionY);
