@@ -47,9 +47,6 @@ public class Circle implements Shape{
 	 * @param radius
 	 */
 	public Circle(double x, double y, double radius){
-		//Désolé pour le français
-		//Comme le point en haut à gauche a un minimul à 0,0
-		//On rétablit ses coordonnées pour qu'il rentre dans l'écran
 		x -= radius*2;
 		y -= radius*2;
 		coordTL = new Coordinate2D(x, y);
