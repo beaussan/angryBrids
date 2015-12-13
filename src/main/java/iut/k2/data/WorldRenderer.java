@@ -59,6 +59,9 @@ public class WorldRenderer {
         this.textDisplayed = Strings.nullToEmpty(textDisplayed);
     }
 
+	 /**
+     * The final render which implemented the strategy
+     */
     public void render() {
         Graphics g = strategy.getDrawGraphics();
         render(g);
@@ -66,6 +69,11 @@ public class WorldRenderer {
         strategy.show();
     }
 
+	 /**
+     * Render the black font and call the render of the world and axis
+     *
+     * @param g
+     */
     public void render(@Nonnull Graphics g) {
         checkNotNull(g, "Graphics must not be null !");
         g.setColor(Color.BLACK);
@@ -76,6 +84,12 @@ public class WorldRenderer {
         renderAxis(g);
     }
 
+	 /**
+     * Render all the shapes and sprite
+     *
+     * @param g
+     * @param l
+     */
     private void renderWorld(Graphics g, Level l) {
     	((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         for (Integer in : l.getLsObjects().keySet()) {
@@ -121,6 +135,12 @@ public class WorldRenderer {
         }
     }
     
+	 /**
+     * A solution to draw circle correctly on the screen
+     *
+     * @param g
+     * @param circle
+     */
     private void debugDrawCircle(Graphics g, Circle circle){
 		g.setColor(Color.YELLOW);
 		((Graphics2D) g).drawLine((int) circle.getCoordTL().getX(),
@@ -142,6 +162,11 @@ public class WorldRenderer {
 				(int) circle.getCoordCenter().getY());
     }
 
+	 /**
+     * Show informations at the screen if textDisplayed is set
+     *
+     * @param g
+     */
     private void writeTxtInfo(Graphics g) {
         if (textDisplayed == null || textDisplayed.equals("")) {
             return;
@@ -150,6 +175,11 @@ public class WorldRenderer {
         g.drawString(textDisplayed, 10, 50);
     }
 
+	 /**
+     * Render the x and y axis
+     *
+     * @param g
+     */
     private void renderAxis(Graphics g) {
         g.setColor(Color.WHITE);
         g.drawLine(0, 0, Constants.SIZE_WIDE, 0);
