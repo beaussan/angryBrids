@@ -17,26 +17,23 @@ public class Obstacle extends Entity implements ShapeBased{
     private Coordinate2D savedcoordinatesh;
     private Coordinate2D savedcoordinatesb;
     private Coordinate2D base;
-
-
     private Color col = Color.BLUE;
 
     /**
      * Instantiate an obstacle with a color and add it to the map of shapes
      * to be displayed in the view
      */
-	public Obstacle(Coordinate2D c) {
+	public Obstacle(Coordinate2D c, int moveX, int moveY) {
 		super(c);
         renderTo = Tools.getSwingCords(c);
         addShape(new Circle(c.getX(), c.getY(), SIZE));
-        //addShape(new Rectangle((int)c.getX(), (int)c.getY(), 30, 30));
+        //addShape(new Rectangle2D(c.getX(), c.getY(), 30, 30));
         shapes = new HashMap<>();
         shapes.put(new Circle(renderTo.getX(), renderTo.getY(), SIZE), Color.BLUE);
-        //shapes.put(new Rectangle((int)renderTo.getX(), (int)renderTo.getY(), 30, 30), Color.BLUE);
-        savedcoordinatesh= new Coordinate2D(renderTo.getX()+30 , renderTo.getY()+30);
-        savedcoordinatesb= new Coordinate2D(renderTo.getX()-30 , renderTo.getY()-30);
+        //shapes.put(new Rectangle2D(renderTo.getX(), renderTo.getY(), 30, 30), Color.BLUE);
+        savedcoordinatesh = new Coordinate2D(renderTo.getX()+moveX , renderTo.getY()+moveY);
+        savedcoordinatesb = new Coordinate2D(renderTo.getX()-moveX , renderTo.getY()-moveY);
         base= new Coordinate2D(c.getX(),c.getY());
-
     }
 
 	 /**
@@ -72,11 +69,12 @@ public class Obstacle extends Entity implements ShapeBased{
     				shapes.clear();
     				shapes.put(new Circle(renderTo.getX(), renderTo.getY(), SIZE), Color.BLUE);
     			} else if(shape instanceof Rectangle2D){
-    		        addShape(new Rectangle2D(renderTo.getX(), renderTo.getY(), 30, 30));
+    				this.getLsShapes().clear();
+    		        addShape(new Rectangle2D(base.getX(), base.getY(), 30, 30));
     	            shapes.clear();
     	            shapes.put(new Rectangle2D(renderTo.getX(), renderTo.getY(), 30, 30), Color.BLUE);
     	    	}
-            if((renderTo.getX()==savedcoordinatesb.getX()) && (renderTo.getY()==savedcoordinatesb.getY()))
+            if((renderTo.getX()==savedcoordinatesb.getX()) || (renderTo.getY()==savedcoordinatesb.getY()))
             	pos=false;
     		}
     	}
@@ -85,6 +83,7 @@ public class Obstacle extends Entity implements ShapeBased{
     		renderTo.setY(renderTo.getY()+1);
     		base.setX(base.getX()+1);
     		base.setY(base.getY()-1);
+    		System.out.println("ok");
     		for(Shape shape :shapes.keySet()){
     			if(shape instanceof Circle){
     				this.getLsShapes().clear();
@@ -92,12 +91,13 @@ public class Obstacle extends Entity implements ShapeBased{
     				shapes.clear();
     				shapes.put(new Circle(renderTo.getX(), renderTo.getY(), SIZE), Color.BLUE);
     			}
-       			if(shape instanceof Rectangle){
-    		        addShape(new Rectangle((int)renderTo.getX(), (int)renderTo.getY(), 30, 30));
+       			if(shape instanceof Rectangle2D){
+    				this.getLsShapes().clear();
+    		        addShape(new Rectangle2D(base.getX(), base.getY(), 30, 30));
     	            shapes.clear();
-    	            shapes.put(new Rectangle((int)renderTo.getX(), (int)renderTo.getY(), 30, 30), Color.BLUE);
+    	            shapes.put(new Rectangle2D(renderTo.getX(), renderTo.getY(), 30, 30), Color.BLUE);
     	    	}
-            if((renderTo.getX()==savedcoordinatesh.getX()) && (renderTo.getY()==savedcoordinatesh.getY()))
+            if((renderTo.getX()==savedcoordinatesh.getX()) || (renderTo.getY()==savedcoordinatesh.getY()))
     		pos=true;
     		}
     	}
