@@ -92,6 +92,7 @@ public class WorldRenderer {
      */
     private void renderWorld(Graphics g, Level l) {
     	((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+    	
         for (Integer in : l.getLsObjects().keySet()) {
             for (AbstractGameObject ago : l.getLsObjects().get(in)) {
                 if (ago instanceof ShapeBased) {
@@ -102,6 +103,13 @@ public class WorldRenderer {
                     	}
                         if(shape instanceof Circle){
                         	Circle circle = (Circle)shape;
+                        	if(g.getColor() == Color.RED && abstractWorldControler.isBirdGrabbed()){
+                        		g.setColor(Color.GREEN);
+                        		((Graphics2D)g).drawLine((int)circle.getCoordCenter().getX(), 
+                        				(int)circle.getCoordCenter().getY(), 
+                        				(int)abstractWorldControler.getMouseCoordinate().getX(), 
+                        				(int)abstractWorldControler.getMouseCoordinate().getY());
+                        	}
                         	((Graphics2D) g).fill(new Ellipse2D.Double(
                             		circle.getCoordTL().getX(),
                             		circle.getCoordTL().getY(), 

@@ -1,5 +1,6 @@
 package iut.k2.data;
 
+import iut.k2.physics.Coordinate2D;
 import iut.k2.util.KeyMap;
 
 import org.slf4j.Logger;
@@ -25,6 +26,9 @@ public abstract class AbstractWorldControler implements Runnable, MouseMotionLis
     private final List<WorldRenderer> worldRenderers;
     volatile private boolean gameRunning = true;
    
+    public abstract boolean isBirdGrabbed();
+    public abstract Coordinate2D getMouseCoordinate();
+    
     /**
      * Create a new world based witch control the level
      *

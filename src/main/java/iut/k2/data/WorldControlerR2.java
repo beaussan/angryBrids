@@ -32,8 +32,9 @@ public class WorldControlerR2 extends AbstractWorldControler {
 	private final long TIME_MAX_MS = 15000;
 	private long timeBreak = 1000;
 	private boolean endingGame = false;
-	private boolean birdgrap = false;
-
+    private boolean birdgrap = false;
+    private Coordinate2D mouseCoordinate = new Coordinate2D(70,0);
+	
 	public WorldControlerR2(@Nonnull Level level) {
 		super(level);
 	}
@@ -119,6 +120,8 @@ public class WorldControlerR2 extends AbstractWorldControler {
 						birdgrap = true;
 			}
 		}*/
+		
+		mouseCoordinate = new Coordinate2D(e.getPoint().getX(), e.getPoint().getY());
 		if (new Ellipse2D.Double(24,554,46,46).contains(e.getX(), e.getY()))	
 			birdgrap = true;
 	}
@@ -197,7 +200,6 @@ public class WorldControlerR2 extends AbstractWorldControler {
 			timer.purge();
 			render();
 
-			
 			LOG.debug("Timer is over !");
 			nmbRuns++;
 			setGameRunning(true);
@@ -265,6 +267,17 @@ public class WorldControlerR2 extends AbstractWorldControler {
 				cancel();
 			}
 		}
+	}
+
+	@Override
+	public boolean isBirdGrabbed() {
+		return birdgrap;
+	}
+
+	@Override
+	public Coordinate2D getMouseCoordinate() {
+		// TODO Auto-generated method stub
+		return mouseCoordinate;
 	}
 
 }
