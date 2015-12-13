@@ -2,8 +2,8 @@ Nicolas:
     - Modifying the code to fit the requirements of the project(No Awt or Swing in the model).
 Benjamin:
     - Working on concrete classes of Shapes
-        - TODO: Optimization
-        - DOING:
+        - TODO: 
+        - DOING: Optimization (Circle hitBox detection)
         - DONE : Rectangle, Rectangle2D, Circle, Polygon  
     - Create test for classes: 
         - TODO: ?
