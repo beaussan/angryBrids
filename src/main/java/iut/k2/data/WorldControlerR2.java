@@ -175,7 +175,7 @@ public class WorldControlerR2 extends AbstractWorldControler {
 				//en.setTerminalVelocity(new Coordinate2D(1000.0f, 1000.0f));
 				en.setFriction(new Coordinate2D(.005, 0));
 				en.setAcceleration(new Coordinate2D(0.0f, -0.25f));
-				en.setVelocity(new Coordinate2D(x * 1.3, y * 1.3));
+				en.setVelocity(new Coordinate2D(x, y));
 			}
 			birdgrap = false;
 		}
