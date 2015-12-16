@@ -1,7 +1,7 @@
 package iut.k2.data.objects;
 
 import iut.k2.data.objects.Shapes.Shape;
-import iut.k2.gui.renderfunc.DrawBird;
+import iut.k2.data.renderfunc.DrawBird;
 import iut.k2.physics.Coordinate2D;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

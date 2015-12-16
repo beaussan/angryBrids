@@ -1,14 +1,11 @@
-package iut.k2.gui.renderfunc;
-
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.geom.Ellipse2D;
+package iut.k2.data.renderfunc;
 
 import iut.k2.data.objects.Shapes.Circle;
 import iut.k2.data.objects.Shapes.Polygon;
 import iut.k2.physics.Coordinate2D;
 import iut.k2.util.Tools;
+
+import java.awt.*;
 
 
 /**
@@ -23,37 +20,6 @@ public class DrawBird {
     public static final Color COLOR_BODY = Color.RED;
     public static boolean IS_SKELETON = false;
 
-    public static Circle drawBird(Graphics g, Coordinate2D cordsFrom, Coordinate2D cordsTo) {
-        return drawBird(g, cordsFrom, cordsTo, COLOR_BODY, COLOR_ARROW);
-    }
-
-
-    public static Circle drawBird(Graphics g, Coordinate2D cordsFrom, Coordinate2D cordsTo, Color colorBody) {
-        return drawBird(g, cordsFrom, cordsTo, colorBody, COLOR_ARROW);
-    }
-
-    public static Circle drawBird(Graphics g, Coordinate2D cordsFrom, Coordinate2D cordsTo, Color colorBody, Color colorArrow) {
-        Coordinate2D fromTransf = Tools.getSwingCords(cordsFrom);
-        Coordinate2D transfTo = Tools.getSwingCords(cordsTo);
-        return drawBird(g, fromTransf.getX(), fromTransf.getY(), transfTo.getX(), transfTo.getY(), colorBody, colorArrow);
-    }
-    
-    public static Circle drawBird(Graphics g, double x, double y, double xNext, double yNext, Color colorBody, Color colorArrow) {
-        Color c = g.getColor();
-
-        
-        Circle el = getCircle(x,y);
-        Polygon poly = getArrow(el.getCoordCenter().getX(),el.getCoordCenter().getY(),xNext, yNext);
-        
-        g.setColor(colorArrow);
-        g.fillPolygon(new java.awt.Polygon(poly.getArrayX(), poly.getArrayY(), poly.getNbPoints()));
-        g.setColor(colorBody);
-        ((Graphics2D)g).fill(new Ellipse2D.Double(el.getCoordTL().getX(), el.getCoordTL().getY(), el.getRadius()*2, el.getRadius()*2));
-
-
-        g.setColor(c);
-        return el;
-    }
 
     public static Circle getCircle(Coordinate2D cordsFrom) {
         return getCircle(cordsFrom.getX(), cordsFrom.getY());
@@ -148,8 +114,6 @@ public class DrawBird {
 
     }
 
-  
-		
 	public static double[] topoints(double x1, double y1, double x2, double y2){
 			
 		double a;

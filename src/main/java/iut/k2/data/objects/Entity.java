@@ -1,13 +1,12 @@
 package iut.k2.data.objects;
 
 
+import iut.k2.data.objects.Shapes.Shape;
 import iut.k2.physics.Coordinate2D;
 import iut.k2.util.MathUtils;
 
 import javax.annotation.Nullable;
-import iut.k2.data.objects.Shapes.*;
-
-import java.awt.Color;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +19,11 @@ public abstract class Entity extends AbstractGameObject {
     private Coordinate2D terminalVelocity;
     private Coordinate2D friction;
     private Coordinate2D acceleration;
+    /*
+    v_1'=((m1-m2)v1+2m2v2)/m1+m2
+    v_2'=((m2-m1)v2+2m1v1)/m1+m2
+    our case = m1=m2
+     */
 
     public Entity(@Nullable Coordinate2D c) {
         this.position = (c == null) ? new Coordinate2D(50, 50) : c;
@@ -98,6 +102,14 @@ public abstract class Entity extends AbstractGameObject {
         return lsShapes;
     }
 
+    public Coordinate2D getPosition() {
+        return position;
+    }
+
+    public void setPosition(Coordinate2D position) {
+        this.position = position;
+    }
+
     /**
      * Getter for property 'rotation'.
      *
@@ -151,14 +163,6 @@ public abstract class Entity extends AbstractGameObject {
     public void setVelocity(Coordinate2D velocity) {
         this.velocity = velocity;
     }
-    
-    public Coordinate2D getPosition() {
-		return position;
-	}
-
-	public void setPosition(Coordinate2D position) {
-		this.position = position;
-	}
 
     public void move(double x, double y) {
         setCoordinate(getCoordinate().add(x, y));
