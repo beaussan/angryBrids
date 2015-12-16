@@ -168,14 +168,14 @@ public class WorldControlerR2 extends AbstractWorldControler {
 	@Override
 	public void mouseReleased(MouseEvent e) {
 
-		if (birdgrap == true) {
+		if (birdgrap) {
 			double x = e.getX();
 			double y = (590 - e.getY()) * 1.75;
 			for (Entity en : getLevel().getLsEntitys()) {
-				en.setTerminalVelocity(new Coordinate2D(1000.0f, 1000.0f));
+				//en.setTerminalVelocity(new Coordinate2D(1000.0f, 1000.0f));
 				en.setFriction(new Coordinate2D(.005, 0));
 				en.setAcceleration(new Coordinate2D(0.0f, -0.25f));
-				en.setVelocity(new Coordinate2D(x, y));
+				en.setVelocity(new Coordinate2D(x * 1.3, y * 1.3));
 			}
 			birdgrap = false;
 		}
