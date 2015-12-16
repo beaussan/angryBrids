@@ -1,20 +1,13 @@
 package iut.k2.data;
 
-import iut.k2.data.objects.AbstractGameObject;
 import iut.k2.data.objects.Entity;
-import iut.k2.data.objects.Obstacle;
 import iut.k2.data.objects.Pecker;
-import iut.k2.data.objects.ShapeBased;
 import iut.k2.physics.Coordinate2D;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
-
-import iut.k2.data.objects.Shapes.*;
-
-import java.awt.Color;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Ellipse2D;
@@ -89,6 +82,12 @@ public class WorldControlerR2 extends AbstractWorldControler {
 		bouncyBird();
 	}
 
+	@Override
+	public Coordinate2D getMouseCoordinate() {
+		// TODO Auto-generated method stub
+		return mouseCoordinate;
+	}
+
 	public void handleDebugInput() {
 		if (getKeyMap().getKey(KeyEvent.VK_D)) {
 			for (Entity entity : getLevel().getLsEntitys()) {
@@ -101,11 +100,21 @@ public class WorldControlerR2 extends AbstractWorldControler {
 		handleDebugInput();
 	}
 
-    /**
-     * Check if the bird have been dragged from the starting position
-     *      
-     * @param e
-     */
+	@Override
+	public boolean isBirdGrabbed() {
+		return birdgrap;
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {		
+		// TODO Auto-generated method stub
+	}
+
+	/**
+	 * Check if the bird have been dragged from the starting position
+	 *
+	 * @param e
+	 */
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		//LOG.debug("x : {}, y : {}", e.getX(), e.getY());
@@ -113,28 +122,17 @@ public class WorldControlerR2 extends AbstractWorldControler {
 		for (Entity en : getLevel().getLsEntitys()) {
 			for (Shape s : en.getLsShapes()) {
 				//TODO Check if click is in Circle (reverse coordinates)
-				
+
 				//Problem: This works only if the pecker starts at the same position
-				if (new Ellipse2D.Double(24,554,46,46).contains(e.getX(), e.getY()))		
+				if (new Ellipse2D.Double(24,554,46,46).contains(e.getX(), e.getY()))
 					if (en instanceof Pecker && s instanceof Circle && en.getPosition().equals(new Coordinate2D(70, 0)))
 						birdgrap = true;
 			}
 		}*/
-		
+
 		mouseCoordinate = new Coordinate2D(e.getPoint().getX(), e.getPoint().getY());
-		if (new Ellipse2D.Double(24,554,46,46).contains(e.getX(), e.getY()))	
+		if (new Ellipse2D.Double(24, 554, 46, 46).contains(e.getX(), e.getY()))
 			birdgrap = true;
-	}
-
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mouseClicked(MouseEvent e) {		
-		// TODO Auto-generated method stub
 	}
 
 	@Override
@@ -145,6 +143,12 @@ public class WorldControlerR2 extends AbstractWorldControler {
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
 
 	}
@@ -163,7 +167,7 @@ public class WorldControlerR2 extends AbstractWorldControler {
      */
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		
+
 		if (birdgrap == true) {
 			double x = e.getX();
 			double y = (590 - e.getY()) * 1.75;
@@ -216,7 +220,7 @@ public class WorldControlerR2 extends AbstractWorldControler {
 
 	/**
 	 * update the level
-	 * 
+	 *
 	 * @param deltaTime
 	 *            the time between two frames
 	 */
@@ -248,13 +252,6 @@ public class WorldControlerR2 extends AbstractWorldControler {
 			LOG.trace("Updating collisions");
 			checkColisions();
 			LOG.trace("Rendering !");
-			for (Integer in : getLevel().getLsObjects().keySet()) {
-	            for (AbstractGameObject ago : getLevel().getLsObjects().get(in)) {
-	                if (ago instanceof Obstacle){
-	                	((Obstacle) ago).updatePosition();
-	                }
-	            }
-			}
 			render();
 			if (cumul >= TIME_MAX_MS) {
 				endingGame = true;
@@ -267,17 +264,6 @@ public class WorldControlerR2 extends AbstractWorldControler {
 				cancel();
 			}
 		}
-	}
-
-	@Override
-	public boolean isBirdGrabbed() {
-		return birdgrap;
-	}
-
-	@Override
-	public Coordinate2D getMouseCoordinate() {
-		// TODO Auto-generated method stub
-		return mouseCoordinate;
 	}
 
 }
