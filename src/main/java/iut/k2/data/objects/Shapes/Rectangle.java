@@ -140,7 +140,16 @@ public class Rectangle implements Shape{
 
 	@Override
 	public boolean contains(Shape s) {
-		// TODO Auto-generated method stub
+		//Données de la figure en paramère
+		if(s instanceof Rectangle2D){
+			Rectangle2D r = (Rectangle2D)s;
+			double xMin = r.getX();
+			double yMin = r.getY();
+			double width = r.getWidth();
+			double height = r.getHeight();
+			
+			return contains(xMin, yMin, width, height);
+		}
 		return false;
 	}
 
