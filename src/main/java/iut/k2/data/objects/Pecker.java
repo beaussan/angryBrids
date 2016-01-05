@@ -62,6 +62,15 @@ public class Pecker extends Entity implements ShapeBased {
         getLsShapes().add(DrawBird.getCircle(getCoordinate()));
         hasToUbdShape = true;
     }
+
+	/* (non-Javadoc)
+	 * @see iut.k2.data.objects.Entity#onCollide(iut.k2.data.objects.Entity)
+	 */
+	@Override
+	protected void onCollide(Entity e) {
+		// TODO Auto-generated method stub
+		
+	}
 }
 
 
