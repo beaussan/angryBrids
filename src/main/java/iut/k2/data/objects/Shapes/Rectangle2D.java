@@ -73,6 +73,18 @@ public class Rectangle2D implements Shape{
 			double height = r.getHeight();
 			
 			return contains(xMin, yMin, width, height);
+		}else if(s instanceof Rectangle){
+			Rectangle r = (Rectangle)s;
+			return contains((double)r.getX(),
+					(double)r.getY(), 
+					(double)r.getWidth(), 
+					(double)r.getHeight());
+		}else if(s instanceof Circle){
+			Circle c = (Circle)s;
+			return contains(c.getLargeHitBox().getX(), 
+					c.getLargeHitBox().getY(), 
+					c.getLargeHitBox().getWidth(), 
+					c.getLargeHitBox().getHeight());
 		}
 		return false;
 	}

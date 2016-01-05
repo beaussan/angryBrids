@@ -68,8 +68,7 @@ public class Pecker extends Entity implements ShapeBased {
 	 */
 	@Override
 	protected void onCollide(Entity e) {
-		// TODO Auto-generated method stub
-		
+				
 	}
 }
 
