@@ -1,9 +1,16 @@
 package iut.k2.util;
 
+import iut.k2.data.WorldRenderer;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class CalculMatriciel {
+	
+	 private final static Logger LOG = LoggerFactory.getLogger(CalculMatriciel.class);
 
 	static public Matrice produit(Matrice mg, Matrice mh){
 		//TODO Calcul de matrice, Attention: 4 boucles
@@ -23,7 +30,7 @@ public class CalculMatriciel {
 				
 			}
 		}else{
-			System.out.println("Mauvaises dimensions");
+			LOG.debug("Wrong dimensions of matrix");
 			return null;
 		}
 		return m;
