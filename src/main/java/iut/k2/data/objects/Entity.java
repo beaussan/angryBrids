@@ -227,4 +227,6 @@ public abstract class Entity extends AbstractGameObject {
         // positive or negative terminal velocity
         velocity.setY(MathUtils.clamp(velocity.getY(), -terminalVelocity.getY(), terminalVelocity.getY()));
     }
+    
+    protected abstract void onCollide(Entity e);
 }
