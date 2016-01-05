@@ -2,6 +2,11 @@ package iut.k2.data.objects.Shapes;
 
 import iut.k2.physics.Coordinate2D;
 
+/**
+ * 
+ * @author Benjamin D'Hoop
+ *
+ */
 public class Polygon implements Shape{
 
 	private int[] arrayX;

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xtools2_universal_type_manager-->
+<?com.ibm.xtools.emf.core.signature <signature id="com.ibm.xtools.mmi.ui.signatures.diagram" version="7.0.0"><feature description="" name="Rational Modeling Platform (com.ibm.xtools.rmp)" url="" version="7.0.0"/></signature>?>
+<umlnotation:UMLDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.3/Umlnotation" xmi:id="_UjToEKCyEeW5geyNvL0mxw" type="Class" name="shapes.dnx">
+  <eAnnotations xmi:id="_UjToEaCyEeW5geyNvL0mxw" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+    <details xmi:id="_UjToEqCyEeW5geyNvL0mxw" key="com.ibm.xtools.activities.javaVisualizerActivity" value="1"/>
+  </eAnnotations>
+  <children xmi:type="umlnotation:UMLShape" xmi:id="_V3biYKCyEeW5geyNvL0mxw" fontName="Segoe UI" fontHeight="8" transparency="0" lineColor="14263149" lineWidth="1" showStereotype="Label">
+    <children xmi:type="notation:DecorationNode" xmi:id="_V3cJcKCyEeW5geyNvL0mxw" type="ImageCompartment">
+      <layoutConstraint xmi:type="notation:Size" xmi:id="_V3cJcaCyEeW5geyNvL0mxw" width="1320" height="1320"/>
+    </children>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_V3cJcqCyEeW5geyNvL0mxw" type="Stereotype"/>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_V3cJc6CyEeW5geyNvL0mxw" type="Name"/>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_V3cJdKCyEeW5geyNvL0mxw" type="Parent"/>
+    <children xmi:type="notation:ListCompartment" xmi:id="_V3cwgKCyEeW5geyNvL0mxw" visible="false" type="ANNOTATION_COMPARTMENT"/>
+    <children xmi:type="notation:ListCompartment" xmi:id="_V3d-oKCyEeW5geyNvL0mxw" type="ANNOTATED_ATTRIBUTE_COMPARTMENT"/>
+    <children xmi:type="notation:ListCompartment" xmi:id="_V3d-oaCyEeW5geyNvL0mxw" type="ANNOTATED_OPERATION_COMPARTMENT"/>
+    <element xmi:type="uml:Class" href="mmi:///#jsrctype%5Ename=Rectangle2D%5Bjcu%5Ename=Rectangle2D.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D$uml.Class"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_V3biYaCyEeW5geyNvL0mxw" x="2890"/>
+  </children>
+  <children xmi:type="umlnotation:UMLShape" xmi:id="_V3d-oqCyEeW5geyNvL0mxw" fontName="Segoe UI" fontHeight="8" transparency="0" lineColor="14263149" lineWidth="1" showStereotype="Label">
+    <children xmi:type="notation:DecorationNode" xmi:id="_V3elsKCyEeW5geyNvL0mxw" type="ImageCompartment">
+      <layoutConstraint xmi:type="notation:Size" xmi:id="_V3elsaCyEeW5geyNvL0mxw" width="1320" height="1320"/>
+    </children>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_V3elsqCyEeW5geyNvL0mxw" type="Stereotype"/>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_V3els6CyEeW5geyNvL0mxw" type="Name"/>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_V3eltKCyEeW5geyNvL0mxw" type="Parent"/>
+    <children xmi:type="notation:ListCompartment" xmi:id="_V3eltaCyEeW5geyNvL0mxw" visible="false" type="ANNOTATION_COMPARTMENT"/>
+    <children xmi:type="notation:ListCompartment" xmi:id="_V3hB8KCyEeW5geyNvL0mxw" type="ANNOTATED_ATTRIBUTE_COMPARTMENT"/>
+    <children xmi:type="notation:ListCompartment" xmi:id="_V3hpAKCyEeW5geyNvL0mxw" type="ANNOTATED_OPERATION_COMPARTMENT"/>
+    <element xmi:type="uml:Class" href="mmi:///#jsrctype%5Ename=Rectangle%5Bjcu%5Ename=Rectangle.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D$uml.Class"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_V3d-o6CyEeW5geyNvL0mxw" x="3699" y="11301"/>
+  </children>
+  <children xmi:type="umlnotation:UMLClassifierShape" xmi:id="_V3hpAaCyEeW5geyNvL0mxw" fontName="Segoe UI" fontHeight="8" transparency="0" lineColor="14263149" lineWidth="1" showStereotype="Label" useClassifierShape="true">
+    <children xmi:type="notation:DecorationNode" xmi:id="_V3hpA6CyEeW5geyNvL0mxw" type="ImageCompartment">
+      <layoutConstraint xmi:type="notation:Size" xmi:id="_V3hpBKCyEeW5geyNvL0mxw" width="530" height="530"/>
+    </children>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_V3hpBaCyEeW5geyNvL0mxw" type="Stereotype"/>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_V3iQEKCyEeW5geyNvL0mxw" type="Kind"/>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_V3iQEaCyEeW5geyNvL0mxw" type="Name"/>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_V3iQEqCyEeW5geyNvL0mxw" type="Parent"/>
+    <children xmi:type="notation:SemanticListCompartment" xmi:id="_V3iQE6CyEeW5geyNvL0mxw" type="AttributeCompartment"/>
+    <children xmi:type="notation:SemanticListCompartment" xmi:id="_V3iQFKCyEeW5geyNvL0mxw" type="OperationCompartment"/>
+    <children xmi:type="notation:SemanticListCompartment" xmi:id="_V3iQFaCyEeW5geyNvL0mxw" visible="false" type="SignalCompartment"/>
+    <element xmi:type="uml:Interface" href="mmi:///#jsrctype%5Ename=Shape%5Bjcu%5Ename=Shape.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D$uml.Interface"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_V3hpAqCyEeW5geyNvL0mxw" x="4215" y="37336"/>
+  </children>
+  <children xmi:type="umlnotation:UMLShape" xmi:id="_V3i3IKCyEeW5geyNvL0mxw" fontName="Segoe UI" fontHeight="8" transparency="0" lineColor="14263149" lineWidth="1" showStereotype="Label">
+    <children xmi:type="notation:DecorationNode" xmi:id="_V3i3IqCyEeW5geyNvL0mxw" type="ImageCompartment">
+      <layoutConstraint xmi:type="notation:Size" xmi:id="_V3i3I6CyEeW5geyNvL0mxw" width="1320" height="1320"/>
+    </children>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_V3i3JKCyEeW5geyNvL0mxw" type="Stereotype"/>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_V3i3JaCyEeW5geyNvL0mxw" type="Name"/>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_V3i3JqCyEeW5geyNvL0mxw" type="Parent"/>
+    <children xmi:type="notation:ListCompartment" xmi:id="_V3i3J6CyEeW5geyNvL0mxw" visible="false" type="ANNOTATION_COMPARTMENT"/>
+    <children xmi:type="notation:ListCompartment" xmi:id="_V3mhgKCyEeW5geyNvL0mxw" type="ANNOTATED_ATTRIBUTE_COMPARTMENT"/>
+    <children xmi:type="notation:ListCompartment" xmi:id="_V3mhgaCyEeW5geyNvL0mxw" type="ANNOTATED_OPERATION_COMPARTMENT"/>
+    <element xmi:type="uml:Class" href="mmi:///#jsrctype%5Ename=Circle%5Bjcu%5Ename=Circle.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D$uml.Class"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_V3i3IaCyEeW5geyNvL0mxw" x="529" y="23552"/>
+  </children>
+  <element xsi:nil="true"/>
+  <edges xmi:type="umlnotation:UMLConnector" xmi:id="_WAh0AKCyEeW5geyNvL0mxw" source="_V3biYKCyEeW5geyNvL0mxw" target="_V3hpAaCyEeW5geyNvL0mxw" fontName="Segoe UI" fontHeight="8" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1" showStereotype="Text">
+    <children xmi:type="notation:DecorationNode" xmi:id="_WAh0AqCyEeW5geyNvL0mxw" type="KindLabel">
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAh0BKCyEeW5geyNvL0mxw" type="Stereotype"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAh0BqCyEeW5geyNvL0mxw" type="Kind"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAh0BaCyEeW5geyNvL0mxw" type="Name"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WAh0A6CyEeW5geyNvL0mxw" y="-186"/>
+    </children>
+    <element xmi:type="uml:Usage" href="mmi:///#jdep%5Bjsrctype%5Ename=Rectangle2D%5Bjcu%5Ename=Rectangle2D.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D%5Bjsrctype%5Ename=Shape%5Bjcu%5Ename=Shape.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D$uml.Usage"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WAh0AaCyEeW5geyNvL0mxw" points="[69, 104, 414, -28256]$[69, 738, 414, -27622]$[2574, 738, 2919, -27622]$[2574, 27831, 2919, -529]$[-274, 27831, 71, -529]$[-274, 28360, 71, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFaUAKCyEeW5geyNvL0mxw" id="(0.8751064227263816,0.9885683179096353)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFaUAaCyEeW5geyNvL0mxw" id="(0.8890795781995228,0.0)"/>
+  </edges>
+  <edges xmi:type="umlnotation:UMLConnector" xmi:id="_WAibEKCyEeW5geyNvL0mxw" source="_V3biYKCyEeW5geyNvL0mxw" target="_V3i3IKCyEeW5geyNvL0mxw" fontName="Segoe UI" fontHeight="8" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1" showStereotype="Text">
+    <children xmi:type="notation:DecorationNode" xmi:id="_WAjCIKCyEeW5geyNvL0mxw" type="KindLabel">
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAjCIqCyEeW5geyNvL0mxw" type="Stereotype"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAjCJKCyEeW5geyNvL0mxw" type="Kind"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAjCI6CyEeW5geyNvL0mxw" type="Name"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WAjCIaCyEeW5geyNvL0mxw" y="-186"/>
+    </children>
+    <element xmi:type="uml:Usage" href="mmi:///#jdep%5Bjsrctype%5Ename=Rectangle2D%5Bjcu%5Ename=Rectangle2D.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D%5Bjsrctype%5Ename=Circle%5Bjcu%5Ename=Circle.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D$uml.Usage"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WAibEaCyEeW5geyNvL0mxw" points="[29, 104, 2181, -14472]$[29, 1796, 2181, -12780]$[-2120, 1796, 32, -12780]$[-2120, 14576, 32, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFa7EKCyEeW5geyNvL0mxw" id="(0.3751064227263816,0.9885683179096353)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFa7EaCyEeW5geyNvL0mxw" id="(0.39999997243425384,0.0)"/>
+  </edges>
+  <edges xmi:type="umlnotation:UMLConnector" xmi:id="_WAjpMKCyEeW5geyNvL0mxw" source="_V3biYKCyEeW5geyNvL0mxw" target="_V3d-oqCyEeW5geyNvL0mxw" fontName="Segoe UI" fontHeight="8" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1" showStereotype="Text">
+    <children xmi:type="notation:DecorationNode" xmi:id="_WAjpMqCyEeW5geyNvL0mxw" type="KindLabel">
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAjpNKCyEeW5geyNvL0mxw" type="Stereotype"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAjpNqCyEeW5geyNvL0mxw" type="Kind"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAjpNaCyEeW5geyNvL0mxw" type="Name"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WAjpM6CyEeW5geyNvL0mxw" y="-186"/>
+    </children>
+    <element xmi:type="uml:Usage" href="mmi:///#jdep%5Bjsrctype%5Ename=Rectangle2D%5Bjcu%5Ename=Rectangle2D.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D%5Bjsrctype%5Ename=Rectangle%5Bjcu%5Ename=Rectangle.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D$uml.Usage"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WAjpMaCyEeW5geyNvL0mxw" points="[50, 104, -969, -2221]$[50, 1796, -969, -529]$[1071, 1796, 52, -529]$[1071, 2325, 52, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFbiIKCyEeW5geyNvL0mxw" id="(0.6251064227263818,0.9885683179096353)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFbiIaCyEeW5geyNvL0mxw" id="(0.6667450800543905,-1.7947601416338001E-16)"/>
+  </edges>
+  <edges xmi:type="umlnotation:UMLConnector" xmi:id="_WAkQQKCyEeW5geyNvL0mxw" source="_V3biYKCyEeW5geyNvL0mxw" target="_V3hpAaCyEeW5geyNvL0mxw" fontName="Segoe UI" fontHeight="8" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1" showStereotype="Text">
+    <children xmi:type="notation:DecorationNode" xmi:id="_WAkQQqCyEeW5geyNvL0mxw" type="NameLabel">
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAkQRKCyEeW5geyNvL0mxw" type="Stereotype"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAkQRaCyEeW5geyNvL0mxw" type="Name"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WAkQQ6CyEeW5geyNvL0mxw" y="-186"/>
+    </children>
+    <element xmi:type="uml:InterfaceRealization" href="mmi:///#jimpl%5Bjsrctype%5Ename=Rectangle2D%5Bjcu%5Ename=Rectangle2D.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D%5Bjsrctype%5Ename=Shape%5Bjcu%5Ename=Shape.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D$uml.InterfaceRealization"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WAkQQaCyEeW5geyNvL0mxw" points="[60, 104, 117, -28256]$[60, 1267, 117, -27093]$[2673, 1267, 2730, -27093]$[2673, 27302, 2730, -1058]$[4, 27302, 61, -1058]$[4, 28360, 61, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFcJMKCyEeW5geyNvL0mxw" id="(0.7501064227263818,0.9885683179096353)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFcJMaCyEeW5geyNvL0mxw" id="(0.7779685015898248,0.0)"/>
+  </edges>
+  <edges xmi:type="umlnotation:UMLConnector" xmi:id="_WAk3UKCyEeW5geyNvL0mxw" source="_V3d-oqCyEeW5geyNvL0mxw" target="_V3hpAaCyEeW5geyNvL0mxw" fontName="Segoe UI" fontHeight="8" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1" showStereotype="Text">
+    <children xmi:type="notation:DecorationNode" xmi:id="_WAk3UqCyEeW5geyNvL0mxw" type="KindLabel">
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAk3VKCyEeW5geyNvL0mxw" type="Stereotype"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAk3VqCyEeW5geyNvL0mxw" type="Kind"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAk3VaCyEeW5geyNvL0mxw" type="Name"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WAk3U6CyEeW5geyNvL0mxw" y="-186"/>
+    </children>
+    <element xmi:type="uml:Usage" href="mmi:///#jdep%5Bjsrctype%5Ename=Rectangle%5Bjcu%5Ename=Rectangle.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D%5Bjsrctype%5Ename=Shape%5Bjcu%5Ename=Shape.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D$uml.Usage"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WAk3UaCyEeW5geyNvL0mxw" points="[66, 104, 1692, -16005]$[66, 14522, 1692, -1587]$[-1573, 14522, 53, -1587]$[-1573, 16109, 53, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFcwQKCyEeW5geyNvL0mxw" id="(0.8334116829184631,0.9896398618648249)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFd-YKCyEeW5geyNvL0mxw" id="(0.6668574249801269,0.0)"/>
+  </edges>
+  <edges xmi:type="umlnotation:UMLConnector" xmi:id="_WAleYKCyEeW5geyNvL0mxw" source="_V3d-oqCyEeW5geyNvL0mxw" target="_V3biYKCyEeW5geyNvL0mxw" fontName="Segoe UI" fontHeight="8" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1" showStereotype="Text">
+    <children xmi:type="notation:DecorationNode" xmi:id="_WAmFcKCyEeW5geyNvL0mxw" type="KindLabel">
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAmFcqCyEeW5geyNvL0mxw" type="Stereotype"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAmFdKCyEeW5geyNvL0mxw" type="Kind"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAmFc6CyEeW5geyNvL0mxw" type="Name"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WAmFcaCyEeW5geyNvL0mxw" y="-186"/>
+    </children>
+    <element xmi:type="uml:Usage" href="mmi:///#jdep%5Bjsrctype%5Ename=Rectangle%5Bjcu%5Ename=Rectangle.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D%5Bjsrctype%5Ename=Rectangle2D%5Bjcu%5Ename=Rectangle2D.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D$uml.Usage"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WAleYaCyEeW5geyNvL0mxw" points="[27, 0, -2, 2325]$[27, -1587, -2, 738]$[68, -1587, 39, 738]$[68, -2221, 39, 104]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFelcKCyEeW5geyNvL0mxw" id="(0.33341168291846335,-1.7947601416338001E-16)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFfMgKCyEeW5geyNvL0mxw" id="(0.5001064227263816,0.9885683179096353)"/>
+  </edges>
+  <edges xmi:type="umlnotation:UMLConnector" xmi:id="_WAmFdaCyEeW5geyNvL0mxw" source="_V3d-oqCyEeW5geyNvL0mxw" target="_V3i3IKCyEeW5geyNvL0mxw" fontName="Segoe UI" fontHeight="8" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1" showStereotype="Text">
+    <children xmi:type="notation:DecorationNode" xmi:id="_WAmFd6CyEeW5geyNvL0mxw" type="KindLabel">
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAmFeaCyEeW5geyNvL0mxw" type="Stereotype"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAmFe6CyEeW5geyNvL0mxw" type="Kind"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAmFeqCyEeW5geyNvL0mxw" type="Name"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WAmFeKCyEeW5geyNvL0mxw" y="-186"/>
+    </children>
+    <element xmi:type="uml:Usage" href="mmi:///#jdep%5Bjsrctype%5Ename=Rectangle%5Bjcu%5Ename=Rectangle.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D%5Bjsrctype%5Ename=Circle%5Bjcu%5Ename=Circle.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D$uml.Usage"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WAmFdqCyEeW5geyNvL0mxw" points="[27, 104, 683, -2221]$[27, 1267, 683, -1058]$[-593, 1267, 63, -1058]$[-593, 2325, 63, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFfMgaCyEeW5geyNvL0mxw" id="(0.33341168291846335,0.9896398618648249)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFfzkKCyEeW5geyNvL0mxw" id="(0.8000000367543282,0.0)"/>
+  </edges>
+  <edges xmi:type="umlnotation:UMLConnector" xmi:id="_WAmsgKCyEeW5geyNvL0mxw" source="_V3d-oqCyEeW5geyNvL0mxw" target="_V3hpAaCyEeW5geyNvL0mxw" fontName="Segoe UI" fontHeight="8" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1" showStereotype="Text">
+    <children xmi:type="notation:DecorationNode" xmi:id="_WAmsgqCyEeW5geyNvL0mxw" type="NameLabel">
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAmshKCyEeW5geyNvL0mxw" type="Stereotype"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAmshaCyEeW5geyNvL0mxw" type="Name"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WAmsg6CyEeW5geyNvL0mxw" y="-186"/>
+    </children>
+    <element xmi:type="uml:InterfaceRealization" href="mmi:///#jimpl%5Bjsrctype%5Ename=Rectangle%5Bjcu%5Ename=Rectangle.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D%5Bjsrctype%5Ename=Shape%5Bjcu%5Ename=Shape.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D$uml.InterfaceRealization"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WAmsgaCyEeW5geyNvL0mxw" points="[52, 104, 1182, -16005]$[52, 13993, 1182, -2116]$[-1086, 13993, 44, -2116]$[-1086, 16109, 44, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFfzkaCyEeW5geyNvL0mxw" id="(0.6667449843504998,0.9896398618648249)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFgaoKCyEeW5geyNvL0mxw" id="(0.5557463483704289,0.0)"/>
+  </edges>
+  <edges xmi:type="umlnotation:UMLConnector" xmi:id="_WAnTkKCyEeW5geyNvL0mxw" source="_V3hpAaCyEeW5geyNvL0mxw" target="_V3biYKCyEeW5geyNvL0mxw" fontName="Segoe UI" fontHeight="8" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1" showStereotype="Text">
+    <children xmi:type="notation:DecorationNode" xmi:id="_WAn6oKCyEeW5geyNvL0mxw" type="KindLabel">
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAn6oqCyEeW5geyNvL0mxw" type="Stereotype"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAn6pKCyEeW5geyNvL0mxw" type="Kind"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAn6o6CyEeW5geyNvL0mxw" type="Name"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WAn6oaCyEeW5geyNvL0mxw" y="-186"/>
+    </children>
+    <element xmi:type="uml:Usage" href="mmi:///#jdep%5Bjsrctype%5Ename=Shape%5Bjcu%5Ename=Shape.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D%5Bjsrctype%5Ename=Rectangle2D%5Bjcu%5Ename=Rectangle2D.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D$uml.Usage"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WAnTkaCyEeW5geyNvL0mxw" points="[9, 0, 1047, 28360]$[9, -1587, 1047, 26773]$[-4556, -1587, -3518, 26773]$[-4556, -27622, -3518, 738]$[-1028, -27622, 10, 738]$[-1028, -28256, 10, 104]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFgaoaCyEeW5geyNvL0mxw" id="(0.11130188667527793,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFgaoqCyEeW5geyNvL0mxw" id="(0.1251064227263818,0.9885683179096353)"/>
+  </edges>
+  <edges xmi:type="umlnotation:UMLConnector" xmi:id="_WAn6paCyEeW5geyNvL0mxw" source="_V3hpAaCyEeW5geyNvL0mxw" target="_V3d-oqCyEeW5geyNvL0mxw" fontName="Segoe UI" fontHeight="8" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1" showStereotype="Text">
+    <children xmi:type="notation:DecorationNode" xmi:id="_WAn6p6CyEeW5geyNvL0mxw" type="KindLabel">
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAohsKCyEeW5geyNvL0mxw" type="Stereotype"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAohsqCyEeW5geyNvL0mxw" type="Kind"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAohsaCyEeW5geyNvL0mxw" type="Name"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WAn6qKCyEeW5geyNvL0mxw" y="-186"/>
+    </children>
+    <element xmi:type="uml:Usage" href="mmi:///#jdep%5Bjsrctype%5Ename=Shape%5Bjcu%5Ename=Shape.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D%5Bjsrctype%5Ename=Rectangle%5Bjcu%5Ename=Rectangle.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D$uml.Usage"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WAn6pqCyEeW5geyNvL0mxw" points="[35, 0, -597, 16109]$[35, -2645, -597, 13464]$[799, -2645, 167, 13464]$[799, -15371, 167, 738]$[672, -15371, 40, 738]$[672, -16005, 40, 104]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFiP0KCyEeW5geyNvL0mxw" id="(0.4446352717607313,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFiP0aCyEeW5geyNvL0mxw" id="(0.5000783814864269,0.9896398618648249)"/>
+  </edges>
+  <edges xmi:type="umlnotation:UMLConnector" xmi:id="_WAohs6CyEeW5geyNvL0mxw" source="_V3i3IKCyEeW5geyNvL0mxw" target="_V3biYKCyEeW5geyNvL0mxw" fontName="Segoe UI" fontHeight="8" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1" showStereotype="Text">
+    <children xmi:type="notation:DecorationNode" xmi:id="_WAohtaCyEeW5geyNvL0mxw" type="KindLabel">
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAoht6CyEeW5geyNvL0mxw" type="Stereotype"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAohuaCyEeW5geyNvL0mxw" type="Kind"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAohuKCyEeW5geyNvL0mxw" type="Name"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WAohtqCyEeW5geyNvL0mxw" y="-186"/>
+    </children>
+    <element xmi:type="uml:Usage" href="mmi:///#jdep%5Bjsrctype%5Ename=Circle%5Bjcu%5Ename=Circle.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D%5Bjsrctype%5Ename=Rectangle2D%5Bjcu%5Ename=Rectangle2D.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D$uml.Usage"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WAohtKCyEeW5geyNvL0mxw" points="[16, 0, -2555, 14576]$[16, -13309, -2555, 1267]$[2591, -13309, 20, 1267]$[2591, -14472, 20, 104]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFi24KCyEeW5geyNvL0mxw" id="(0.19999996324567176,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFjd8KCyEeW5geyNvL0mxw" id="(0.25010642272638184,0.9885683179096353)"/>
+  </edges>
+  <edges xmi:type="umlnotation:UMLConnector" xmi:id="_WAohuqCyEeW5geyNvL0mxw" source="_V3i3IKCyEeW5geyNvL0mxw" target="_V3hpAaCyEeW5geyNvL0mxw" fontName="Segoe UI" fontHeight="8" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1" showStereotype="Text">
+    <children xmi:type="notation:DecorationNode" xmi:id="_WAohvKCyEeW5geyNvL0mxw" type="KindLabel">
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAohvqCyEeW5geyNvL0mxw" type="Stereotype"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAohwKCyEeW5geyNvL0mxw" type="Kind"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WAohv6CyEeW5geyNvL0mxw" type="Name"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WAohvaCyEeW5geyNvL0mxw" y="-186"/>
+    </children>
+    <element xmi:type="uml:Usage" href="mmi:///#jdep%5Bjsrctype%5Ename=Circle%5Bjcu%5Ename=Circle.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D%5Bjsrctype%5Ename=Shape%5Bjcu%5Ename=Shape.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D$uml.Usage"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WAohu6CyEeW5geyNvL0mxw" points="[52, 104, -1166, -3279]$[52, 738, -1166, -2645]$[1244, 738, 26, -2645]$[1244, 3383, 26, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFjd8aCyEeW5geyNvL0mxw" id="(0.6666667279238802,0.9901036757775683)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFkFAKCyEeW5geyNvL0mxw" id="(0.3335240398946741,0.0)"/>
+  </edges>
+  <edges xmi:type="umlnotation:UMLConnector" xmi:id="_WApIwKCyEeW5geyNvL0mxw" source="_V3i3IKCyEeW5geyNvL0mxw" target="_V3d-oqCyEeW5geyNvL0mxw" fontName="Segoe UI" fontHeight="8" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1" showStereotype="Text">
+    <children xmi:type="notation:DecorationNode" xmi:id="_WApIwqCyEeW5geyNvL0mxw" type="KindLabel">
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WApIxKCyEeW5geyNvL0mxw" type="Stereotype"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WApIxqCyEeW5geyNvL0mxw" type="Kind"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WApIxaCyEeW5geyNvL0mxw" type="Name"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WApIw6CyEeW5geyNvL0mxw" y="-186"/>
+    </children>
+    <element xmi:type="uml:Usage" href="mmi:///#jdep%5Bjsrctype%5Ename=Circle%5Bjcu%5Ename=Circle.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D%5Bjsrctype%5Ename=Rectangle%5Bjcu%5Ename=Rectangle.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D$uml.Usage"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WApIwaCyEeW5geyNvL0mxw" points="[48, 0, -819, 2325]$[48, -1587, -819, 738]$[880, -1587, 13, 738]$[880, -2221, 13, 104]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFkFAaCyEeW5geyNvL0mxw" id="(0.5999999816228357,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFkFAqCyEeW5geyNvL0mxw" id="(0.16674508005439043,0.9896398618648249)"/>
+  </edges>
+  <edges xmi:type="umlnotation:UMLConnector" xmi:id="_WApIx6CyEeW5geyNvL0mxw" source="_V3i3IKCyEeW5geyNvL0mxw" target="_V3hpAaCyEeW5geyNvL0mxw" fontName="Segoe UI" fontHeight="8" roundedBendpointsRadius="4" routing="Rectilinear" lineColor="8421504" lineWidth="1" showStereotype="Text">
+    <children xmi:type="notation:DecorationNode" xmi:id="_WApv0KCyEeW5geyNvL0mxw" type="NameLabel">
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WApv0qCyEeW5geyNvL0mxw" type="Stereotype"/>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_WApv06CyEeW5geyNvL0mxw" type="Name"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WApv0aCyEeW5geyNvL0mxw" y="-186"/>
+    </children>
+    <element xmi:type="uml:InterfaceRealization" href="mmi:///#jimpl%5Bjsrctype%5Ename=Circle%5Bjcu%5Ename=Circle.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D%5Bjsrctype%5Ename=Shape%5Bjcu%5Ename=Shape.java%5Bjpack%5Ename=iut.k2.data.objects.Shapes%5Bjsrcroot%5Esrcfolder=src/main/java%5Bproject%5Eid=AngriBrids%5D%5D%5D%5D%5D$uml.InterfaceRealization"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WApIyKCyEeW5geyNvL0mxw" points="[26, 104, -2596, -3279]$[26, 1267, -2596, -2116]$[2640, 1267, 18, -2116]$[2640, 3383, 18, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFksEKCyEeW5geyNvL0mxw" id="(0.33333336396194013,0.9901036757775683)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFksEaCyEeW5geyNvL0mxw" id="(0.22241296328497587,0.0)"/>
+  </edges>
+</umlnotation:UMLDiagram>

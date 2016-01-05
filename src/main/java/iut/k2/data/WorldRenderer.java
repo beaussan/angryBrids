@@ -119,7 +119,7 @@ public class WorldRenderer {
                             		circle.getRadius()*2,
                             		circle.getRadius()*2));
                           
-                        	//debugDrawCircle(g, circle);
+                        	debugDrawCircle(g, circle);
 
                         }else if(shape instanceof Rectangle2D){
                         	Rectangle2D r2 = (Rectangle2D)shape;
