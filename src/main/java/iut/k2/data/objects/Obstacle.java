@@ -29,11 +29,11 @@ public class Obstacle extends Entity implements ShapeBased{
 	public Obstacle(Coordinate2D c, int moveX, int moveY, int directionX, int directionY) {
 		super(c);
         renderTo = Tools.getSwingCords(c);
-        addShape(new Circle(c.getX(), c.getY(), SIZE));
-        //addShape(new Rectangle2D(c.getX(), c.getY(), 30, 30));
+        //addShape(new Circle(c.getX(), c.getY(), SIZE));
+        addShape(new Rectangle2D(c.getX(), c.getY(), SIZE, SIZE));
         shapes = new HashMap<>();
-        shapes.put(new Circle(renderTo.getX(), renderTo.getY(), SIZE), Color.BLUE);
-        //shapes.put(new Rectangle2D(renderTo.getX(), renderTo.getY(), 30, 30), Color.BLUE);
+        //shapes.put(new Circle(renderTo.getX(), renderTo.getY(), SIZE), Color.BLUE);
+        shapes.put(new Rectangle2D(renderTo.getX(), renderTo.getY(), SIZE, SIZE), Color.BLUE);
         //if(moveY>0){
         if(directionX>0 && directionY>0){
         	savedcoordinatesh = new Coordinate2D(renderTo.getX()+moveX , renderTo.getY()+moveY);
@@ -98,9 +98,9 @@ public class Obstacle extends Entity implements ShapeBased{
 					shapes.put(new Circle(renderTo.getX(), renderTo.getY(), SIZE), Color.BLUE);
 				} else if (shape instanceof Rectangle2D) {
 					this.getLsShapes().clear();
-					addShape(new Rectangle2D(base.getX(), base.getY(), 30, 30));
+					addShape(new Rectangle2D(base.getX(), base.getY(), SIZE, SIZE));
 					shapes.clear();
-					shapes.put(new Rectangle2D(renderTo.getX(), renderTo.getY(), 30, 30), Color.BLUE);
+					shapes.put(new Rectangle2D(renderTo.getX(), renderTo.getY(), SIZE, SIZE), Color.BLUE);
 				}
 				if ((renderTo.getX() == savedcoordinatesb.getX()) || (renderTo.getY() == savedcoordinatesb.getY()))
 					pos = false;
@@ -119,9 +119,9 @@ public class Obstacle extends Entity implements ShapeBased{
 				}
 				if (shape instanceof Rectangle2D) {
 					this.getLsShapes().clear();
-					addShape(new Rectangle2D(base.getX(), base.getY(), 30, 30));
+					addShape(new Rectangle2D(base.getX(), base.getY(), SIZE, SIZE));
 					shapes.clear();
-					shapes.put(new Rectangle2D(renderTo.getX(), renderTo.getY(), 30, 30), Color.BLUE);
+					shapes.put(new Rectangle2D(renderTo.getX(), renderTo.getY(), SIZE, SIZE), Color.BLUE);
 				}
 				if ((renderTo.getX() == savedcoordinatesh.getX()) || (renderTo.getY() == savedcoordinatesh.getY()))
 					pos = true;

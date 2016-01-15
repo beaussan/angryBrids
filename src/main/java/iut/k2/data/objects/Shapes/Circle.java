@@ -47,8 +47,10 @@ public class Circle implements Shape{
 	 * @param radius
 	 */
 	public Circle(double x, double y, double radius){
+		//TODO Fix temporaire à un mauvais affichage
 		x -= radius*2;
 		y -= radius*2;
+		
 		coordTL = new Coordinate2D(x, y);
 		coordCenter = new Coordinate2D(x+radius, y+radius);
 		if(radius > 0)
@@ -141,9 +143,10 @@ public class Circle implements Shape{
 				}
 			}
 			
-		}else{
+		}else if(s instanceof Rectangle2D){
+			Rectangle2D r = (Rectangle2D)s;
 			for(Rectangle2D r2 : hitBoxes){
-				if(r2.intersects(s)){
+				if(r2.intersects(r)){
 					return true;
 				}
 			}
@@ -213,8 +216,8 @@ public class Circle implements Shape{
 		f.setPreferredSize(new Dimension(500, 500));
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		final Circle c = new Circle(100, 100, 20);
-    	final Rectangle2D r2 = new Rectangle2D(60, 60, 15, 15);
-    	final Rectangle2D r22 = new Rectangle2D(94, 94, 20, 20);
+    	final Rectangle2D r2 = new Rectangle2D(100, 100, 50, 20);
+    	final Rectangle2D r22 = new Rectangle2D(110, 120, 30, 30);
 		JPanel p = new JPanel(){
 			public void paintComponent(Graphics g){
 				for(Rectangle2D r : c.getHitBoxes()){
@@ -242,6 +245,8 @@ public class Circle implements Shape{
 		//System.out.println("Cercle intersects Gray: " + c.intersects(r));
 		System.out.println("Cercle intersects Red: " + c.intersects(r2));
 		System.out.println("Cercle intersects Green: " + c.intersects(r22)) ;
+		System.out.println("RedRect intersects Green: " + r2.intersects(r22));
+		System.out.println("GreenRect intersects Red: " + r22.intersects(r2));
 		
 		f.getContentPane().add(p);
 		f.pack();

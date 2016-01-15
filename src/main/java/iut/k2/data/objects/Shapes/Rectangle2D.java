@@ -134,7 +134,7 @@ public class Rectangle2D implements Shape{
 			return intersects(r2.getX(), 
 				r2.getY(), 
 				r2.getWidth(), 
-				r2.getHeight());
+				r2.getHeight()) || r2.intersects(x, y, width, height);
 		}else if(s instanceof Circle){
 			Circle c = (Circle)s;
 			return c.intersects(this);
