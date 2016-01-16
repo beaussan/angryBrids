@@ -1,11 +1,13 @@
 package iut.k2.data;
 
 import iut.k2.Constants;
+import iut.k2.ObstacleFactory;
 import iut.k2.data.objects.AbstractGameObject;
 import iut.k2.data.objects.Montain;
 import iut.k2.data.objects.Obstacle;
 import iut.k2.data.objects.Pecker;
 import iut.k2.physics.Coordinate2D;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -68,10 +70,12 @@ public class LevelTest extends Level {
             //Coordonnées de l'obstacle
             int x = r.nextInt(Constants.SIZE_WIDE / 2) + Constants.SIZE_WIDE / 2;
             int y = r.nextInt(Constants.SIZE_HEIGHT);
-            int directionX = 0;
-            int directionY = 0;
+            //int directionX = 0;
+            //int directionY = 0;
+            int forme = new Random().nextInt(2);
+            Obstacle o = null;
             
-            int moveX = new Random().nextInt(100);
+            /*int moveX = new Random().nextInt(100);
             int moveY = new Random().nextInt(100);
             do{
             	while(directionX==0)
@@ -81,9 +85,17 @@ public class LevelTest extends Level {
             	while(directionY==0)
             directionY = new Random().nextInt(3)-1;
             }while(directionY==0 && ((double)y + (double)moveY) % (double)directionY !=0 && ((double)y-(double)moveY) % (double)directionY != 0);
-
+			*/
             //Création d'un obstacle
-            Obstacle o = new Obstacle(new Coordinate2D(x, y), moveX, moveY, directionX, directionY);
+            
+            try{
+            if(forme==0)
+            	o = ObstacleFactory.getObstacle("cercle",new Coordinate2D(x, y));
+            else if(forme==1)
+            	o = ObstacleFactory.getObstacle("carre",new Coordinate2D(x, y));
+            }catch(Exception e){e.printStackTrace();};
+            
+            //Obstacle o = new Obstacle(new Coordinate2D(x, y)/*, moveX, moveY, directionX, directionY*/);
             addRenderObject(o, 2);
         }
 

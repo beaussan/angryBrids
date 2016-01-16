@@ -70,7 +70,7 @@ public class WorldControlerR2 extends AbstractWorldControler {
 				if (e.getClass() == e2.getClass()) {
 					continue;
 				}
-				if (e.overlap(e2)) {
+				if (e.overlap(e2) && (e instanceof Pecker || e2 instanceof Pecker) ) {
 					LOG.debug("Found colision ! e1 : {} ; e2 : {}", e, e2);
 					e.setColor(Color.GREEN);
 					e2.setColor(Color.GREEN);
