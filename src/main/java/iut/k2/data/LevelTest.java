@@ -1,7 +1,9 @@
 package iut.k2.data;
 
+import iut.k2.CercleVisitor;
 import iut.k2.Constants;
 import iut.k2.ObstacleFactory;
+import iut.k2.SquareVisitor;
 import iut.k2.data.objects.AbstractGameObject;
 import iut.k2.data.objects.Montain;
 import iut.k2.data.objects.Obstacle;
@@ -98,6 +100,7 @@ public class LevelTest extends Level {
             //Obstacle o = new Obstacle(new Coordinate2D(x, y)/*, moveX, moveY, directionX, directionY*/);
             addRenderObject(o, 2);
         }
-
+        	accept(new CercleVisitor());
+        	accept(new SquareVisitor());
     }
 }

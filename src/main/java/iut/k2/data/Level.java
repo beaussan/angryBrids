@@ -1,9 +1,11 @@
 package iut.k2.data;
 
+import iut.k2.ObstacleVisitor;
 import iut.k2.data.objects.AbstractGameObject;
 import iut.k2.data.objects.Entity;
 
 import javax.annotation.Nonnull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -99,6 +101,10 @@ public abstract class Level {
         for (Entity en : lsEntitys) {
             en.update(deltaTime);
         }
+    }
+    
+    public void accept(ObstacleVisitor visitor){
+    	visitor.visit(this);
     }
 
 }
