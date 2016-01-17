@@ -5,6 +5,7 @@ import iut.k2.Constants;
 import iut.k2.ObstacleFactory;
 import iut.k2.SquareVisitor;
 import iut.k2.data.objects.AbstractGameObject;
+import iut.k2.data.objects.Entity;
 import iut.k2.data.objects.Montain;
 import iut.k2.data.objects.Obstacle;
 import iut.k2.data.objects.Pecker;
@@ -69,14 +70,17 @@ public class LevelTest extends Level {
 
         List<AbstractGameObject> listeObstacle = new ArrayList<>();
         for (int i = 0; i < nbObstacles; i++) {
+            boolean renew = false;
+            Obstacle o = null;            
+
+        	do{
+        	renew=false;
             //Coordonnées de l'obstacle
             int x = r.nextInt(Constants.SIZE_WIDE / 2) + Constants.SIZE_WIDE / 2;
             int y = r.nextInt(Constants.SIZE_HEIGHT);
             //int directionX = 0;
             //int directionY = 0;
             int forme = new Random().nextInt(2);
-            Obstacle o = null;
-            
             /*int moveX = new Random().nextInt(100);
             int moveY = new Random().nextInt(100);
             do{
@@ -91,14 +95,27 @@ public class LevelTest extends Level {
             //Création d'un obstacle
             
             try{
-            if(forme==0)
+            //if(forme==0)
             	o = ObstacleFactory.getObstacle("cercle",new Coordinate2D(x, y));
-            else if(forme==1)
-            	o = ObstacleFactory.getObstacle("carre",new Coordinate2D(x, y));
-            }catch(Exception e){e.printStackTrace();};
+           // else if(forme==1)
+            	//o = ObstacleFactory.getObstacle("carre",new Coordinate2D(x, y));
             
+            if(getLsObjects().get(2) != null){
+            for(AbstractGameObject obstacle : getLsObjects().get(2)){
+            	if(o.overlap((Entity) obstacle)){
+            		getLsObjects().get(2).remove(o);
+            		renew = true;
+            	}
+            }
+            }
+            
+ 
+            
+            }catch(Exception e){e.printStackTrace();};
+        	}while(renew);
             //Obstacle o = new Obstacle(new Coordinate2D(x, y)/*, moveX, moveY, directionX, directionY*/);
             addRenderObject(o, 2);
+
         }
         	accept(new CercleVisitor());
         	accept(new SquareVisitor());

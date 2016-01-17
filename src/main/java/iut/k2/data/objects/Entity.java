@@ -12,10 +12,10 @@ import java.util.List;
 
 public abstract class Entity extends AbstractGameObject {
 
-    private Coordinate2D position;
+    protected Coordinate2D position;
 	private List<Shape> lsShapes;
     private float rotation;
-    private Coordinate2D velocity;
+    protected Coordinate2D velocity;
     private Coordinate2D terminalVelocity;
     private Coordinate2D friction;
     private Coordinate2D acceleration;

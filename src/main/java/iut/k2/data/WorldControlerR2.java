@@ -1,12 +1,16 @@
 package iut.k2.data;
 
 import iut.k2.data.objects.Entity;
+import iut.k2.data.objects.Obstacle;
 import iut.k2.data.objects.Pecker;
+import iut.k2.data.objects.Shapes.Circle;
 import iut.k2.physics.Coordinate2D;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -70,12 +74,24 @@ public class WorldControlerR2 extends AbstractWorldControler {
 				if (e.getClass() == e2.getClass()) {
 					continue;
 				}
-				if (e.overlap(e2) && (e instanceof Pecker || e2 instanceof Pecker) ) {
+				if (e.overlap(e2) /*&& (e instanceof Pecker || e2 instanceof Pecker)*/ ) {
 					LOG.debug("Found colision ! e1 : {} ; e2 : {}", e, e2);
 					e.setColor(Color.GREEN);
 					e2.setColor(Color.GREEN);
-					endingGame = true;
-					timeBreak = 2000;
+					if(e instanceof Obstacle){
+						e.setTerminalVelocity(new Coordinate2D(1000.0f, 1000.0f));
+						e.setFriction(new Coordinate2D(.005, 0));
+						e.setAcceleration(new Coordinate2D(0.0f, -0.25f));
+			        e.setVelocity(new Coordinate2D(10, 10));
+					}
+					else if (e2 instanceof Obstacle){
+						e2.setTerminalVelocity(new Coordinate2D(1000.0f, 1000.0f));
+						e2.setFriction(new Coordinate2D(.005, 0));
+						e2.setAcceleration(new Coordinate2D(0.0f, -0.25f));
+						e2.setVelocity(new Coordinate2D(10, 10));					}
+
+					//endingGame = true;
+					//timeBreak = 2000;
 				}
 			}
 		}
@@ -117,18 +133,6 @@ public class WorldControlerR2 extends AbstractWorldControler {
 	 */
 	@Override
 	public void mouseDragged(MouseEvent e) {
-		//LOG.debug("x : {}, y : {}", e.getX(), e.getY());
-		/*
-		for (Entity en : getLevel().getLsEntitys()) {
-			for (Shape s : en.getLsShapes()) {
-				//TODO Check if click is in Circle (reverse coordinates)
-
-				//Problem: This works only if the pecker starts at the same position
-				if (new Ellipse2D.Double(24,554,46,46).contains(e.getX(), e.getY()))
-					if (en instanceof Pecker && s instanceof Circle && en.getPosition().equals(new Coordinate2D(70, 0)))
-						birdgrap = true;
-			}
-		}*/
 
 		mouseCoordinate = new Coordinate2D(e.getPoint().getX(), e.getPoint().getY());
 		if (new Ellipse2D.Double(24, 554, 46, 46).contains(e.getX(), e.getY()))
@@ -172,10 +176,12 @@ public class WorldControlerR2 extends AbstractWorldControler {
 			double x = e.getX();
 			double y = (590 - e.getY()) * 1.75;
 			for (Entity en : getLevel().getLsEntitys()) {
-				//en.setTerminalVelocity(new Coordinate2D(1000.0f, 1000.0f));
+				if(en instanceof Pecker){
+				en.setTerminalVelocity(new Coordinate2D(1000.0f, 1000.0f));
 				en.setFriction(new Coordinate2D(.005, 0));
 				en.setAcceleration(new Coordinate2D(0.0f, -0.25f));
 				en.setVelocity(new Coordinate2D(x, y));
+				}
 			}
 			birdgrap = false;
 		}

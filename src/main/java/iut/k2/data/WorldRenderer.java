@@ -5,6 +5,7 @@ import com.google.common.base.Strings;
 import iut.k2.Constants;
 import iut.k2.data.objects.AbstractGameObject;
 import iut.k2.data.objects.Obstacle;
+import iut.k2.data.objects.Pecker;
 import iut.k2.data.objects.ShapeBased;
 import iut.k2.data.objects.SpriteBased;
 import iut.k2.gui.Sprite;
@@ -15,6 +16,7 @@ import org.slf4j.LoggerFactory;
 import iut.k2.data.objects.Shapes.*;
 
 import javax.annotation.Nonnull;
+import javax.imageio.ImageIO;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -22,6 +24,8 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -33,12 +37,19 @@ public class WorldRenderer {
     private final BufferStrategy strategy;
     private AbstractWorldControler abstractWorldControler;
     private String textDisplayed;
+	private BufferedImage brick;
+	private BufferedImage bird;
+
 
     public WorldRenderer(@Nonnull BufferStrategy strategy,
                          @Nonnull AbstractWorldControler abstractWorldControler) {
         this.strategy = checkNotNull(strategy);
         this.abstractWorldControler = checkNotNull(abstractWorldControler);
         abstractWorldControler.addRenderer(this);
+        try{
+        	brick= ImageIO.read(new File("src/main/resources/sprites/brick.png"));
+        	bird= ImageIO.read(new File("src/main/resources/sprites/bird.png"));        	
+        }catch(Exception e){e.getStackTrace();};
     }
 
     /**
@@ -112,26 +123,15 @@ public class WorldRenderer {
                         				(int)abstractWorldControler.getMouseCoordinate().getX(), 
                         				(int)abstractWorldControler.getMouseCoordinate().getY());
                         	}
-                        	
-                        	((Graphics2D) g).fill(new Ellipse2D.Double(
-                            		circle.getCoordTL().getX(),
-                            		circle.getCoordTL().getY(), 
-                            		circle.getRadius()*2,
-                            		circle.getRadius()*2));
-                          
-                        	debugDrawCircle(g, circle);
-
+                        	if(ago instanceof Obstacle)
+                			g.drawImage(brick,(int)circle.getCoordTL().getX(),(int)circle.getCoordTL().getY(),null);
+                        	else{
+                    		g.drawImage(bird,(int)circle.getCoordTL().getX()-10,(int)circle.getCoordTL().getY()-10,null);
+                    		}
+                        		
                         }else if(shape instanceof Rectangle2D){
                         	Rectangle2D r2 = (Rectangle2D)shape;
                             ((Graphics2D) g).fill(new java.awt.geom.Rectangle2D.Double(r2.getX(), r2.getY(), r2.getWidth(), r2.getHeight()));
-                        }else if(shape instanceof Rectangle){
-                        	Rectangle r2 = (Rectangle)shape;
-                            ((Graphics2D) g).fill(new java.awt.Rectangle(r2.getX(), r2.getY(), r2.getWidth(), r2.getHeight()));
-                        }else if(shape instanceof Polygon){
-                        	Polygon p = (Polygon)shape;
-                            ((Graphics2D) g).fill(new java.awt.Polygon(p.getArrayX(), p.getArrayY(), p.getNbPoints()));
-                        }else{
-                        	LOG.debug("No instance of type:" + shape.toString());
                         }
                     }
                 } else if (ago instanceof SpriteBased) {

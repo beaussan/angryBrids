@@ -18,7 +18,6 @@ public class ObstacleFactory {
 				break;
 			default:
 				throw new Exception("Obstacle : " + nom + " non connu");
-				
 		}
 		return o;
 }
