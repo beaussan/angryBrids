@@ -3,6 +3,7 @@ package iut.k2.data;
 import iut.k2.data.objects.Entity;
 import iut.k2.data.objects.Obstacle;
 import iut.k2.data.objects.Pecker;
+import iut.k2.data.objects.Rocher;
 import iut.k2.data.objects.Shapes.Circle;
 import iut.k2.physics.Coordinate2D;
 
@@ -78,7 +79,17 @@ public class WorldControlerR2 extends AbstractWorldControler {
 					LOG.debug("Found colision ! e1 : {} ; e2 : {}", e, e2);
 					e.setColor(Color.GREEN);
 					e2.setColor(Color.GREEN);
-					if(e instanceof Obstacle){
+					if(e instanceof Rocher || e2 instanceof Rocher){
+						if(e instanceof Pecker){
+							e.setVelocity(new Coordinate2D(0, 0));
+							e.setTerminalVelocity(new Coordinate2D(10000.0f, 10000.0f));
+						}
+						else if(e2 instanceof Pecker){
+							e2.setVelocity(new Coordinate2D(0, 0));
+							e2.setTerminalVelocity(new Coordinate2D(10000.0f, 10000.0f));
+						}
+					}
+					else if(e instanceof Obstacle){
 						e.setTerminalVelocity(new Coordinate2D(1000.0f, 1000.0f));
 						e.setFriction(new Coordinate2D(.005, 0));
 						e.setAcceleration(new Coordinate2D(0.0f, -0.25f));

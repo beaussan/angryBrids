@@ -4,8 +4,11 @@ import com.google.common.base.Strings;
 
 import iut.k2.Constants;
 import iut.k2.data.objects.AbstractGameObject;
+import iut.k2.data.objects.Balloon;
+import iut.k2.data.objects.Cadre;
 import iut.k2.data.objects.Obstacle;
 import iut.k2.data.objects.Pecker;
+import iut.k2.data.objects.Rocher;
 import iut.k2.data.objects.ShapeBased;
 import iut.k2.data.objects.SpriteBased;
 import iut.k2.gui.Sprite;
@@ -39,6 +42,8 @@ public class WorldRenderer {
     private String textDisplayed;
 	private BufferedImage brick;
 	private BufferedImage bird;
+	private BufferedImage balloon;
+	private BufferedImage cadre;
 
 
     public WorldRenderer(@Nonnull BufferStrategy strategy,
@@ -47,8 +52,10 @@ public class WorldRenderer {
         this.abstractWorldControler = checkNotNull(abstractWorldControler);
         abstractWorldControler.addRenderer(this);
         try{
-        	brick= ImageIO.read(new File("src/main/resources/sprites/brick.png"));
-        	bird= ImageIO.read(new File("src/main/resources/sprites/bird.png"));        	
+        	cadre= ImageIO.read(new File("src/main/resources/sprites/cadre.png"));
+        	bird= ImageIO.read(new File("src/main/resources/sprites/bird.png"));
+        	balloon= ImageIO.read(new File("src/main/resources/sprites/balloon.png")); 
+        	brick= ImageIO.read(new File("src/main/resources/sprites/brick.png"));        	
         }catch(Exception e){e.getStackTrace();};
     }
 
@@ -123,8 +130,12 @@ public class WorldRenderer {
                         				(int)abstractWorldControler.getMouseCoordinate().getX(), 
                         				(int)abstractWorldControler.getMouseCoordinate().getY());
                         	}
-                        	if(ago instanceof Obstacle)
-                			g.drawImage(brick,(int)circle.getCoordTL().getX(),(int)circle.getCoordTL().getY(),null);
+                        	if(ago instanceof Balloon)
+                			g.drawImage(balloon,(int)circle.getCoordTL().getX(),(int)circle.getCoordTL().getY(),null);
+                        	else if(ago instanceof Cadre)
+                        	g.drawImage(cadre,(int)circle.getCoordTL().getX(),(int)circle.getCoordTL().getY(),null);
+                        	else if(ago instanceof Rocher)
+                            g.drawImage(brick,(int)circle.getCoordTL().getX(),(int)circle.getCoordTL().getY(),null);
                         	else{
                     		g.drawImage(bird,(int)circle.getCoordTL().getX()-10,(int)circle.getCoordTL().getY()-10,null);
                     		}

@@ -78,27 +78,16 @@ public class LevelTest extends Level {
             //Coordonnées de l'obstacle
             int x = r.nextInt(Constants.SIZE_WIDE / 2) + Constants.SIZE_WIDE / 2;
             int y = r.nextInt(Constants.SIZE_HEIGHT);
-            //int directionX = 0;
-            //int directionY = 0;
-            int forme = new Random().nextInt(2);
-            /*int moveX = new Random().nextInt(100);
-            int moveY = new Random().nextInt(100);
-            do{
-            	while(directionX==0)
-            directionX = new Random().nextInt(3)-1;
-            }while(directionX==0 && ((double)x + (double)moveX) % (double)directionX !=0 && ((double)x-(double)moveX) % (double)directionX != 0);
-            do{
-            	while(directionY==0)
-            directionY = new Random().nextInt(3)-1;
-            }while(directionY==0 && ((double)y + (double)moveY) % (double)directionY !=0 && ((double)y-(double)moveY) % (double)directionY != 0);
-			*/
+            int forme = new Random().nextInt(3);
             //Création d'un obstacle
             
             try{
-            //if(forme==0)
-            	o = ObstacleFactory.getObstacle("cercle",new Coordinate2D(x, y));
-           // else if(forme==1)
-            	//o = ObstacleFactory.getObstacle("carre",new Coordinate2D(x, y));
+            if(forme==0)
+            	o = ObstacleFactory.getObstacle("cadre",new Coordinate2D(x, y));
+            else if(forme==1)
+            	o = ObstacleFactory.getObstacle("balloon",new Coordinate2D(x, y));
+            else if(forme==2)
+            	o = ObstacleFactory.getObstacle("rocher",new Coordinate2D(x, y));
             
             if(getLsObjects().get(2) != null){
             for(AbstractGameObject obstacle : getLsObjects().get(2)){
